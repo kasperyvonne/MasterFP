@@ -58,7 +58,7 @@ Die Zahl der pro Zeitintervall relaxierenden Dipole ist proportional zur Zahl
 der noch orientierten Dipole und antiproportional zur Relaxationszeit $\tau(T)$.
 Dies lässt sich unter der Berücksichtigung einer konstanten Heizrate $b \tau_0$ durch
 \begin{equation}
-  j(T) = \frac{p^2E}{3kT_p}\frac{N_p}{\tau_0}\exp{\left(-\frac{1}{}\int^T_{T_0}\exp{\left(-\frac{W}{kT'}\right)}\symup{d}T'\right)}\exp{\left(-\frac{W}{kT}\right)}.
+  j(T) = \frac{p^2E}{3kT_p}\frac{N_p}{\tau_0}\exp{\left(-\frac{1}{\tau_0 \cdot b}\int^T_{T_0}\exp{\left(-\frac{W}{kT'}\right)}\symup{d}T'\right)}\exp{\left(-\frac{W}{kT}\right)}.
   \label{eq:StromdichteIntegral}
 \end{equation}
 ausdrücken, was sich durch
@@ -73,7 +73,7 @@ Da der Strom durch den Abfall von $\tau(T)$ mit steigender Temperatur zunächst 
 und die Relaxationsrate stetig fällt. Es kann ein zweites Maximum auftreten, welches durch weitere Relaxationen mit höherem $W$ hervorgerufen wird.\\
 \\Ohne das Integral zu nähern lässt sich $\tau(T)$ durch Integration des Stromes nach
 \begin{equation}
-  \tau(T) = \frac{\int_{T}^{\infty}i(T')\symup{d}T'}{bi(T)}
+  \tau(T) = \frac{\int_{T}^{\infty}i(T')\symup{d}T'}{b\cdot i(T)}
   \label{eq:tau2}
 \end{equation}
 berechnen.
