@@ -36,7 +36,7 @@ eingeschränkte Bereich betrachtet.
    \midrule
 	A & 8&5&0&7e+02\\
 	B&-4&5&0&7e+02\\
-	C &0.017&0.014&0.001&0.022\\
+	C &0.02&0.01&0.001&0.02\\
    \bottomrule
  \end{tabular}
  \label{tab:Uparam}
@@ -59,13 +59,31 @@ eingeschränkte Bereich betrachtet.
 Der folgende Teil der Auswertung bezieht sich auf die Nährung \eqref{eq:StromdichteNäherung2} 
 der Stromdichte. Durch logarithmieren dieser Gleichung ergibt sich folgender Ausdruck:
 \begin{equation}
-\ln(i(T)) = - \frac{W}{kT} + const  = - A \cdot \frac{1}{T} + B	
+\ln(i(T)) = - \frac{W}{kT} + const  = - A \cdot \frac{1}{T} + B	\; .
 \label{eq:lnfit}
 \end{equation}
 Dabei ist zu beachten, dass diese Nährung nur im Anfangsbereich der Kurve gültig ist. 
 In dieser Auswertung wurden die Bereiche des ersten Minimums bis zum Maximums der Relaxationskurve 
 verwendet, die in den Abbildungen \ref{fig:U2plot},\ref{fig:U15plot} zuvor eingezeichnet waren.   
-
+Die Parameter sind in der Tabelle \ref{tab:ln1param} dargestellt. Die Daten mit Ausgleichsgerade sind 
+in der Abbildung \ref{fig:Meth1} dargestellt. Aus den Werten lässt sich die Aktivierungsenergie $W$ berechnen 
+mit $A\cdot (-k)= W$. Die Werte dazu sind ebenfalls in der Tabelle \ref{tab:ln1param} dargestellt. 
+\begin{table}
+ \centering
+ \caption{Parameter der Ausgleichsgeraden}
+ \begin{tabular}{c| S@{${}\pm{}$} S | S@{${}\pm{}$} S}
+   \toprule
+    Heizrate &
+    \multicolumn{2}{c}{$2 / \si{\celsius\per\minute}$} &
+    \multicolumn{2}{c}{$1.5/ \si{\celsius\per\minute}$} \\
+   \midrule
+	A &-1.1e+04&0.1e+04&-1.14e+04&0.08e+04\\
+	B&46&4&46&3\\
+	W / \si{\joule} &1.5e-19&0.1e-19&1.6e-19&0.1e-19\\
+   \bottomrule
+ \end{tabular}
+ \label{tab:ln1param}
+\end{table}
 
 \begin{figure}
   \centering
@@ -73,4 +91,54 @@ verwendet, die in den Abbildungen \ref{fig:U2plot},\ref{fig:U15plot} zuvor einge
   \caption{Darstellung der Datan im Gültigkeitsbereich der Nährung.}
   \label{fig:Meth1}
 \end{figure}
+\FloatBarrier
+\paragraph{Bestimmung der Aktivierungsenergie und der charakteristischen Relaxationszeit}
+Zuerst wird die Gleichung \eqref{eq:tau2} betrachtet. Darin wird die Definition der Relaxationszeit 
+\eqref{eq:Relaxationszeit} eingesetzt, nun wird die Gleichung logarithmiert und es ergibt sich folgender 
+Zusammenhang: 
+\begin{equation}
+\ln \left(\frac{\int_T^{T^*} i(T') \symup{d}T'}{b \cdot i(T)} \right) = 
+\frac{W}{kT} + \ln \left(\frac{1}{\tau_0} \right) 	
+= \frac{W}{kT} + const \rightarrow A \cdot \frac{1}{T} + B = \eqref{eq:lnfit}
+\quad \text{mit} \quad i(T^*) \approx 0 \; .
+\label{eq:lnint}
+\end{equation}
+Hier kann also wieder mit der linearen Ausgleichsrechnung \eqref{eq:lnfit} gearbeitet werden. 
+Dazu wird 
+\begin{equation*}
+	\ln \left(\frac{\int_T^{T^*} i(T') \symup{d}T'}{b \cdot i(T)} \right) 
+\end{equation*}
+gegen \sfrac{1}{T} aufgetragen, wie in Abbildung \ref{fig:Meth2} dargestellt. Die dadurch erhaltenen 
+Werte für die Parameter sind in Tabelle \ref{tab:ln2param} dargestellt. Aus den Parametern lassen sich dann 
+die Größen 
+\begin{equation*}
+ W = A\cdot k \qquad \text{und} \qquad \tau_0 = \exp{-B}	
+\end{equation*}
+berechnen.
+
+\begin{figure}
+  \centering
+  \includegraphics[height = 10cm]{plots/2.MethFitW.pdf}
+  \caption{Darstellung der Daten nach Gleichung \ref{eq:lnint}.}
+  \label{fig:Meth2}
+\end{figure}
+
+\begin{table}
+ \centering
+ \caption{Parameter der Ausgleichsgeraden}
+ \begin{tabular}{c| S@{${}\pm{}$} S | S@{${}\pm{}$} S}
+   \toprule
+    Heizrate &
+    \multicolumn{2}{c}{$2 / \si{\celsius\per\minute}$} &
+    \multicolumn{2}{c}{$1.5/ \si{\celsius\per\minute}$} \\
+   \midrule
+	A &-7.7e+03&0.7e+03&-8e+03&1e+03\\
+	B&35&3&39&6\\
+	$\lvert W \rvert$ / \si{\joule}&1.06e-19&0.09e-19&1.2e-19&0.2e-19\\
+	$\tau$ / \si{\second}&\multicolumn{2}{S}{3.98679984858e-16}&\multicolumn{2}{S}{1.25828272398e-17}\\
+   \bottomrule
+ \end{tabular}
+ \label{tab:ln2param}
+\end{table}
+
 
