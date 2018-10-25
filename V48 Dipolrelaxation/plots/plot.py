@@ -151,7 +151,6 @@ yT2 = current2[ctemp2 < Tstar2]
 #m2y2 = inti2/(current2*hr2)
 m2y1 = lnint(T1,yT1,hr1)
 m2y2 = lnint(T2,yT2,hr2)
-print(m2y2)
 m2x1 = T1[m2y1>0] 
 m2x2 = T2[m2y2>0]
 m2y1 = m2y1[m2y1>0]
@@ -191,7 +190,8 @@ for p in paramslnW2:
 kbolz = const.k
 print('1.Methode W mit Heizrate 2:', (-paramslnW1[0]*kbolz))
 print('1.Methode W mit Heizrate 1,5 :', (-paramslnW2[0]*kbolz))
-
+WM12 = (-paramslnW1[0]*kbolz)
+WM115 = (-paramslnW2[0]*kbolz)
 #### Plots of the First Method ###
 xt = np.linspace(0.0036,0.0046,100)
 plt.plot(invt1,lnc1, 'or', label='Ausgewertete Daten Heizrate = 2')
@@ -224,7 +224,10 @@ print('2 Meth W Hr 2:', (params2lnW1[0]*kbolz))
 print('2 Meth W Hr 1.5 :',(params2lnW2[0]*kbolz))
 print('2 Meth teta sHr2:', (np.exp(-noms(params2lnW1[1]))))
 print('2 Meth teta Hr1.5 :', (np.exp(-noms(params2lnW2[1]))))
-
+W22 = (params2lnW1[0]*kbolz)
+W215 = (params2lnW2[0]*kbolz)
+teta2 = (np.exp(-noms(params2lnW1[1])))
+teta15 =(np.exp(-noms(params2lnW2[1])))
 ### Plots 2 Methode ###
 #xt = np.linspace(0.0036,0.0044,100)
 #plt.plot(m2x1,m2y1, 'or', label='Daten Heizrate = 2')
@@ -240,10 +243,16 @@ print('2 Meth teta Hr1.5 :', (np.exp(-noms(params2lnW2[1]))))
 ##plt.show()
 #plt.savefig('2.MethFitW.pdf')
 
+#RelA 
+print('RelA HR2 W :', relf(WM12,W22))
+print('RelA HR15 W:', relf(WM115,W215))
+print('RelA theta:', relf(teta2,teta15))
+
+
 #Tabelle
-np.savetxt('UndergoundHR2tab.txt',np.column_stack([ut1,uc1],delimiter=' & ',newline= r'\\'+'\n' )
-np.savetxt('UndergroundHR15tab.txt',np.column_stack([ut2,uc2], delimiter=' & ',newline= r'\\'+'\n' )
-np.savetxt('M1HR2tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
-np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
-np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
-np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('UndergoundHR2tab.txt',np.column_stack([ut1,uc1]),delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('UndergroundHR15tab.txt',np.column_stack([ut2,uc2]), delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('M1HR2tab.txt',np.column_stack([invt1,lnc1]), delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('M1HR15tab.txt',np.column_stack([invt2,lnc2]), delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('M2HR2tab.txt',np.column_stack([m2x1,m2y1]), delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('M"HR15tab.txt',np.column_stack([m2x2,m2y2]), delimiter=' & ',newline= r'\\'+'\n' )
