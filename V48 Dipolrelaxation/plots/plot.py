@@ -139,7 +139,7 @@ Tstar2 = ctemp2[current2 == nearest_toZero(current2[ctemp2 > -15.8])]
 def lnint(T,yt,hr):
 	array = np.array([])
 	for t in T:
-		array = np.append(array,np.trapz(yt[T<=t],T[T<=t])/(yt[T == t]*hr))
+		array = np.append(array,[np.trapz(yt[T>=t],T[T>=t])/(yt[T == t]*hr)])
 	return array
 T1 = ctemp1[ctemp1 < Tstar1] + const.zero_Celsius	
 T2 = ctemp2[ctemp2 < Tstar2] + const.zero_Celsius	
@@ -151,6 +151,7 @@ yT2 = current2[ctemp2 < Tstar2]
 #m2y2 = inti2/(current2*hr2)
 m2y1 = lnint(T1,yT1,hr1)
 m2y2 = lnint(T2,yT2,hr2)
+print(m2y2)
 m2x1 = T1[m2y1>0] 
 m2x2 = T2[m2y2>0]
 m2y1 = m2y1[m2y1>0]
@@ -192,19 +193,19 @@ print('1.Methode W mit Heizrate 2:', (-paramslnW1[0]*kbolz))
 print('1.Methode W mit Heizrate 1,5 :', (-paramslnW2[0]*kbolz))
 
 #### Plots of the First Method ###
-#xt = np.linspace(0.0038,0.0043,100)
-#plt.plot(invt1,lnc1, 'or', label='Ausgewertete Daten Heizrate = 2')
-#plt.plot(invt2,lnc2, 'ob', label='Ausgewertete Daten Heizrate = 1.5')
-#plt.plot(xt,lnWfit(xt,*noms(paramslnW1)),'--g', label='Ausgleichsgerade Heizrate = 2')
-#plt.plot(xt,lnWfit(xt,*noms(paramslnW2)),'--k', label='Ausgleichsgerade Heizrate = 1.5')
-#plt.grid()
-##plt.ylim(-10,30)
-##plt.xlim(,45)
-#plt.xlabel(r'$Probentemperatur \; \frac{1}{T}\; / \;K$')
-#plt.ylabel(r'$Relaxationsstrom  \; ln( I )\; / \; A\cdot 10^{-11}$')
-#plt.legend(loc='best')
-##plt.show()
-#plt.savefig('1.MethFitW.pdf')
+xt = np.linspace(0.0036,0.0046,100)
+plt.plot(invt1,lnc1, 'or', label='Ausgewertete Daten Heizrate = 2')
+plt.plot(invt2,lnc2, 'ob', label='Ausgewertete Daten Heizrate = 1.5')
+plt.plot(xt,lnWfit(xt,*noms(paramslnW1)),'--g', label='Ausgleichsgerade Heizrate = 2')
+plt.plot(xt,lnWfit(xt,*noms(paramslnW2)),'--k', label='Ausgleichsgerade Heizrate = 1.5')
+plt.grid()
+#plt.ylim(-10,30)
+plt.xlim(0.0038,0.0044)
+plt.xlabel(r'$Probentemperatur \; \frac{1}{T}\; / \;K$')
+plt.ylabel(r'$Relaxationsstrom  \; ln( I )\; / \; A\cdot 10^{-11}$')
+plt.legend(loc='best')
+#plt.show()
+plt.savefig('1.MethFitW.pdf')
 
 ### Second Method ### 
 
@@ -219,10 +220,10 @@ params2lnW2 = correlated_values(params, cov)
 print('Parameter Meth 2 lnWFit 2.')
 for p in params2lnW2:
     print(p)
-print('2 Meth W Hr 2:', (-params2lnW1[0]*kbolz))
-print('2 Meth W Hr 1.5 :',(-params2lnW2[0]*kbolz))
-print('2 Meth teta Hr2:', (1/np.exp(noms(params2lnW1[1]))))
-print('2 Meth teta Hr1.5 :', (1/np.exp(noms(params2lnW2[1]))))
+print('2 Meth W Hr 2:', (params2lnW1[0]*kbolz))
+print('2 Meth W Hr 1.5 :',(params2lnW2[0]*kbolz))
+print('2 Meth teta sHr2:', (np.exp(-noms(params2lnW1[1]))))
+print('2 Meth teta Hr1.5 :', (np.exp(-noms(params2lnW2[1]))))
 
 ### Plots 2 Methode ###
 #xt = np.linspace(0.0036,0.0044,100)
@@ -240,5 +241,7 @@ print('2 Meth teta Hr1.5 :', (1/np.exp(noms(params2lnW2[1]))))
 #plt.savefig('2.MethFitW.pdf')
 
 #Tabelle
-# np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
-
+np.savetxt('UndergoundHR2tab.txt',np.column_stack([ut1,uc1],delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('UndergroundHR15tab.txt',np.column_stack([ut2,uc2], delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )

@@ -59,7 +59,7 @@ eingeschränkte Bereich betrachtet.
 Der folgende Teil der Auswertung bezieht sich auf die Nährung \eqref{eq:StromdichteNäherung2} 
 der Stromdichte. Durch logarithmieren dieser Gleichung ergibt sich folgender Ausdruck:
 \begin{equation}
-\ln(i(T)) = - \frac{W}{kT} + const  = - A \cdot \frac{1}{T} + B	\; .
+\ln(i(T)) = - \frac{W}{kT} + const  =  A \cdot \frac{1}{T} + B	\; .
 \label{eq:lnfit}
 \end{equation}
 Dabei ist zu beachten, dass diese Nährung nur im Anfangsbereich der Kurve gültig ist. 
@@ -112,7 +112,7 @@ gegen \sfrac{1}{T} aufgetragen, wie in Abbildung \ref{fig:Meth2} dargestellt. Di
 Werte für die Parameter sind in Tabelle \ref{tab:ln2param} dargestellt. Aus den Parametern lassen sich dann 
 die Größen 
 \begin{equation*}
- W = A\cdot k \qquad \text{und} \qquad \tau_0 = \exp{-B}	
+ W = A\cdot k \qquad \text{und} \qquad \tau_0 = \exp(-B)	
 \end{equation*}
 berechnen.
 
@@ -132,10 +132,10 @@ berechnen.
     \multicolumn{2}{c}{$2 / \si{\celsius\per\minute}$} &
     \multicolumn{2}{c}{$1.5/ \si{\celsius\per\minute}$} \\
    \midrule
-	A &-7.7e+03&0.7e+03&-8e+03&1e+03\\
-	B&35&3&39&6\\
-	$\lvert W \rvert$ / \si{\joule}&1.06e-19&0.09e-19&1.2e-19&0.2e-19\\
-	$\tau$ / \si{\second}&\multicolumn{2}{S}{3.98679984858e-16}&\multicolumn{2}{S}{1.25828272398e-17}\\
+	A &1.26e+04&0.05e+04&1.14e+04&0.03e+04\\
+	B&-43&2&-38&1\\
+	$W$ / \si{\joule}&1.74e-19&0.06e-19&1.57e-19&0.04e-19\\
+	$\tau$ / \si{\second}&\multicolumn{2}{S}{4.68186133752e+18}&\multicolumn{2}{S}{4.77381512525e+16}\\
    \bottomrule
  \end{tabular}
  \label{tab:ln2param}
