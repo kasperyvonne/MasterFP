@@ -243,5 +243,7 @@ print('2 Meth teta Hr1.5 :', (np.exp(-noms(params2lnW2[1]))))
 #Tabelle
 np.savetxt('UndergoundHR2tab.txt',np.column_stack([ut1,uc1],delimiter=' & ',newline= r'\\'+'\n' )
 np.savetxt('UndergroundHR15tab.txt',np.column_stack([ut2,uc2], delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('M1HR2tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
+np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
 np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
 np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
