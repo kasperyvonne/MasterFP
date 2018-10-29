@@ -25,8 +25,10 @@ hr1 = list(map(lambda x,y: x-y, temp1[1:], temp1[:-1]))
 hr2 = list(map(lambda x,y: x-y, temp2[1:], temp2[:-1]))
 hr1 = np.mean(hr1)/60
 hr2 = np.mean(hr2)/60
-print("Calc Heating Rate1:",hr1)
-print("Calced Heating Rate2:",hr2)
+print("Calc Heating Rate1 per min:",hr1*60)
+print("Calced Heating Rate2 per min:",hr2*60)
+print("Calc Heating Rate1 per sec:",hr1)
+print("Calced Heating Rate2 per sec:",hr2)
 ### substract Offset ###
 offs = 1.2 #*10^-11 Ampere
 current1-= offs
