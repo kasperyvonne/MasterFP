@@ -2,10 +2,10 @@
 \label{sec:Theorie}
 Ionenkristalle, wie beispielsweise Kaliumbromid (KBr), bestehen aus Kationen (K$^{+}$) und Anionen (Br$^{-}$), welche
 auf festen Gitterplätzen angeordnet sind.
-Wird eine Störstelle wie ein zweiwertiges Kation, zum Beispiel Sr$^{2+}$, in den Kristall eingebaut so
+Wird eine Störstelle wie ein zweiwertiges Kation, zum Beispiel Sr$^{2+}$, in den Kristall eingebaut, so
 entsteht eine Leerstelle an einer anderen Kationen-Stelle um die lokale Ladungsneutralität aufrecht zu erhalten.
 So entsteht ein elektrischer Dipol mit Richtung entlang der Achse der Störstellen. Dies ist in \autoref{fig:Störstelle}
-beispielsweise für einen Cäsiumjodid Kristall dargestellt.
+beispielsweise für einen Cäsiumjodid-Kristall dargestellt.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{pics/Stoerstelle.png}
@@ -18,9 +18,9 @@ nur diskrete Richtungen und Beträge möglich. Eine Änderung der Richtung
 kann unter einer Temperatur von 500 K nur durch Leerstellendiffusion erfolgen.
 Dazu wird eine bestimmte, materialspezifische Energie $W$ benötigt, um das Gitterpotential zu überwinden.
 Die Anzahl der Dipole mit einer ausreichend großen thermischen Energie folgt der Boltzmann-Statistik.
-Ebenso folgt die mittlere Zeit zwischen zwei Umorientierungen, die Relaxationszeit $\tau$, dieser Verteilung.
+Ebenso folgt die mittlere Zeit zwischen zwei Umorientierungen, die Relaxationszeit $\tau$, dieser Verteilung:
 \begin{equation}
-  \tau(T) = \tau_0 \exp{\left(\frac{W}{kT}\right)}
+  \tau(T) = \tau_0 \exp{\left(\frac{W}{kT}\right)} .
   \label{eq:Relaxationszeit}
 \end{equation}
 Dabei ist $\tau_0$ die charakteristische Relaxationszeit.\\
@@ -56,7 +56,7 @@ zusammen. Dies lässt sich mit \autoref{eq:LagevinNäherung} als
 schreiben.
 Die Zahl der pro Zeitintervall relaxierenden Dipole ist proportional zur Zahl
 der noch orientierten Dipole und antiproportional zur Relaxationszeit $\tau(T)$.
-Dies lässt sich unter der Berücksichtigung einer konstanten Heizrate $b \tau_0$ durch
+Dies lässt sich unter der Berücksichtigung einer konstanten Heizrate durch
 \begin{equation}
   j(T) = \frac{p^2E}{3kT_p}\frac{N_p}{\tau_0}\exp{\left(-\frac{1}{\tau_0 \cdot b}\int^T_{T_0}\exp{\left(-\frac{W}{kT'}\right)}\symup{d}T'\right)}\exp{\left(-\frac{W}{kT}\right)}.
   \label{eq:StromdichteIntegral}
@@ -78,9 +78,4 @@ und die Relaxationsrate stetig fällt. Es kann ein zweites Maximum auftreten, we
 \end{equation}
 berechnen.
 Aus einem gemessenen Verlauf $i(T)$ lässt sich somit $W$ durch die Steigung einer linearen Ausgleichsgeraden an die logarithmierten Verläufe von \eqref{eq:tau2}, bzw. \eqref{eq:StromdichteNäherung2}, bestimmen.
-Zur Bestimmung von $\tau_0$ betrachtet man die Lage des Maximums von $i(T)$. Dieses liegt nach \eqref{eq:StromdichteNäherung2} bei
-\begin{equation}
-  \tau_{max}(T) = \frac{HkT_{max}^2}{W}.
-  \label{eqn:tau3}
-\end{equation}
-Mit Hilfe dieses Wertes und \eqref{eq:Relaxationszeit} lässt sich nun $\tau_0$ berechnen.
+aus 8 mit 1 kann  W und t_0

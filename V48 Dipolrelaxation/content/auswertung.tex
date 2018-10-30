@@ -1,35 +1,35 @@
 \section{Auswertung} \label{sec:Auswertung}
 Im Rahmen des Versuches wurde der Relaxationsstrom gemessen, dieser ist bis auf einen konstanten 
-Faktor proportional zur Stromdichte. 
-Deshalb können die zuvor dargestellten Zusammenhänge untersucht werden, 
-ohne das darauf Rücksicht genommen werden muss. 
+Faktor proportional zur Stromdichte.
+Deshalb können die zuvor dargestellten Zusammenhänge untersucht werden,
+ohne das darauf Rücksicht genommen werden muss.
 Die Daten zu den jeweiligen Diagrammen finden sich im Anhang \ref{sec:Anhang}.
 \paragraph{Bestimmung und Abzug des Untergrundes}
-In den Abbildungen \ref{fig:U2plot},\ref{fig:U15plot} sind die Relaxationsströme gegen die 
-Probentemperaturen aufgetragen, diese wurden mit verschiedenen Heizraten aufgenommen. 
-Es wurde versucht eine Messreihe mit einer Heizrate von \SI{2}{\celsius\per\minute} und eine 
-mit Heizrate \SI{1.5}{\celsius\per\minute} aufzunehmen. 
-Die berechneten, also die tatsächlichen Heizraten betragen 
-bei der Messreihe mit Soll-Heizrate \SI{2}{\celsius\per\minute}, 
-$\SI{2.089}{\celsius\per\minute} = \SI{0.035}{\kelvin\per\second}$ und bei der 
-Messreihe mit \SI{1.5}{\celsius\per\minute} Soll-Heizrate, 
-$\SI{1.37}{\celsius\per\minute} = \SI{0.023}{\kelvin\per\second}$. 
-Zur Beginn der Auswertung wird der apparative Vorlauf des 
-Amperemeter von den Daten abgezogen. Danach werden die Minima der Relaxationskurven ausfindig 
-gemacht (rote Punkte), 
-da diese den Verlauf des Untergrundes abzeichnen. Der Untergrund nimmt exponentiell mit 
+In den Abbildungen \ref{fig:U2plot},\ref{fig:U15plot} sind die Relaxationsströme gegen die
+Probentemperaturen aufgetragen, diese wurden mit verschiedenen Heizraten aufgenommen.
+Es wurde versucht eine Messreihe mit einer Heizrate von \SI{2}{\celsius\per\minute} und eine
+mit Heizrate \SI{1.5}{\celsius\per\minute} aufzunehmen.
+Die berechneten, also die tatsächlichen Heizraten betragen
+bei der Messreihe mit Soll-Heizrate \SI{2}{\celsius\per\minute},
+$\SI{2.089}{\celsius\per\minute} = \SI{0.035}{\kelvin\per\second}$ und bei der
+Messreihe mit \SI{1.5}{\celsius\per\minute} Soll-Heizrate,
+$\SI{1.37}{\celsius\per\minute} = \SI{0.023}{\kelvin\per\second}$.
+Zur Beginn der Auswertung wird der apparative Vorlauf des
+Amperemeter von den Daten abgezogen. Danach werden die Minima der Relaxationskurven ausfindig
+gemacht (rote Punkte),
+da diese den Verlauf des Untergrundes abzeichnen. Der Untergrund nimmt exponentiell mit
 der Temperatur zu. Deshalb wird dieser mit der Gleichung
 \begin{equation}
-U(T) = 	A\cdot \exp (C\cdot T ) + B 
+U(T) = 	A\cdot \exp (C\cdot T ) + B
 \end{equation}
-angenährt und mit nicht-linearer Ausgleichsrechnung die Parameter $A,B,C$ bestimmt. 
-Die Parameter sind für die jeweiligen Messreihen in der Tabelle \ref{tab:Uparam} dargestellt. 
-Die Untergrundkurven sind auch in den Abbildungen \ref{fig:U2plot},\ref{fig:U15plot} zu finden. 
-Zudem wurden in den Abbildungen der Bereich der den ersten Relaxationsprozess zeigt eingeschränkt 
-(rote Linien), nur dieser Bereich wird in der späteren Auswertung betrachtet. 
-Außerdem ist das Maximum der 
+angenährt und mit nicht-linearer Ausgleichsrechnung die Parameter $A,B,C$ bestimmt.
+Die Parameter sind für die jeweiligen Messreihen in der Tabelle \ref{tab:Uparam} dargestellt.
+Die Untergrundkurven sind auch in den Abbildungen \ref{fig:U2plot},\ref{fig:U15plot} zu finden.
+Zudem wurden in den Abbildungen der Bereich der den ersten Relaxationsprozess zeigt eingeschränkt
+(rote Linien), nur dieser Bereich wird in der späteren Auswertung betrachtet.
+Außerdem ist das Maximum der
 Relaxationskurve eingezeichnet, dieser Punkt ist ebenfalls für die spätere Auswertung interessant.
-Nachdem der Untergrund bestimmt ist wird dieser von den Daten abgezogen und nur noch der 
+Nachdem der Untergrund bestimmt ist wird dieser von den Daten abgezogen und nur noch der
 eingeschränkte Bereich betrachtet.
 
 \begin{table}
@@ -57,24 +57,24 @@ eingeschränkte Bereich betrachtet.
 \end{figure}
 \begin{figure}
   \centering
-  \includegraphics[height = 10cm]{plots/M1UGplot.pdf}
+  \includegraphics[height = 10cm]{plots/M2UGplot.pdf}
   \caption{Darstellung der Daten die mit Heizrate \SI{1.5}{\celsius\per\minute}aufgenommen wurden.}
   \label{fig:U15plot}
 \end{figure}
 \FloatBarrier
 \paragraph{Bestimmung der Akivierungsenergie anhand der Nährung der Stromdichte}
-Der folgende Teil der Auswertung bezieht sich auf die Nährung \eqref{eq:StromdichteNäherung2} 
+Der folgende Teil der Auswertung bezieht sich auf die Nährung \eqref{eq:StromdichteNäherung2}
 der Stromdichte. Durch logarithmieren dieser Gleichung ergibt sich folgender Ausdruck:
 \begin{equation}
 \ln(i(T)) = - \frac{W}{kT} + const  =  A \cdot \frac{1}{T} + B	\; .
 \label{eq:lnfit}
 \end{equation}
-Dabei ist zu beachten, dass diese Nährung nur im Anfangsbereich der Kurve gültig ist. 
-In dieser Auswertung wurden die Bereiche des ersten Minimums bis zum Maximums der Relaxationskurve 
-verwendet, die in den Abbildungen \ref{fig:U2plot},\ref{fig:U15plot} zuvor eingezeichnet waren.   
-Die Parameter sind in der Tabelle \ref{tab:ln1param} dargestellt. Die Daten mit Ausgleichsgerade sind 
-in der Abbildung \ref{fig:Meth1} dargestellt. Aus den Werten lässt sich die Aktivierungsenergie $W$ berechnen 
-mit $A\cdot (-k)= W$. Die Werte dazu sind ebenfalls in der Tabelle \ref{tab:ln1param} dargestellt. 
+Dabei ist zu beachten, dass diese Nährung nur im Anfangsbereich der Kurve gültig ist.
+In dieser Auswertung wurden die Bereiche des ersten Minimums bis zum Maximums der Relaxationskurve
+verwendet, die in den Abbildungen \ref{fig:U2plot},\ref{fig:U15plot} zuvor eingezeichnet waren.
+Die Parameter sind in der Tabelle \ref{tab:ln1param} dargestellt. Die Daten mit Ausgleichsgerade sind
+in der Abbildung \ref{fig:Meth1} dargestellt. Aus den Werten lässt sich die Aktivierungsenergie $W$ berechnen
+mit $A\cdot (-k)= W$. Die Werte dazu sind ebenfalls in der Tabelle \ref{tab:ln1param} dargestellt.
 \begin{table}
  \centering
  \caption{Parameter der Ausgleichsgeraden}
@@ -100,26 +100,26 @@ mit $A\cdot (-k)= W$. Die Werte dazu sind ebenfalls in der Tabelle \ref{tab:ln1p
 \end{figure}
 \FloatBarrier
 \paragraph{Bestimmung der Aktivierungsenergie und der charakteristischen Relaxationszeit}
-Zuerst wird die Gleichung \eqref{eq:tau2} betrachtet. Darin wird die Definition der Relaxationszeit 
-\eqref{eq:Relaxationszeit} eingesetzt, nun wird die Gleichung logarithmiert und es ergibt sich folgender 
-Zusammenhang: 
+Zuerst wird die Gleichung \eqref{eq:tau2} betrachtet. Darin wird die Definition der Relaxationszeit
+\eqref{eq:Relaxationszeit} eingesetzt, nun wird die Gleichung logarithmiert und es ergibt sich folgender
+Zusammenhang:
 \begin{equation}
-\ln \left(\frac{\int_T^{T^*} i(T') \symup{d}T'}{b \cdot i(T)} \right) = 
-\frac{W}{kT} + \ln \left(\frac{1}{\tau_0} \right) 	
+\ln \left(\frac{\int_T^{T^*} i(T') \symup{d}T'}{b \cdot i(T)} \right) =
+\frac{W}{kT} + \ln \left(\frac{1}{\tau_0} \right)
 = \frac{W}{kT} + const \rightarrow A \cdot \frac{1}{T} + B = \eqref{eq:lnfit}
 \quad \text{mit} \quad i(T^*) \approx 0 \; .
 \label{eq:lnint}
 \end{equation}
-Hier kann also wieder mit der linearen Ausgleichsrechnung \eqref{eq:lnfit} gearbeitet werden. 
-Dazu wird 
+Hier kann also wieder mit der linearen Ausgleichsrechnung \eqref{eq:lnfit} gearbeitet werden.
+Dazu wird
 \begin{equation*}
-	\ln \left(\frac{\int_T^{T^*} i(T') \symup{d}T'}{b \cdot i(T)} \right) 
+	\ln \left(\frac{\int_T^{T^*} i(T') \symup{d}T'}{b \cdot i(T)} \right)
 \end{equation*}
-gegen \sfrac{1}{T} aufgetragen, wie in Abbildung \ref{fig:Meth2} dargestellt. Die dadurch erhaltenen 
-Werte für die Parameter sind in Tabelle \ref{tab:ln2param} dargestellt. Aus den Parametern lassen sich dann 
-die Größen 
+gegen \sfrac{1}{T} aufgetragen, wie in Abbildung \ref{fig:Meth2} dargestellt. Die dadurch erhaltenen
+Werte für die Parameter sind in Tabelle \ref{tab:ln2param} dargestellt. Aus den Parametern lassen sich dann
+die Größen
 \begin{equation*}
- W = A\cdot k \qquad \text{und} \qquad \tau_0 = \exp(-B)	
+ W = A\cdot k \qquad \text{und} \qquad \tau_0 = \exp(-B)
 \end{equation*}
 berechnen, diese sind ebenfalls in der Tabelle \ref{tab:ln2param} dargestellt.
 
@@ -147,5 +147,3 @@ berechnen, diese sind ebenfalls in der Tabelle \ref{tab:ln2param} dargestellt.
  \end{tabular}
  \label{tab:ln2param}
 \end{table}
-
-
