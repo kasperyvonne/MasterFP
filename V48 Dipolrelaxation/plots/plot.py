@@ -246,10 +246,17 @@ teta15 =(np.exp(-noms(params2lnW2[1])))
 #plt.savefig('2.MethFitW.pdf')
 
 #RelA 
-print('RelA HR2 W :', relf(WM12,W22))
-print('RelA HR15 W:', relf(WM115,W215))
-print('RelA theta:', relf(teta2,teta15))
-
+litW = ufloat(0.66,0.01)
+litW*= const.e
+littau = ufloat(4*10**(-14),2*10**(-14))
+print(litW)
+print(littau)
+print('RelA HR2 W M1 2:', relf(litW,WM12))
+print('RelA HR2 W M2 2:', relf(litW,W22))
+print('RelA HR15 W M1 1.5:', relf(litW,WM115))
+print('RelA HR15 W M2 1.5:', relf(litW,W215))
+print('RelA theta 2:', relf(littau,teta2))
+print('RelA theta 1.5:', relf(littau,teta15))
 
 #Tabelle
 np.savetxt('UndergoundHR2tab.txt',np.column_stack([ut1,uc1]),delimiter=' & ',newline= r'\\'+'\n' )
