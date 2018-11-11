@@ -1,3 +1,103 @@
+\paragraph{Ziel} des Versuches ist es die Zeeman-Aufspaltung in einem äußeren Magenetfeld, an 
+den stabilen Rubidium-Isotopen $\ce{^{85} Rb}$ und $\ce{^{87} Rb}$, zu untersuchen und daraus 
+die Landresch\'{e}n g-Faktoren zu bestimmen. Daraus kann wiederum der Spin der Elektronenhülle und 
+des Kerns berechenet werden. 
 \section{Theorie}
 \label{sec:Theorie}
+\subsection{Die Methode des optischen Pumpens}
+Es werden zwei Zustände der äußeren Atomschalen betrachtet. Ein Zustand mit Energie 
+$W_1$ und einen mit Energie $W_2$ und es gilt $W_2 > W_1$. Dann sind die Besetzungszahlen der 
+Zustände durch die Boltzmannsche Gleichung 
+\begin{equation}
+\frac{N_2}{N_1} = \frac{g_2}{g_1} \cdot \frac{\exp\left(- \frac{W_2}{\symup{k}T}\right)	}{\exp\left(- \frac{W_1}{\symup{k}T}\right)	}
+\label{eq:Boltz}
+\end{equation}
+gegeben, dabei bezeichenen die $g_i$ die statistischen Gewichte. Durch optisches Pumpen 
+können Abweichung oder sogar eine Inversion ($N_2 > N_1$)  
+der durch \eqref{eq:Boltz} gegeben Energieverteilung herbeigeführt werden. 
+Wurd so eine Abweichung oder Inversion herbeigeführt, können Strahlungsübergänge erzeugt werden. 
+Das hat zu Folge, dass die emittierten oder absorbierten Lichtquanten die Energie 
+\begin{equation*}
+\symup{h} \nu = W_2 -W_1 	
+\end{equation*}
+haben. Das kann mit hoher Präzision gemessen werden, falls $ \symup{h} \nu  << \symup{k}T$ gilt. 
+Das ist der Fall, wenn die Aufspaltung durch die Hyperfeinstruktur oder durch die 
+Zeeman-Aufspaltung in einem äußeren Magnetfeld hervorgerufen wird. 
+
+\section{Drehimpulse und magnetische Momente in der Elektronenhülle}
+An den Gesamtdrehimpuls $ \vec{J}$ der Elektronenhülle ist das magenetische Moment $\vec{\mu_J}$ 
+gekoppelt. Daher gilt
+\begin{equation}
+\vec{\mu_J} = -g_J \mu_B \vec{J} \quad \text{und} \quad 
+\lvert \vec{\mu_J} \rvert = g_J \mu_B \sqrt{J(J+1)}  \; .
+\label{eq:muJ}
+\end{equation}
+Dabei bezeichnet $\mu_B$ das Bohrsche Magneton und $g_J$ den Landr\'{e}-Faktor. Der berücksichtigt, 
+dass sich $\mu_J$ aus dem Bahndrehimpuls $\vec{L}$ und dem Spin $\vec{S}$ zusammensetzt. 
+Daher folgt für den Bahndrehimpuls 
+\begin{equation}
+\vec{\mu_L} = - \mu_B \vec{L} \quad \text{und} \quad 
+\lvert \vec{\mu_L} \rvert =  \mu_B \sqrt{L(L+1)} 
+\label{eq:muL}
+\end{equation}
+und für den Spin 
+\begin{equation}
+\vec{\mu_S} = - g_S \mu_B \vec{S} \quad \text{und} \quad 
+\lvert \vec{\mu_S} \rvert = 	g_S \mu_B \sqrt{S(S+1)} \; .
+\label{eq:muS}
+\end{equation}
+Hierbei bezeichnet $g_S$ den Landr\'{e}-Faktor des freien Elektrons und ist gegeben durch 
+$ g_S = 2,00232$. Das Gesamtdrehmoment $\vec{\mu_J} = \vec{\mu_L}+\vec{\mu_S}$ führt eine 
+Präzessionsbewegung um die $\vec{J}$-Richtung aus. Dabei mittelt sich die zu $\vec{J}$ 
+orthognale Komponente zeitlich herraus und nur die parallele Komponente $\vec{\mu_J}$  
+überbleibt und somit als magnetisches Moment des Atoms wirkt. Daraus folgt
+\begin{equation}
+g_J = \frac{3,0023J(J+1) + 1,0023(S(S+1) - L(L+1))}{2J(J+1)}\; .	
+\label{eq:gJ}
+\end{equation}
+Durch Wechselwirkung mit einem äußeren Magenetfeldes $\vec{B}$ verändern sich die Energieniveaus. 
+Die Wechselwirkungsenergie ist durch 
+\begin{equation}
+U_{mag} = - \vec{\mu_J} \cdot \vec{B} 	
+\end{equation}
+gegeben. Auch hier mittelt sich die orthognale Komponente des $\vec{B}$-Feldes herraus, weshalb nur 
+die z-Komponente von $\vec{\mu_J}$  die parallel zum $\vec{B}$-Feld steht einen Beitrag macht. 
+Aufgrund dieser Richtungsquantelung kann $U_{mag}$ nur ganzahlige Werte von $g_j \mu_B B$ 
+annehmen. Es foglt also 
+\begin{equation}
+U_{mag} = M_J g_J \mu_B B \quad \text{mit} \quad M_J \in [-J,-J+1,...,J-1,J] \; .	
+\end{equation}
+Diese Aufspaltung der Energieniveaus in $2J+1$ Unterniveaus wird als Zeeman-Effekt bezeichnet.
+
+\subsection{Hyperfeinstruktur}
+Die Rubidium-Isotope besitzen einen Kernspin $\vec{I} \neq 0$. Dadurch hat die Hyperfeinstruktur 
+Einluss auf die Zeeman-Aufspaltung. Der Gesamtdrehimpuls $\vec{J}$ der Elektronenhülle koppelt 
+für schwache Magnetfelder an den Drehimpuls $\vec{I}$ des Kerns zum Gesamtdrehimpulses $\vec{F}$ 
+des Atoms
+\begin{equation}
+\vec{F} = \vec{J} + \vec{I} \; .
+\label{eq:F}
+\end{equation}
+Das magnetische Moment des Kerns stellt sich gequantelt im magnetischen Feldes der Elektronenhülle 
+ein. Dafür wird die Quantenzahl F eingeführt, diese unterscheidet ob es $2J+1$ oder $2I+1$, 
+für $J<I$ oder $J>I$, Hyperfeinstrukturaufspaltungen gibt. Die Quantenzahl F läuft dabei 
+von $I+J$ bis $\lvert I-J \rvert$. Wird zusätzlich ein schwaches äußeres Magenetfeld angelegt 
+spalten die Hyperfeinstrukturterme noch einmal in $2F+1$-Zeeman-Niveaus auf, diese werden durch 
+die Quantenzahl $M_F \in [-F,+F]$ charakterisiert. Die Energiedifferenz zwischen den benachbarten 
+Zeeman-Niveaus ist gegeben durch 
+\begin{equation}
+U_{HF} = g_F \mu_B B \; .	
+\label{eq:UHF}
+\end{equation}
+Der Landr\'{e}-Faktor $g_F$ berechnet sich mit 
+\begin{equation}
+\lvert \mu_F \rvert = \sqrt{F(F+1)} g_F \mu_B	
+\label{eq:muF}
+\end{equation}
+zu 
+\begin{equation}
+g_F \approx g_J \frac{F(F+1) + J(J+1) -I(I+1)}{2F(F+1)} \; .	
+\end{equation}
+
+\subsection{Prinzip des optischen Pumpens}
 
