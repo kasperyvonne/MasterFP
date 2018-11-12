@@ -100,4 +100,48 @@ g_F \approx g_J \frac{F(F+1) + J(J+1) -I(I+1)}{2F(F+1)} \; .
 \end{equation}
 
 \subsection{Prinzip des optischen Pumpens}
-
+Aufgrund der Auswahlregeln $\Delta M_J = 0, \pm 1$ sind nur bestimmte Stahlungübergänge möglich. 
+Dabei können Übergänge mit $\Delta M_J = +1$ nur von rechtszirkular-polarisiertem Licht 
+eingeleitet werden, diese Übergänge werden als $\sigma^+$-Übergänge bezeichnet. Ein 
+$\sigma^-$-Übergang bezeichnet folglich ein Übergang der durch linkszirkular-polarisiertem 
+Licht hervorgerufen wurde, hier ist die Auswahlregel $\Delta M_J = -1$. Die Übergänge mit 
+$\Delta M_J = 0$ werden $\pi$-Übergänge genannt, diese emittieren und absorbieren 
+linear polarisiertes Licht. Das Prinzip des optischen Pumpens wird nun weiter an einem 
+Beispiel weiter erläutert.
+\paragraph{Optisches Pumpen eines Alkali-Atoms} 
+Zuerst werden die Energieniveaus des Alkali-Atom betrachtet, diese sind in der Abbildung 
+\ref{fig:AlkiBsp} dargestellt. Die Abbildung \ref{fig:BspAufbau} zeigt den prinzipiellen 
+Aufbau mit dem die Zeeman-Aufspaltung Untersucht werden kann. Mit diesem Aufbau wird eine 
+Dampfzelle mit rechtszirkular-polarisiertem Licht bestrahlt. Somit können nur Übergänge 
+vom $\ce{^{2} S _{\sfrac{1}{2}}} \; M_J = -\frac{1}{2}$ nach 
+$\ce{^{2} P _{\sfrac{1}{2}}} \; M_J = +\frac{1}{2}$ möglich.  Nach ca. \SI{e-8}{\second} 
+geht der gepumpte Zustand $\ce{^{2} P _{\sfrac{1}{2}}}$ wieder in den Grundzustand über. 
+Dabei wird sowohl das $\ce{^{2} S _{\sfrac{1}{2}}} \; M_J = -\frac{1}{2}$ als auch das 
+$\ce{^{2} S _{\sfrac{1}{2}}} \; M_J = +\frac{1}{2}$ Niveau besetzt. Da aus dem 
+$\ce{^{2} S _{\sfrac{1}{2}}} \; M_J = +\frac{1}{2}$ nicht in eins der P-Niveaus gepumpt werden 
+kann, kann der $\ce{^{2} S _{\sfrac{1}{2}}} \; M_J = -\frac{1}{2}$ Zustand leergepumpt werden. 
+Der $\ce{^{2} S _{\sfrac{1}{2}}} \; M_J = +\frac{1}{2}$ Zustand reichert sich also mit Elektronen 
+an. Damit ist die Inversion in Gleichung \eqref{eq:Boltz} gegeben. Durch Anreicherung des 
+$\ce{^{2} S _{\sfrac{1}{2}}} \; M_J = +\frac{1}{2}$ Zustands nimmt die 
+Absorptionswahrscheinlichkeit für das eingestahlte Licht immer weiter ab. Das führt dazu, dass 
+die Dampfzelle transparenter für das Licht wird. Die Transzperenz strebt folglich asymptotisch 
+gegen 1 für den Pumpvorgang. \newline
+Die Emission von Lichtquanten aus gepumpten Niveaus kann sowohl spontan als auch induziert 
+geschehen. Bei der spontanen Emission wird ohne äußeren Einfluss ein Photon emittiert. Bei der 
+induzierten Emission muss erst ein Photon mit gleicher Energie eintreffen bevor der Zustand 
+sich abregt. Folglich werden hier zwei Photonen mit gleicher Energie, Ausbreitungsrichtung und 
+Polarisation emittiert. Die Übergangswahrscheinlichkeit für eine spontane Emission ist aber so 
+gering das sie ihm Rahmen der Zeeman-Niveaus vernachlässigbar ist.
+\begin{figure}
+  \centering
+  \includegraphics[height = 5cm]{pics/Uebergaenge_AlkaliAtom.png}
+  \caption{Übergänge in einem Alkali-Atom.}
+  \label{fig:AlkiBsp}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[height = 5cm]{pics/PrinzipiellerAufbau.png}
+  \caption{Prinzipieller Aufbau.}
+  \label{fig:BspAufbau}
+\end{figure}
+ 
