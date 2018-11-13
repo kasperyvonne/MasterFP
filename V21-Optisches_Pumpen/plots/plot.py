@@ -17,18 +17,17 @@ def relf(l, m):  # in Prozent
 
 
 def Helmhotz(R, N, I):
-    return (const.mu_0*(8/np.sqrt(125))*(N/R)*I)
+    return ((const.mu_0*8*I*N)/(np.sqrt(125)*R))
 
 
-def Gerade(m, x, b):
+def g(m, x, b):
     return (m*x+b)
 
 
-x = np.linspace(0, 10, 1000)
-mhub = const.value('Bohr magneton')
+bohr = const.value('Bohr magneton')
 freq, sweep1, sweep2, hori1, hori2 = np.genfromtxt('Aufgabenteil_c.txt',
                                                    unpack='True')
-verti = 0.1*2.31
+verti = 0.1*2.31  # umedrehung *0.1V
 sweep1 = 0.1*sweep1
 sweep2 = 0.1*sweep2
 
@@ -49,21 +48,41 @@ Bsweep2 = Helmhotz(Rsweep, Nsweep, sweep2)
 Bhori1 = Helmhotz(Rsweep, Nsweep, hori1)
 Bhori2 = Helmhotz(Rsweep, Nsweep, hori2)
 
-B1 = Bsweep1 + Bhori1
-B2 = Bsweep2 + Bhori2
-params1 , cov1 = curve_fit(gerade , x ,y )
-params1 = correlated_values(params1, cov1)
+B1 = (Bsweep1 + Bhori1)
+B2 = (Bsweep2 + Bhori2)
 
-plt.plot(freq, B1, 'x', label='Isotop 1')
-plt.plot(freq, B2, 'x', label='Isotop 2')
+x_plot = np.linspace(-100, 1050)
+params1, covariance1 = curve_fit(g, freq, B1)
+errors1 = np.sqrt(np.diag(covariance1))
+
+params2, covariance2 = curve_fit(g, freq, B2)
+errors2 = np.sqrt(np.diag(covariance2))
+
+m1 = ufloat(params1[0], errors1[0])
+m2 = ufloat(params2[0], errors2[0])
+
+g1 = const.h/(m1*bohr)*1000
+g2 = const.h/(m2*bohr)*1000
+
+plt.plot(freq, B1*10**6, 'bx', label='Isotop 1')
+plt.plot(x_plot, g(x_plot, *params1)*10**6, 'b-', label='Fit 1', linewidth=1)
+plt.plot(freq, B2*10**6, 'rx', label='Isotop 2')
+plt.plot(x_plot, g(x_plot, *params2)*10**6, 'r-', label='Fit 2', linewidth=1)
+plt.xlim(0, 1050)
 plt.xlabel(r'$f \:/\: $kHz')
 plt.ylabel(r'$B \:/\: \mu}$T')
 plt.legend(loc='best')
-plt.savefig('Testplot1.pdf')
+plt.savefig('BFelder.pdf')
 plt.clf()
 
 print("Das angelegte vertikale Feld entspricht:",
-      Helmhotz(Rverti, Nverti, verti))
+      Helmhotz(Rverti, Nverti, verti), "Tesla.")
+print("Die Fitparameter für Isotop1 sind m=", params1[0], '±', errors1[0],
+      "und b=", params1[1], '±', errors1[1])
+print("Die Fitparameter für Isotop2 sind m=", params2[0], '±', errors2[0],
+      "und b=", params2[1], '±', errors2[1],)
+print("Landefaktor1=", g1)
+print("Landefaktor2=", g2)
 
 # Fit
 # params , cov = curve_fit(f , x ,y )
