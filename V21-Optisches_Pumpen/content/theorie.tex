@@ -3,6 +3,8 @@ den stabilen Rubidium-Isotopen $\ce{^{85} Rb}$ und $\ce{^{87} Rb}$, zu untersuch
 die Landresch\'{e}n g-Faktoren zu bestimmen. Daraus kann wiederum der Spin der Elektronenhülle und 
 des Kerns berechenet werden. 
 \section{Theorie}
+Der folgende Theorieteil basiert auf \cite{Anleitung}, sämtliche Abbildungen wurden daraus 
+entnommen.
 \label{sec:Theorie}
 \subsection{Die Methode des optischen Pumpens}
 Es werden zwei Zustände der äußeren Atomschalen betrachtet. Ein Zustand mit Energie 
@@ -106,7 +108,7 @@ eingeleitet werden, diese Übergänge werden als $\sigma^+$-Übergänge bezeichn
 $\sigma^-$-Übergang bezeichnet folglich ein Übergang der durch linkszirkular-polarisiertem 
 Licht hervorgerufen wurde, hier ist die Auswahlregel $\Delta M_J = -1$. Die Übergänge mit 
 $\Delta M_J = 0$ werden $\pi$-Übergänge genannt, diese emittieren und absorbieren 
-linear polarisiertes Licht. Das Prinzip des optischen Pumpens wird nun weiter an einem 
+linear polarisiertes Licht. Das Prinzip des optischen Pumpens wird nun an einem 
 Beispiel weiter erläutert.
 \paragraph{Optisches Pumpen eines Alkali-Atoms} 
 Zuerst werden die Energieniveaus des Alkali-Atom betrachtet, diese sind in der Abbildung 
@@ -130,8 +132,8 @@ Die Emission von Lichtquanten aus gepumpten Niveaus kann sowohl spontan als auch
 geschehen. Bei der spontanen Emission wird ohne äußeren Einfluss ein Photon emittiert. Bei der 
 induzierten Emission muss erst ein Photon mit gleicher Energie eintreffen bevor der Zustand 
 sich abregt. Folglich werden hier zwei Photonen mit gleicher Energie, Ausbreitungsrichtung und 
-Polarisation emittiert. Die Übergangswahrscheinlichkeit für eine spontane Emission ist aber so 
-gering das sie ihm Rahmen der Zeeman-Niveaus vernachlässigbar ist.
+Polarisation emittiert. Die Übergangswahrscheinlichkeit im Rahmen der Zeeman-Aufspaltung aber 
+vernachlässigbar. \newline
 \begin{figure}
   \centering
   \includegraphics[height = 5cm]{pics/Uebergaenge_AlkaliAtom.png}
@@ -144,4 +146,51 @@ gering das sie ihm Rahmen der Zeeman-Niveaus vernachlässigbar ist.
   \caption{Prinzipieller Aufbau.}
   \label{fig:BspAufbau}
 \end{figure}
- 
+Nun wird das Verhalten der Transzperenz der Dampfzelle bei anlegen eines Magnetfeldes 
+diskutiert. Bei einem Magenetfeld um das Nullfeld kann nicht optisch gepumpt werden und somit 
+bietet dies eine Möglichkeit das Erdmagnetfeld zu messen und zu kompensieren. Wird ein 
+frequenzvariables Hochfrequenzfeld (RF) angelegt. Kann ein Pumpvorgang erzeugt werden der ein 
+Inversion herbeiführt. Wird die Inversion herbeigeführt wird die Tranzparenz maximal. 
+Erreicht das Magnefeld den Wert 
+\begin{equation}
+\symup{h} \nu = g_J \mu_B B_m \Delta M_J  \iff
+B_m = \frac{4\pi m_0}{\symup{e} g_J} \nu
+\label{eq:Bm}
+\end{equation}
+tritt die induzierte Emission ein und die Tranzparenz der Dampfzelle nimmt ab. Beide Fälle sind 
+in der Theoriekurve \ref{fig:TheoK} dargestellt.
+  
+\begin{figure}
+  \centering
+  \includegraphics[height = 5cm]{pics/TheorieKurve.png}
+  \caption{Theoriekurve der Tranzparenz der Dampfzelle in Abhängigkeit des Magnefeldes.}
+  \label{fig:TheoK}
+\end{figure}
+\FloatBarrier
+\subsection{Der Quadratische Zeeman-Effekt}
+Wird das B-Feld weiter erhöht müssen höhere Terme in \eqref{eq:UHF} berücksichtigt werden. 
+Die Übergangenergie verändert sich dann wie folgt:
+\begin{equation}
+U_{HF} = g_F \mu_B B +	g^{2}_F \mu^{2}_B B^2 \frac{1-2M_F}{\Delta E_{Hy}} - ... \; .
+\label{eq:quadZ}
+\end{equation}
+Dabei bezeichnet $\Delta E_{Hy}$ die Hyperfeinstrukturaufspaltungen zwischen den Niveaus 
+$F$ und $F+1$. Die Energie hängt nun von $M_F$ ab und wird daher als Quadratische Zeeman-Effekt 
+bezeichnet. Ist ein Magenetfeld genügend groß weisen die Zeeman-Niveaus unterschiedliche 
+Energien auf.  
+\subsection{Transiente Effekte} 
+An dieser Stelle wird das Verhalten des gepumpten Systems untersucht, während das 
+RF schnell aus- und eingeschaltet wird.  Dabei soll das MAgnetfeld als auch die 
+RF-Frequenz auf eine Resonanz eingestellt sein. Resonanz bezeichnet hier den Punkt an dem 
+die induzierte Emission eintritt. Im Resonanzfall ist das effektive B-Feld gleich dem RF-Feld. 
+Daraus ergibt sich, dass der Spin $\vec{F}$ im rotierten Koordinatensystem mit der 
+Lamor-Frequenz um $\vec{B}_{RF} = \vec{B}_{eff}$ präzediert. Die Lamor-Frequenz ist hierbei 
+durch $\nu = \gamma B_{RF}$ gegeben. Daraus folgt eine Periode $T = \frac{1}{\gamma B_{RF}}$. 
+Folglich lässt sich zwischen den Isotopen, die hier untersuch werden, die Relation 
+\begin{equation}
+\frac{T_{87}}{T_{85}}=\frac{\gamma_{85}}{\gamma_{87}}	
+\label{eq:RelIso}
+\end{equation}
+für resonante RF-Felder bestimmen. Hierbei bezeichnet $\gamma$ das gyromagnetische Verhältnis 
+$\gamma = g_F \sfrac{\mu_0}{\symup{h}}$.
+
