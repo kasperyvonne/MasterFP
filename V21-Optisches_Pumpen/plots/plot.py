@@ -28,11 +28,11 @@ bohr = const.value('Bohr magneton')
 freq, sweep1, sweep2, hori1, hori2 = np.genfromtxt('Aufgabenteil_c.txt',
                                                    unpack='True')
 verti = 0.1*2.31  # umedrehung *0.1V
-sweep1 = 0.1*sweep1
-sweep2 = 0.1*sweep2
+sweep1 = 0.01*sweep1
+sweep2 = 0.01*sweep2
 
-hori1 = 0.3*hori1
-hori2 = 0.3*hori2
+hori1 = 0.03*hori1
+hori2 = 0.03*hori2
 
 Nhori = 154
 Rhori = 0.1579  # m
@@ -63,7 +63,19 @@ m2 = ufloat(params2[0], errors2[0])
 
 g1 = const.h/(m1*bohr)*1000
 g2 = const.h/(m2*bohr)*1000
+Verhaeltnisg = g1/g2
 
+J = 0.5
+S = 0.5
+L = 0
+gJ = (3.0023 * (J**2 + J) + 1.0023 * ((S**2 + S)
+       - (L**2 + L))) / (2 * (J**2 + J))
+I1 = gJ / (4 * g1) - 1 + unp.sqrt((gJ / (4 * g1) - 1)**2
+                                    + 3 * gJ / (4 * g1) - 3 / 4)
+I2 = gJ / (4 * g2) - 1 + unp.sqrt((gJ / (4 * g2) - 1)**2
+                                    + 3 * gJ / (4 * g2) - 3 / 4)
+#I1 = 0.5*(gJ/g1-1)
+#I2 = 0.5*(gJ/g2-1)
 plt.plot(freq, B1*10**6, 'bx', label='Isotop 1')
 plt.plot(x_plot, g(x_plot, *params1)*10**6, 'b-', label='Fit 1', linewidth=1)
 plt.plot(freq, B2*10**6, 'rx', label='Isotop 2')
@@ -83,7 +95,10 @@ print("Die Fitparameter für Isotop2 sind m=", params2[0], '±', errors2[0],
       "und b=", params2[1], '±', errors2[1],)
 print("Landefaktor1=", g1)
 print("Landefaktor2=", g2)
-
+print("Das Verhältnis der beiden Faktoren ist", Verhaeltnisg)
+print(gJ)
+print("Der Kernsprin für Isotop1 ist:", I1)
+print("Der Kernsprin für Isotop2 ist:", I2)
 # Fit
 # params , cov = curve_fit(f , x ,y )
 # params = correlated_values(params, cov)
