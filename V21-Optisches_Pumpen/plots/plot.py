@@ -96,8 +96,8 @@ plt.clf()
 
 # quadratischer Zeemaneffekt
 
-U1 = g1*bohr*B1[-1]+g1**2*bohr**2*B1[-1]**2*(1-2)/(4.53e-24)
-U2 = g2*bohr*B2[-1]+g2**2*bohr**2*B2[-1]**2*(1-2)/(2.01e-24)
+U1 = g1*bohr*B1[-1]+g1**2*bohr**2*B1[-1]**2*(1-2*2)/(4.53e-24)
+U2 = g2*bohr*B2[-1]+g2**2*bohr**2*B2[-1]**2*(1-2*3)/(2.01e-24)
 
 # letzter Teil
 T1 = Peaks1 / delT1
@@ -111,20 +111,26 @@ errors4 = np.sqrt(np.diag(covariance4))
 
 bt1 = ufloat(params3[1], errors3[1])
 bt2 = ufloat(params4[1], errors4[1])
-bverh=bt1/bt2
+bverh = bt1/bt2
 print(bt1)
 print(bt2)
+xtrans = np.linspace(0.5, 10.5)
 plt.plot(Vpp1, T1, 'x', label='Isotop 1')
-#plt.plot(x_plot, g(x_plot, *params1)*10**6, 'b-', label='Fit 1', linewidth=1)
-#plt.plot(freq, B2*10**6, 'rx', label='Isotop 2')
-#plt.plot(x_plot, g(x_plot, *params2)*10**6, 'r-', label='Fit 2', linewidth=1)
-#plt.xlim(0, 1050)
+plt.plot(xtrans, h(xtrans, *params3), 'b-', label='Fit 1', linewidth=1)
 plt.xlabel(r'$Amplitude \:/\: $V')
 plt.ylabel(r'$T \:/\:}$ms')
 plt.legend(loc='best')
 plt.savefig('Trans1.pdf')
 plt.clf()
-
+plt.plot(Vpp2, T2, 'x', label='Isotop 2')
+plt.plot(xtrans, h(xtrans, *params4), 'b-', label='Fit 2', linewidth=1)
+plt.xlabel(r'$Amplitude \:/\: $V')
+plt.ylabel(r'$T \:/\:}$ms')
+plt.legend(loc='best')
+plt.savefig('Trans2.pdf')
+plt.clf()
+Ampli1 = ufloat(70.51, 0.7)
+Ampli2 = ufloat(149.33, 1.5)
 print("Das angelegte vertikale Feld entspricht:",
       Helmhotz(Rverti, Nverti, verti), "Tesla.")
 print("Die Fitparameter für Isotop1 sind m=", params1[0], '±', errors1[0],
@@ -140,6 +146,9 @@ print("Der Kernsprin für Isotop2 ist:", I2)
 print("quadratische I1:", U1)
 print("quadratische I2:", U2)
 print("b Verhältnis (soll: 1,5)", bverh)
+print(Ampli1/Ampli2)
+print(B1[-1])
+print(B2[-1])
 # Fit
 # params , cov = curve_fit(f , x ,y )
 # params = correlated_values(params, cov)

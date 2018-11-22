@@ -21,7 +21,6 @@ dem Radius $R$, dem Strom $I$ und der Helmhotzgleichung
 \begin{equation}
   B=\mu_{0}\frac{8 N }{\sqrt{125} R}I
 \end{equation} eine Feldstärke von $B_{\text{vertikal}}=35,40 \mu$ T.
-Der Literaturwert der Vertikalkomponente liegt bei (?? Litwert 44 microT ??).
 \subsection{Bestimmung der Landéschen $\text{g}_{\text{F}}$ Faktoren}
 Zwischen der Magnetfeldstärke $B$ und der Frequenz $f$ an den Resonanzstellen besteht der Zusammenhang
 \begin{equation}
@@ -49,8 +48,8 @@ bestimmen, wobei das Verhältnis von Magnetfeld uns Frequenz durch die
 Steigung $m=B/f$ aus dem Fit von \ref{fig:BFelder} ausgedrückt werden kann.\\
 Damit lassen sich die Landéschen $\text{g}_{\text{F}}$ Faktoren zu:
 \begin{align*}
-  \text{g}_{\text{F,1}}&=0,069 \pm 0,003 \\
-  \text{g}_{\text{F,2}}&= 0,049 \pm 0,003
+  \text{g}_{\text{F,1}}&=0,69 \pm 0,03 \\
+  \text{g}_{\text{F,2}}&= 0,49 \pm 0,03
 \end{align*}
 berechnen.\\
 Das Verhältnis der beiden Faktoren ist
@@ -65,14 +64,77 @@ Diese sind
   S&=\frac{1}{2}\\
   J&=\frac{1}{2}
 \end{align*}
-% \begin{figure}
-%   \centering
-%   \includegraphics{plots/plot.pdf}
-%   \caption{Plot.}
-%   \label{fig:plot}
-% \end{figure}
-
-
+Für die Berechnung der Kernspins wird die Formel \eqref{eq:gf} nach $I$ umgestellt.
+Desweiternen ergibt sich aus den Werten für $L,S$und $J$ $g_J = 2.0023$. Die Formel \eqref{eq:gJ} lässt sich nach $I$ umstellen:
+\begin{equation}
+  \text{I} = \frac{g_J}{2g_F}-\frac{1}{2} .
+  \label{eq:kernspin}
+\end{equation}.
+Daraus ergeben sich die Werte für den Kernspin der Isotope zu:
+\begin{align*}
+  I_1& = 0,95 \pm 0,07\\
+  I_2&= 1,58 \pm 0,14
+\end{align*}
+Ausgehend davon, dass die Messung für $I_2$ innerhalb des Fehlerintervalls zu
+dem Literaturwert von $\symup{^{87}Rb}$ passt, ließe sich vermuten, das es sich um dieses
+Isotop handelt.
+Die Literaturwerte für $\symup{^{85}Rb}$ ist $I=\frac{5}{2}$ und für $\symup{^{87}Rb}$ $I=\frac{3}{2}$.
+Da beide Isotope vorkommen, wird vermutet, dass das Isotop mit dem geringeren Wert, also
+$I_1$ $\symup{^{87}Rb}$ ist und das $I_2$ dementsprechend $\symup{^{87}Rb}$.
+\subsection{Bestimmung des Isotopenverhältnisses}
+Aus dem Verhältnis der Amplituden der Resonanzstellen lässt sich auf das Isotopenverhältnis schließen.
+In Abbildung \ref{fig:Ampli} sind die ausgemessenen Resonanzen bei $100\,$kHz dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[angle=90]{pics/VerhltnisAmpli.JPG.png}
+  \caption{Signalbild bei 100 kHz mit eingezeichneten Amplituden der Resonanzen.}
+  \label{fig:Ampli}
+\end{figure}
+Die Amplituden wurden mittels Pixelzählung vermessen, dabei wurde ein Ablesefehler von
+einem Prozent angenommen. Es ergeben sich folgenede Längen:
+\begin{align*}
+  A_{I1} &= 70,51 \pm 0,7 \text{px}\\
+  A_{I2} &= 149,33 \pm 1,5\text{px} .
+\end{align*}
+Das Verhältnis entspricht
+\begin{equation}
+  \frac{A_{I1}}{A_{I2}}= 0,47 \pm 0,01.
+\end{equation}
+\subsection{Abschätzung des quadratischen Zeemaneffekts}
+Mittels der Gleichung \ref{eq:quadZ} lässt sich eine Abschätzung für den
+quadratischen Zeemaneffekt geben.
+Dazu werden die größten gemessenen Magnetfeldwerte für die Abschätzung verwendet.
+Das sind für $\symup{^{87}Rb}$ $B_1=91,0\,\mu$T und für $\symup{^{85}Rb}$ $B_2=126,6\,\mu$T.
+Die Abstände der Niveaus der Hyperfeinstrukturaufspaltung lauten
+$\Delta E_{hy} = 4.53\cdot 10^{-24}\si{\joule}$ für
+$\symup{^{85}Rb}$ und $\Delta E_{hy} = 2.01\cdot 10^{-24}\si{\joule}$ für $\symup{^{87}Rb}$.
+Außerdem werden die magnetischen Quantenzahlen $\symup{M_F} = 3$ für
+$\symup{^{85}Rb}$ und $\symup{M_F} = 2$ für $\symup{^{87}Rb}$.
+Diese Werte ergeben sich aus dem Kernspin und dem Spin der Elektronenhüllen.\\
+Damit ergibt sich für $\symup{^{85}Rb}$
+\begin{equation}
+  U_{\text{HF,85}}=(5,6\pm0,4)10^{-28},
+\end{equation}
+und für
+$\symup{^{87}Rb}$
+\begin{equation}
+  U_{\text{HF,87}}=(5,81 \pm 0,29)10^{-28} .
+\end{equation}
+\subsection{Untersuchung der transienten Effekte}
+Ein typisches Siganlbild dieser Messung ist in Abbildung \ref{fig:trans} zu finden.
+\begin{figure}
+  \centering
+  \includegraphics[angle=90]{pics/TEK0033.JPG}
+  \caption{Typisches Signalbild der Messung zur Untersuchung der transienten Effekte.}
+  \label{fig:trans}
+\end{figure}
+In den Abbildungen \ref{fig:transfit1} und \ref{fig:transfit2} sind die Periode
+gegen die RF-Amplitude aufgetragen.
+Eine Hyperbel-Funktion der Form
+\begin{equation}
+  f(x)=a+\frac{b}{x-c}
+\end{equation}
+wird zur ausgleichsrechnung benutzt.
 
 % \begin{table}
 %    % Notation :  {% nicht entfernen ist sehr wichtig sonst Fehler !!
