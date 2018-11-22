@@ -24,9 +24,16 @@ def g(m, x, b):
     return (m*x+b)
 
 
+def h(x, a, b, c):
+    return a + b/(x+c)
+
+
 bohr = const.value('Bohr magneton')
 freq, sweep1, sweep2, hori1, hori2 = np.genfromtxt('Aufgabenteil_c.txt',
                                                    unpack='True')
+Vpp1, Peaks1, delT1 = np.genfromtxt('Aufgabenteil_i1.txt', unpack='True')
+Vpp2, Peaks2, delT2 = np.genfromtxt('Aufgabentei_i2.txt', unpack='True')
+
 verti = 0.1*2.31  # umedrehung *0.1V
 sweep1 = 0.01*sweep1
 sweep2 = 0.01*sweep2
@@ -69,11 +76,11 @@ J = 0.5
 S = 0.5
 L = 0
 gJ = (3.0023 * (J**2 + J) + 1.0023 * ((S**2 + S)
-       - (L**2 + L))) / (2 * (J**2 + J))
+      - (L**2 + L))) / (2 * (J**2 + J))
 I1 = gJ / (4 * g1) - 1 + unp.sqrt((gJ / (4 * g1) - 1)**2
-                                    + 3 * gJ / (4 * g1) - 3 / 4)
+                                  + 3 * gJ / (4 * g1) - 3 / 4)
 I2 = gJ / (4 * g2) - 1 + unp.sqrt((gJ / (4 * g2) - 1)**2
-                                    + 3 * gJ / (4 * g2) - 3 / 4)
+                                  + 3 * gJ / (4 * g2) - 3 / 4)
 #I1 = 0.5*(gJ/g1-1)
 #I2 = 0.5*(gJ/g2-1)
 plt.plot(freq, B1*10**6, 'bx', label='Isotop 1')
@@ -85,6 +92,37 @@ plt.xlabel(r'$f \:/\: $kHz')
 plt.ylabel(r'$B \:/\: \mu}$T')
 plt.legend(loc='best')
 plt.savefig('BFelder.pdf')
+plt.clf()
+
+# quadratischer Zeemaneffekt
+
+U1 = g1*bohr*B1[-1]+g1**2*bohr**2*B1[-1]**2*(1-2)/(4.53e-24)
+U2 = g2*bohr*B2[-1]+g2**2*bohr**2*B2[-1]**2*(1-2)/(2.01e-24)
+
+# letzter Teil
+T1 = Peaks1 / delT1
+T2 = Peaks2 / delT2
+
+params3, covariance3 = curve_fit(h, Vpp1, T1)
+errors3 = np.sqrt(np.diag(covariance3))
+
+params4, covariance4 = curve_fit(h, Vpp2, T2)
+errors4 = np.sqrt(np.diag(covariance4))
+
+bt1 = ufloat(params3[1], errors3[1])
+bt2 = ufloat(params4[1], errors4[1])
+bverh=bt1/bt2
+print(bt1)
+print(bt2)
+plt.plot(Vpp1, T1, 'x', label='Isotop 1')
+#plt.plot(x_plot, g(x_plot, *params1)*10**6, 'b-', label='Fit 1', linewidth=1)
+#plt.plot(freq, B2*10**6, 'rx', label='Isotop 2')
+#plt.plot(x_plot, g(x_plot, *params2)*10**6, 'r-', label='Fit 2', linewidth=1)
+#plt.xlim(0, 1050)
+plt.xlabel(r'$Amplitude \:/\: $V')
+plt.ylabel(r'$T \:/\:}$ms')
+plt.legend(loc='best')
+plt.savefig('Trans1.pdf')
 plt.clf()
 
 print("Das angelegte vertikale Feld entspricht:",
@@ -99,6 +137,9 @@ print("Das Verhältnis der beiden Faktoren ist", Verhaeltnisg)
 print(gJ)
 print("Der Kernsprin für Isotop1 ist:", I1)
 print("Der Kernsprin für Isotop2 ist:", I2)
+print("quadratische I1:", U1)
+print("quadratische I2:", U2)
+print("b Verhältnis (soll: 1,5)", bverh)
 # Fit
 # params , cov = curve_fit(f , x ,y )
 # params = correlated_values(params, cov)
