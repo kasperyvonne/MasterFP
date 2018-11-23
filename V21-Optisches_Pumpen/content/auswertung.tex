@@ -29,10 +29,10 @@ Zwischen der Magnetfeldstärke $B$ und der Frequenz $f$ an den Resonanzstellen b
 Dieser Zusammenhang ist in \ref{fig:BFelder} aufgeführt. Es wurde eine Gerade der
 Form $y=m\cdot x+b$ an die Messwerte der beiden Isotope gefittet. Die Fitparameter sind dabei
 \begin{align*}
-  m_1&=(1,04 \pm 0,05)\,\frac{\mu\text{T}}{\text{kHz}} \\
-  b_1&=(-120,7 \pm 0,3)\,\mu\text{T}\\
-  m_2&=(1,4 \pm 0,1)\,\frac{\mu\text{T}}{\text{kHz}} \\
-  b_2&=(-238,5 \pm 0,6)\,\mu\text{T}
+  m_1&=(0,104 \pm 0,005)\,\frac{\mu\text{T}}{\text{kHz}} \\
+  b_1&=(-12 \pm 3)\,\mu\text{T}\\
+  m_2&=(0,14 \pm 0,01)\,\frac{\mu\text{T}}{\text{kHz}} \\
+  b_2&=(-23,85 \pm 6)\,\mu\text{T}
 \end{align*}
 \begin{figure}
   \centering
@@ -64,8 +64,8 @@ Diese sind
   S&=\frac{1}{2}\\
   J&=\frac{1}{2}
 \end{align*}
-Für die Berechnung der Kernspins wird die Formel \eqref{eq:gf} nach $I$ umgestellt.
-Desweiternen ergibt sich aus den Werten für $L,S$und $J$ $g_J = 2.0023$. Die Formel \eqref{eq:gJ} lässt sich nach $I$ umstellen:
+Für die Berechnung der Kernspins wird die Formel \ref{eq:gF} nach $I$ umgestellt.
+Desweiternen ergibt sich aus den Werten für $L,S$und $J$ $g_J = 2.0023$. Die Formel \ref{eq:gJ} lässt sich nach $I$ umstellen:
 \begin{equation}
   \text{I} = \frac{g_J}{2g_F}-\frac{1}{2} .
   \label{eq:kernspin}
@@ -107,7 +107,7 @@ Dazu werden die größten gemessenen Magnetfeldwerte für die Abschätzung verwe
 Das sind für $\symup{^{87}Rb}$ $B_1=91,0\,\mu$T und für $\symup{^{85}Rb}$ $B_2=126,6\,\mu$T.
 Die Abstände der Niveaus der Hyperfeinstrukturaufspaltung lauten
 $\Delta E_{hy} = 4.53\cdot 10^{-24}\si{\joule}$ für
-$\symup{^{85}Rb}$ und $\Delta E_{hy} = 2.01\cdot 10^{-24}\si{\joule}$ für $\symup{^{87}Rb}$.
+$\symup{^{85}Rb}$ und $\Delta E_{hy} = 2.01\cdot 10^{-24}\si{\joule}$ für $\symup{^{87}Rb}$ \cite{Anleitung}.
 Außerdem werden die magnetischen Quantenzahlen $\symup{M_F} = 3$ für
 $\symup{^{85}Rb}$ und $\symup{M_F} = 2$ für $\symup{^{87}Rb}$.
 Diese Werte ergeben sich aus dem Kernspin und dem Spin der Elektronenhüllen.\\
@@ -134,8 +134,34 @@ Eine Hyperbel-Funktion der Form
 \begin{equation}
   f(x)=a+\frac{b}{x-c}
 \end{equation}
-wird zur ausgleichsrechnung benutzt.
-
+wird zur Ausgleichsrechnung benutzt.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{plots/Trans1.pdf}
+    \label{fig:transfit1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{plots/Trans2.pdf}
+  \label{fig:transfit2}
+\end{figure}
+Die Parameter der Ausgleichsrechnung von \ref{fig:transfit1} sind:
+\begin{align*}
+  a&=(-0,10 \pm 0,06)\,\symup{ms}\\
+  b&=(2,7 \pm 0,5)\,\frac{\symup{V}}{\symup{ms}}\\
+  c&=(0,6 \pm 0,3)\,\symup{V}
+\end{align*}
+Die Parameter der Ausgleichsrechnung von \ref{fig:transfit2} sind:
+\begin{align*}
+  a&=(0,10 \pm 0,05)\,\symup{ms}\\
+  b&=(2,2 \pm 0,3)\,\frac{\symup{V}}{\symup{ms}}\\
+  c&=(-0,08 \pm 0,10)\,\symup{V}
+\end{align*}
+Damit lässt sich das Verhältnis
+\begin{equation}
+  \frac{b(\symup{^{87}Rb})}{b(\symup{^{85}Rb})} = (1,2\pm0,3)
+\end{equation}
+bestimmen.
 % \begin{table}
 %    % Notation :  {% nicht entfernen ist sehr wichtig sonst Fehler !!
 % \parbox{0.48\textwidth}{% %Ermöglicht zwei Tabellen neben einander

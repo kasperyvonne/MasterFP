@@ -1,9 +1,38 @@
 \section{Diskussion}
 \label{sec:Diskussion}
-\subsection{Relativer Fehler}
-Alle relativen Fehler wurden nach der Formel
-\begin{equation*}
-  \tilde{x} = \frac{ \lvert x_{lit} - x_{mess} \rvert}{\lvert x_{lit} \rvert}
-  \cdot 100 \%
-\end{equation*}
-berechnet, dabei bezeichnet $x_{lit}$ den Literaturwert der Messgröße $x_{mess}$.
+Die vertikale Erdmagnetfeldkomponente wurde mit Augenmaß eleminiert, in dem
+die Breite des Nullpeaks minimiert wurde. Dabei wurde ein Magnetfeld der Stärke
+$B_{\text{vertikal}}=35,40\,\mu$T eingestellt. Der Literaturwert der vertikalen
+Komponente ist $B_{\text{vertikal}}=45,11\,\mu$T \cite{Mag}. Demnach entsteht
+dabei eine Abweichung von 21\%.\\
+Aus den $y-$Achsenabschnitten der Ausgleichsgeraden von \ref{fig:BFelder} lässt sich auf
+die Horizontalkomponente des Ergmagnetfeldes schließen. Es zeigt sich, dass
+die beiden Ausgleichsgeraden nicht den selben $y-$Achsenabschnitt haben. Das ist ein
+erster Hinweis darauf, dass die Messung durch äußere Magnetfelder gestört wurde.
+Dies zeigt sich auch bei der Bestimmung der Kernspins der Isotope.\\
+Die Werte weichen von den Literaturwerten ab, wie in Tabelle \ref{tab:Kernabweichung} dargestellt.
+\begin{table}[H]
+    \centering
+    \caption{Darstellung der Kernspins der beiden Rubidiumisotope sowie den Literaturwerten aus \cite{Chem} und
+             relativen Abweichungen.}
+    \label{tab:Kernabweichung}
+    \begin{tabular}{c|c|c|c}
+        \toprule
+        Isotop & Kernspin & Literaturwert  & Abweichung  \\
+        \midrule
+        $\symup{^{87}Rb}$ &(0,95 \pm 0,07)&$\frac{3}{2}$ & 36\%\\
+        $\symup{^{85}Rb}$ & (1,58 \pm 0,14)&$\frac{5}{2}$& 37\%\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Das Verhältnis der Isotopen aus den Amplituden beträgt nach unserer Bestimmung
+$r=(0,47 \pm 0,01)$, dies weicht um 28\% von dem Literaturwert von $r_{\text{Lit}}=0.386$ ab \cite{Peri}.
+Dies könnte durch Fehler beim Ablesen erklärbar sein, da die Bilder des Oszilloskops keine
+hohe Auflösung besitzen. \\
+Der Literaturwert $\frac{b(\symup{^{87}Rb, Lit})}{b(\symup{^{85}Rb,Lit})} = 1.5$\cite{Anleitung} weicht um
+ 20\% von dem von uns bestimmten Wert von $\frac{b(\symup{^{87}Rb})}{b(\symup{^{85}Rb})}=(1,2\pm0,3)$ ab.\\
+ Da die Berechnungen der meisten Größen von der Bestimmung der Kernspins abhängen, werden die Abweichungen vorallem
+ durch die Werte des Kernspins kommen. Diese lassen sich mit hoher Wahrscheinlichkeit darauf zurückschließen, dass
+ neben dem Versuchsaufbau der Versuch \textit{Faraday-Effekt} durchgeführt wurde. Bei diesem werden Magnetfelder
+ von bis zu einem Tesla an und wieder abgeschaltet. Da die Messung des optischen Pumpen auf Einstellungen im $\mu$T Bereich beruhen
+ist anzunehmen, dass die Änderungen des stärkeren Magfnetfeldes in der Nähe der Apperatu die Messungen gestört hat. 
