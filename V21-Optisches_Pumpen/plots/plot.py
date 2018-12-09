@@ -20,7 +20,7 @@ def Helmhotz(R, N, I):
     return ((const.mu_0*8*I*N)/(np.sqrt(125)*R))
 
 
-def g(m, x, b):
+def g(x, m, b):
     return (m*x+b)
 
 
@@ -35,8 +35,8 @@ Vpp1, Peaks1, delT1 = np.genfromtxt('Aufgabenteil_i1.txt', unpack='True')
 Vpp2, Peaks2, delT2 = np.genfromtxt('Aufgabentei_i2.txt', unpack='True')
 
 verti = 0.1*2.31  # umedrehung *0.1V
-sweep1 = 0.01*sweep1
-sweep2 = 0.01*sweep2
+sweep1 = 0.1*sweep1
+sweep2 = 0.1*sweep2
 
 hori1 = 0.03*hori1
 hori2 = 0.03*hori2
@@ -57,12 +57,13 @@ Bhori2 = Helmhotz(Rsweep, Nsweep, hori2)
 
 B1 = (Bsweep1 + Bhori1)
 B2 = (Bsweep2 + Bhori2)
-
+B2fit = B2[0:]
+freqfit = freq[0:]
 x_plot = np.linspace(-100, 1050)
 params1, covariance1 = curve_fit(g, freq, B1)
 errors1 = np.sqrt(np.diag(covariance1))
 
-params2, covariance2 = curve_fit(g, freq, B2)
+params2, covariance2 = curve_fit(g, freqfit, B2fit)
 errors2 = np.sqrt(np.diag(covariance2))
 
 m1 = ufloat(params1[0], errors1[0])
@@ -70,6 +71,7 @@ m2 = ufloat(params2[0], errors2[0])
 
 g1 = const.h/(m1*bohr)*1000
 g2 = const.h/(m2*bohr)*1000
+
 Verhaeltnisg = g1/g2
 
 J = 0.5
@@ -77,12 +79,13 @@ S = 0.5
 L = 0
 gJ = (3.0023 * (J**2 + J) + 1.0023 * ((S**2 + S)
       - (L**2 + L))) / (2 * (J**2 + J))
-I1 = gJ / (4 * g1) - 1 + unp.sqrt((gJ / (4 * g1) - 1)**2
-                                  + 3 * gJ / (4 * g1) - 3 / 4)
-I2 = gJ / (4 * g2) - 1 + unp.sqrt((gJ / (4 * g2) - 1)**2
-                                  + 3 * gJ / (4 * g2) - 3 / 4)
-#I1 = 0.5*(gJ/g1-1)
-#I2 = 0.5*(gJ/g2-1)
+#I1 = gJ / (4 * g1) - 1 + unp.sqrt((gJ / (4 * g1) - 1)**2
+#                                  + 3 * gJ / (4 * g1) - 3 / 4)
+#I2 = gJ / (4 * g2) - 1 + unp.sqrt((gJ / (4 * g2) - 1)**2
+#                                  + 3 * gJ / (4 * g2) - 3 / 4)
+I1 = 0.5*(gJ/g1-1)
+I2 = 0.5*(gJ/g2-1)
+
 plt.plot(freq, B1*10**6, 'bx', label='Isotop 1')
 plt.plot(x_plot, g(x_plot, *params1)*10**6, 'b-', label='Ausgleichsgerade 1', linewidth=1)
 plt.plot(freq, B2*10**6, 'rx', label='Isotop 2')
