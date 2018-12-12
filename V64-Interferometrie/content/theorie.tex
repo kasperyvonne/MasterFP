@@ -46,14 +46,32 @@ und minimalen Intensitäten mit :
 bestimmt. Dabei ist 1 der bestmögliche und 0 der schlechteste Wert. \\
 Die Intensität kann mit
 \begin{equation}
-	I \propto <|E_0 \cos{(\phi)}\cos{(\omega t)} + E_0 \sin{(\phi)}\cos{(\omega t + \delta)} |^2>
+	I \propto <|E_1 \cos{(\phi)}\cos{(\omega t)} + E_2 \sin{(\phi)}\cos{(\omega t + \delta)} |^2>
 \end{equation}
 beschreiben werden. Da sie sich  Dabei beschreibt $\phi$ den Polarisationswinkel, $E_0$ die
 Amplituden der Wellen und $\delta$ eine Phasenverschiebung.
-Für konstruktive bzw destruktive Interferenz gilt:
-\begin{align}
+Für konstruktive bzw. destruktive Interferenz gilt:
+\begin{align*}
 	\delta_{\text{k}}&=2 n \pi , n \in \mathds{N}_0 \\
 	\delta_{\text{d}}&=(2n+1)\pi , n \in \mathds{N} .
-\end{align}
-
+\end{align*}
 Weiterhin gilt $<\cos(\omega t + \delta)>=1/2$ .
+Damit lässt sich die Intensität ausdrücken zu:
+\begin{equation}
+	I \propto I_{\text{Laser}}\left(1\pm 2\cos{(\phi)}\sin{(\phi)}\right)
+\end{equation}
+Wobei die Amplituden über die Amplituden des Lasers $I_{\text{Laser}\propto (E_1+E_2)^2}$
+ausgedrückt werden.
+Daraus kann unter der Verwendung des Additionstheorems $\sin{(2\phi)}=2\cos{(\phi)}\sin{(\phi)}$
+die Gleichung \ref{eq:Kontrast} umgeformt werden:
+\begin{equation}
+	K=\sin{2\phi}
+	\label{eq:Kontrast2}
+\end{equation}
+\subsection{Brechungsindex}
+Ist der Kontrast ausreichend hoch, kann über die Abzählung der Interferenz Maxima der
+Brechungsindex von Proben bestimmt werden.\\
+Die Anzahl der Maxima lässt sich als Funktion des Phasenversatzes ausdrücken.
+\begin{equation}
+	N=\frac{\delta}{2\pi}
+\end{equation}
