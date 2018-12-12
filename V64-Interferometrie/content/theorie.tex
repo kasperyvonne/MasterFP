@@ -40,13 +40,13 @@ Die aufgetrennten Strahlen treffen dann auf Photodioden.
 Ein Qualitätsmaß von Interferometern ist der Kontrast K. Dieser wird durch die maximalen
 und minimalen Intensitäten mit :
 \begin{equation}
-	K= \frac{I_{\text{max}}-I_{\text{min}}}{I_{\text{max}+I_{\text{min}}}}
+	K= \frac{I_{\text{max}}-I_{\text{min}}}{I_{\text{max}}+I_{\text{min}}}
 	\label{eq:Kontrast}
 \end{equation}
 bestimmt. Dabei ist 1 der bestmögliche und 0 der schlechteste Wert. \\
 Die Intensität kann mit
 \begin{equation}
-	I \propto <|E_0 \cos{\phi}\cos{\omega t} + E_0 \sin{\phi}\cos{\omega t + \delta} |^2>
+	I \propto <|E_0 \cos{(\phi)}\cos{(\omega t)} + E_0 \sin{(\phi)}\cos{(\omega t + \delta)} |^2>
 \end{equation}
 beschreiben werden. Da sie sich  Dabei beschreibt $\phi$ den Polarisationswinkel, $E_0$ die
 Amplituden der Wellen und $\delta$ eine Phasenverschiebung.
@@ -56,4 +56,4 @@ Für konstruktive bzw destruktive Interferenz gilt:
 	\delta_{\text{d}}&=(2n+1)\pi , n \in \mathds{N} .
 \end{align}
 
-Weiterhin gilt $<\cos(\omega t \delta)>=1/2$ .
+Weiterhin gilt $<\cos(\omega t + \delta)>=1/2$ .
