@@ -10,8 +10,8 @@ def mittel(x):              #the real mean()-ing of life
     return ufloat(np.mean(x),np.std(x,ddof=1)/np.sqrt(len(x)))
 def relf(l,m):  #in Prozent
     return (np.absolute(l-m)/l)*100
-lambdvac = 632.990 #nano meter
-lengL = ufloat(100,0.1) #milli meter
+lambdvac = 632.990*10**-9 #nano meter
+lengL = ufloat(100,0.1)*10**(-3) #milli meter
 T = 22.8 #celsius
 T+= const.zero_Celsius #kelvin
 ### Kontrast Kram
@@ -30,7 +30,7 @@ x = np.linspace(0, 100, 10**6)
 print(x[fitf(x,*noms(params)) == max(fitf(x,*noms(params)))])
 plt.plot(kw,k, 'xr',label= "Kontrast")
 plt.plot(x,fitf(x,*noms(params)), 'g--', label="Ausgleichskurve")
-plt.xlabel(r'Polarisationswinkel $\theta$')
+plt.xlabel(r'Polarisationswinkel $\theta°$')
 plt.ylabel(r'Kontrast $K$')
 plt.legend(loc='best')
 plt.grid()
@@ -56,15 +56,48 @@ plt.plot(wd, c3,'v',alpha = 0.6 ,label='Messreihe 3')
 plt.plot(wd, c4,'^',alpha = 0.6 ,label='Messreihe 4')
 plt.plot(wd, c5,'<',alpha = 0.6 ,label='Messreihe 5')
 plt.plot(wd, c6,'>',alpha = 0.6 ,label='Messreihe 6')
-plt.xlabel(r'Winkel $\theta$')
+plt.xlabel(r'Winkel $\theta°$')
 plt.ylabel(r'Anzahl der Maxima $M$')
 plt.legend(loc='best')
 plt.grid()
 plt.savefig('Plaettchenplot.pdf')
+plt.clf()
 aes= unp.uarray(noms(aes),stds(aes))
 brechisp = 1/(1-(lambdvac*aes /T))
 np.savetxt('plaettab.txt',np.column_stack([noms(aes),stds(aes),noms(brechisp),stds(brechisp)]), delimiter=' & ',newline= r'\\'+'\n' )
 ### Luft 
+druck, l1,l2,l3,l4 = np.genfromtxt('Luft.txt', unpack = True)
+druck*=100 # mbar zu Pa
+laes = [l1,l2,l3,l4]
+brechis = [ ((l*lambdvac)/lengL) +1 for l in laes] #*10^9
+def lorlorlaw(p,a): #taylored
+	return (1+ a*p)
+bpams=[]
+for b in brechis:
+	params , cov = curve_fit(lorlorlaw , druck ,noms(b))
+	params = correlated_values(params, cov)
+	bpams.append(params)
+llabels = ["Ausgleichskurve %i" % i for i in range(1,5) ]
+d = np.linspace(8000,110000,10**3)
+for a,l in zip(bpams,llabels):
+	plt.plot(d,lorlorlaw(d,noms(a)), label=l)
+l2labels = ["Messreihe %i" % i for i in range(1,5) ]
+for b,l in zip(brechis,l2labels):
+	plt.errorbar(druck,noms(b),yerr = stds(b),fmt='x', label=l)
+plt.xlabel(r'Druck $p /$Pa')
+plt.ylabel(r'Brechungsindex $n$')
+plt.xlim(min(druck)-10**3,max(druck)+10**3)
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+#plt.show()
+plt.savefig('Luftplot.pdf')
+np.savetxt('lufttab.txt',np.column_stack([noms(bpams),stds(bpams)]), delimiter=' & ',newline= r'\\'+'\n' )
+print(np.mean(bpams))
+print((np.mean(bpams)*T*1013*10**2/(15+const.zero_Celsius)) + 1)
+print('relf Lit:', relf((27663.8*10**(-8) +1),(np.mean(bpams)*T*1013*10**2/(15+const.zero_Celsius)) + 1))
+
+
 
 #
 ##Tabelle
