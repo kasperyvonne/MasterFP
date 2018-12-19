@@ -63,7 +63,7 @@ plt.grid()
 plt.savefig('Plaettchenplot.pdf')
 plt.clf()
 aes= unp.uarray(noms(aes),stds(aes))
-brechisp = 1/(1-(lambdvac*aes /T))
+brechisp = 1/(1-(lambdvac*aes /2*T))
 np.savetxt('plaettab.txt',np.column_stack([noms(aes),stds(aes),noms(brechisp),stds(brechisp)]), delimiter=' & ',newline= r'\\'+'\n' )
 ### Luft 
 druck, l1,l2,l3,l4 = np.genfromtxt('Luft.txt', unpack = True)
