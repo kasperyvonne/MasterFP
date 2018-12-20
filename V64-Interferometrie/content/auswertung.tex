@@ -1,9 +1,9 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 \paragraph{Bestimmung des Polarisationswinkels}
-Der im Versuchsaufbau verwedete Polarisationsfilter soll so eingestellt werden, dass maximaler Kontrast 
+Der im Versuchsaufbau verwendete Polarisationsfilter soll so eingestellt werden, dass maximaler Kontrast 
 gewährleistet ist. Dazu wird der Winkel gegen den Kontrast aufgetragen und der Kontrast kann mit nicht-linearer 
-Ausgleichrechnung bestimmt werden (vgl. Gleichung \eqref{eq:Kontrast2}). 
+Ausgleichsrechnung bestimmt werden (vgl. Gleichung \eqref{eq:Kontrast2}). 
 Damit kann dann der Winkel für den größten Kontrast bestimmt werden. Die 
 Prozedur ist in der Abbildung \ref{fig:K} abgebildet. Der Polarisationswinkel mit größt möglichem Kontrast 
 wurde zu $\theta \approx \SI{48}{\degree}$ bestimmt.
@@ -14,22 +14,29 @@ wurde zu $\theta \approx \SI{48}{\degree}$ bestimmt.
   \label{fig:K}
 \end{figure}
 \FloatBarrier
+
 \paragraph{Bestimmung des Brechungsindexes eines Glassplätchens}
-Der Brechungindex in Abhängigkeit von der Anzahl der Interferenzmaxima ist gegeben über
+Der Brechungsindex in Abhängigkeit von der Anzahl der Interferenzmaxima ist gegeben über
 \begin{equation}
-M \approx \frac{2T}{\lambda_{vac}} \frac{n-1}{n} \delta \theta \;,
+M \approx \frac{2d}{\lambda_{vac}} \frac{n-1}{n} \delta \theta \;,
 \label{eq:Mp}
 \end{equation}
-dabei bezeichnet $M$ die Anzahl, $T$ die Temperatur, $\lambda_{vac}$ die Vakuumwellenlänge und 
-$\delta \theta$ die Winkeländerung.
-Nun wird die Anzahl der Interferenzmaxima gegen die Winkeländerung aufgtreagenn und die Gleichung 
+dabei bezeichnet $M$ die Anzahl, $d = \SI{1}{\milli\meter}$ 
+die dicke des Plätchens, $\lambda_{vac}$ die Vakuumwellenlänge und 
+$\delta \theta$ die Winkeländerung. Diese Gleichung ergibt sich aus der Taylorentwicklung der 
+Gleichung \eqref{eq:pM} für kleine Winkel.
+Nun wird die Anzahl der Interferenzmaxima gegen die Winkeländerung aufgetragen und die Gleichung 
 \eqref{eq:Mp} mit 
-\begin{equation}
-M = a \cdot \delta\theta \quad \text{mit} \quad a =M \approx \frac{2T}{\lambda_{vac}} \frac{n-1}{n}
-\label{eq:pfit}
-\end{equation}
-approximiert und über Ausgleichrechnung der Paramter $a$ bestimmt. Das ist in der Abbildung 
+\begin{gather}
+M = a \cdot \delta\theta \quad \text{mit} \quad a =\frac{2d}{\lambda_{vac}} \frac{n-1}{n}
+\label{eq:pfit} \\
+\implies n = \frac{1}{1-\frac{\lambda_{vac} \cdot a}{2d}} 
+\label{eq:pbrech}
+\end{gather}
+approximiert und über Ausgleichsrechnung der Parameter $a$ bestimmt. Das ist in der Abbildung 
 \ref{fig:pfit} dargestellt. Die Daten dazu sind in der Tabelle \ref{tab:ptab} dargestellt.
+Über die Gleichung \eqref{eq:pbrech} lässt sich dann der Brechungsindex bestimmen. Im Mittel 
+ergibt sich ein Brechungsindex von $\bar{n} = \SI{1.000000001068(7)}{}$. 
 \begin{figure}
   \centering
   \includegraphics[height = 10cm]{plots/Plaettchenplot.pdf}
@@ -40,16 +47,74 @@ approximiert und über Ausgleichrechnung der Paramter $a$ bestimmt. Das ist in d
  \centering
  \sisetup{round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = 0}
  % \resizebox{\textwidth}{!}{%
- \begin{tabular}{S@{${}\pm{}$} S}
+ \begin{tabular}{c S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = 0]@{${}\pm{}$} S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = 0] S[round-mode = places , round-precision = 11,scientific-notation=fixed, fixed-exponent = 0]@{${}\pm{}$} S[round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = -11]}
    \toprule
-    $\text{e}_b / \si{\milli\meter}$ &
-    $\text{f}_b / \si{\milli\meter} $\\
+	Messreihe & 
+    \multicolumn{2}{c}{$\text{Parameter} \; a /\si{\kelvin\per\meter}$} &
+    \multicolumn{2}{c}{$\text{Brechungsindex} \; n $} \\
    \midrule
+1 & 3.127272727277367270e+00 & 7.100226983043987639e-02 & 1.000000000989766269e+00 & 2.247186343446885268e-11\\
+2 & 3.336363636497994278e+00 & 4.895604358213975771e-02 & 1.000000001055942445e+00 & 1.549434304625159323e-11\\
+3 & 3.463636363641737326e+00 & 4.406981667204109415e-02 & 1.000000001096223556e+00 & 1.394787665819763111e-11\\
+4 & 3.354545454592445353e+00 & 3.910147859407568649e-02 & 1.000000001061696953e+00 & 1.237542249390987872e-11\\
+5 & 3.300000000005016254e+00 & 4.999999985240487221e-02 & 1.000000001044433651e+00 & 1.582474998634267818e-11\\
+6 & 3.663636363642173155e+00 & 7.619570309656509277e-02 & 1.000000001159522700e+00 & 2.411555910747244125e-11\\
    \bottomrule
  \end{tabular}
  % }
- \caption{Tabellenunterschrift}
+ \caption{Ausgleichsparameter und die daraus berechneten Brechungsindizes im Überblick für jede Messreihe.}
  \label{tab:ptab}
 \end{table}
+\FloatBarrier
 
 \paragraph{Bestimmung des Brechungsindexes von Luft}
+Zur Bestimmung des Brechungsindexes bei Normalbedingungen von Luft wird die Anzahl der Interferenzmaxima 
+in Abhängigkeit vom Druck gemessen. Die Anzahl der Interferenzmaxima wird dann mit der Gleichung 
+\eqref{eq:lM} in einen Brechungsindex überführt. Über das Lorentz-Lorenz-Gesetz kann dann die 
+Abhängigkeit von Druck und Brechungsindex untersucht werden dazu wird die Nährung des Lorentz-Lorenz-Gesetz 
+\eqref{eq:NLL} taylorentwickelt für geringe Druckänderungen. 
+Daraus ergibt sich folgende Gleichung und Abhängigkeit
+\begin{equation}
+n = 1 + \frac{3Ap}{2RT} \quad \rightarrow \quad n = 1+ b \cdot p \; ,
+\label{eq:brechl}
+\end{equation}
+damit kann über Ausgleichsrechnung der Parameter $b$ aus den Messwerten bestimmt werden. 
+Die Prozedur ist in Abbildung \ref{fig:Lplot} dargestellt. 
+Die dazugehörigen Daten sind in der Tabelle \ref{tab:ltab} dargestellt. 
+Daraus ergibt sich dann im Mittel $ \bar{b} = \SI{2.89(3)e-09}{\per\Pa}$. 
+Über 
+\begin{gather}
+b_V =  \frac{3A}{2RT_V} \\
+\frac{T_V}{T_N} \cdot b_V =\frac{3A}{2RT_N} = b_N
+\end{gather}
+kann der Parameter $b_N$ bestimmt werden, dieser ist der Parameter für die Normalbedingungen 
+($T_N = \SI{15}{\celsius}$) dabei bezeichnet $T_V = \SI{22,8}{\celsius}$ die Temperatur bei den die 
+Messwerte aufgenommen wurden. 
+Daraus folgt dann $ \bar{n_{N}} = 1 +  \bar{b_{N}} = \SI{1.000301(3)}{}$
+\begin{figure}
+  \centering
+  \includegraphics[height = 10cm]{plots/Luftplot.pdf}
+  \caption{Brechungsindex von Luft in Abhängigkeit vom Druck.}
+  \label{fig:Lplot}
+\end{figure}
+
+\begin{table}
+ \centering
+ \sisetup{round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = 0}
+ % \resizebox{\textwidth}{!}{%
+ \begin{tabular}{c S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = -9]@{${}\pm{}$} S[round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = -11]}
+   \toprule
+	Messreihe &
+    \multicolumn{2}{c}{$\text{Parameter} \; b / \si{\per\Pa} $}\\
+   \midrule
+1 & 2.904674893101431948e-09 & 5.229946988423010277e-11\\
+2 & 2.627741303894633365e-09 & 1.308661952490000117e-11\\
+3 & 3.323197266598755227e-09 & 8.892689327788041174e-11\\
+4 & 2.740180204395773851e-09 & 2.900229583780956683e-11\\
+   \bottomrule
+ \end{tabular}
+ % }
+ \caption{Parameter aus den Ausgleichsrechnungen aus jeder Messreihe.}
+ \label{tab:ltab}
+\end{table}
+

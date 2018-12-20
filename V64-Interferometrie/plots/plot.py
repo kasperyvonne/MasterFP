@@ -14,6 +14,7 @@ lambdvac = 632.990*10**-9 #nano meter
 lengL = ufloat(100,0.1)*10**(-3) #milli meter
 T = 22.8 #celsius
 T+= const.zero_Celsius #kelvin
+d = 1*10**(-3)
 ### Kontrast Kram
 kw, kmax , kmin = np.genfromtxt('Kontrast.txt',unpack = True) # grad , mV , V
 k = (kmax[::] - kmin[::])/(kmax[::] + kmin[::])
@@ -56,14 +57,15 @@ plt.plot(wd, c3,'v',alpha = 0.6 ,label='Messreihe 3')
 plt.plot(wd, c4,'^',alpha = 0.6 ,label='Messreihe 4')
 plt.plot(wd, c5,'<',alpha = 0.6 ,label='Messreihe 5')
 plt.plot(wd, c6,'>',alpha = 0.6 ,label='Messreihe 6')
-plt.xlabel(r'Winkel $\theta°$')
+plt.xlabel(r'Winkeländerung $\delta\theta°$')
 plt.ylabel(r'Anzahl der Maxima $M$')
 plt.legend(loc='best')
 plt.grid()
 plt.savefig('Plaettchenplot.pdf')
 plt.clf()
 aes= unp.uarray(noms(aes),stds(aes))
-brechisp = 1/(1-(lambdvac*aes /2*T))
+brechisp = 1/(1-(lambdvac*aes /2*d))
+print('Plaettchen Mittelbrech:', np.mean(brechisp))
 np.savetxt('plaettab.txt',np.column_stack([noms(aes),stds(aes),noms(brechisp),stds(brechisp)]), delimiter=' & ',newline= r'\\'+'\n' )
 ### Luft 
 druck, l1,l2,l3,l4 = np.genfromtxt('Luft.txt', unpack = True)
@@ -95,6 +97,7 @@ plt.savefig('Luftplot.pdf')
 np.savetxt('lufttab.txt',np.column_stack([noms(bpams),stds(bpams)]), delimiter=' & ',newline= r'\\'+'\n' )
 print(np.mean(bpams))
 print((np.mean(bpams)*T*1013*10**2/(15+const.zero_Celsius)) + 1)
+print('litW:',(27663.8*10**(-8) +1))
 print('relf Lit:', relf((27663.8*10**(-8) +1),(np.mean(bpams)*T*1013*10**2/(15+const.zero_Celsius)) + 1))
 
 

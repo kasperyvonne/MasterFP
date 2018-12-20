@@ -18,6 +18,7 @@ Gangunterschied über die verschieden langen Laufwege der zwei Lichtstrahlen erz
 beim Sagnac-Interferometer nicht der Fall. Hier wird der Gangunterschied durch die relative
 Polarisationsänderungen der zwei Lichtstrahlen erzeugt.
 \subsection{Das Sagnac-Interferometer}
+\label{sec:SI}
 In Abbildung \ref{fig:Aufbau} ist der Versuchsaufbau schematisch dargestellt. Der
 Lichtstrahl aus dem Helium-Neon-Laser wird über zwei Steuerspiegel zunächst auf einen Polarisationsfilter
 und dann auf einen Polarizing-Beam-Splitter-Cube (PBSC) gelenkt. Der PBSC besteht aus zwei Prismen, welche
@@ -71,7 +72,39 @@ die Gleichung \ref{eq:Kontrast} umgeformt werden:
 \subsection{Brechungsindex}
 Ist der Kontrast ausreichend hoch, kann über die Abzählung der Interferenz Maxima der
 Brechungsindex von Proben bestimmt werden.\\
-Die Anzahl der Maxima lässt sich als Funktion des Phasenversatzes ausdrücken.
+Die Anzahl der Maxima $M$ lässt sich als Funktion des Phasenversatzes $\Delta \phi$ ausdrücken.
 \begin{equation}
-	N=\frac{\delta}{2\pi}
+	M=\frac{\Delta \phi}{2\pi}
+\label{eq:dp}
 \end{equation}
+Nun sollen zwei Fäll betrachtet werden.
+\paragraph{Brechungsindex eines Plättchens}
+Wird der Phasenunterschied der beim durchlaufens eines Plättchens mit Brechungsindex $n$ auftritt betrachtet, 
+wirken dort zwei Effekte. Einmal die Phasenänderung aufgrund des Brechungsindex und einmal die 
+Phasenverschiebung aufgrund von Brechung. Über die Geometrie des Strahlengangs im Plättchen und durch 
+Verwendung des Snelius-Relation und der Gleichung \eqref{eq:dp} ergibt sich
+\begin{equation}
+M \approx \frac{2d}{\lambda_{vac}} \frac{n-1}{n} \theta^2 \; ,
+\label{eq:pM}
+\end{equation}
+dabei bezeichnet $d$ die Dicke des Plättchens, $\lambda_{vac}$ die Vakuumwellenlänge und $\theta$ den 
+Winkel zwischen Plattennormale und dem eintreffenden Strahl \cite{Anleitung}. 
+\paragraph{Brechungsindex eines Gases}
+Der Phasenunterschied der auftritt wenn das Licht ein Gas durchläuft ist nur auf den Brechungsindex des 
+Gases zurück zuführen. Also der Übergang von Vakuum $n_{vac}= 1$ zum Gas mit Brechungsindex $n$. Daraus folgt 
+die Gleichung 
+\begin{equation}
+M = \frac{n-1}{\lambda_{vac}} L \; ,
+\label{eq:lM}
+\end{equation}
+dabei bezeichnet $L$ die Strecke, die das Licht im Gas zurücklegt, also in diesem Aufbau die Länge der Gaszelle 
+\cite{Anleitung}. Ein anderer Weg den Brechungsindex eines Gases zu bestimmen, ist das Lorentz-Lorenz-Gesetz 
+\begin{gather}
+\frac{n^2 -1}{n^2 +2} = \frac{4\pi}{3} N \alpha_m \\
+\text{Nährung:} \quad n \approx \sqrt{1+ \frac{3Ap}{RT}}
+\label{eq:NLL}
+\end{gather}
+dabei bezeichnet $N$ die Teilchenzahl pro Volumen, $\alpha_m$ die molekulare Polarisierbarkeit, $A$ die 
+molare Polarisierbarkeit, $p$ den Druck, $R$ die allgemeine Gaskonstante und $T$ die Temperatur 
+\cite{LLG}. 
+
