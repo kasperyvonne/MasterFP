@@ -23,6 +23,7 @@ def fitf(x,a,b,c):
 	return np.absolute(a*np.sin(b*x*umrechni)+ c)
 #
 #Fit
+np.savetxt('kontrasttab.txt',np.column_stack([kw,noms(k)]), delimiter=' & ',newline= r'\\'+'\n' )
 params , cov = curve_fit(fitf , kw ,k)
 params = correlated_values(params, cov)
 for p in params:
@@ -64,7 +65,7 @@ plt.grid()
 plt.savefig('Plaettchenplot.pdf')
 plt.clf()
 aes= unp.uarray(noms(aes),stds(aes))
-brechisp = 1/(1-(lambdvac*aes /2*d))
+brechisp = 1/(1-(lambdvac*aes /40*d))
 print('Plaettchen Mittelbrech:', np.mean(brechisp))
 np.savetxt('plaettab.txt',np.column_stack([noms(aes),stds(aes),noms(brechisp),stds(brechisp)]), delimiter=' & ',newline= r'\\'+'\n' )
 ### Luft 
@@ -76,7 +77,7 @@ def lorlorlaw(p,a): #taylored
 	return (1+ a*p)
 bpams=[]
 for b in brechis:
-	params , cov = curve_fit(lorlorlaw , druck ,noms(b))
+	params , cov = curve_fit(lorlorlaw , druck ,noms(b)**2)
 	params = correlated_values(params, cov)
 	bpams.append(params)
 llabels = ["Ausgleichskurve %i" % i for i in range(1,5) ]

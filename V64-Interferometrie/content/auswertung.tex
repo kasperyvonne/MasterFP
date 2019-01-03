@@ -4,8 +4,15 @@
 Der im Versuchsaufbau verwendete Polarisationsfilter soll so eingestellt werden, dass maximaler Kontrast 
 gewährleistet ist. Dazu wird der Winkel gegen den Kontrast aufgetragen und der Kontrast kann mit nicht-linearer 
 Ausgleichsrechnung bestimmt werden (vgl. Gleichung \eqref{eq:Kontrast2}). 
+Die Ausgleichsrechnung wurde mit der der Gleichung 
+\begin{equation*}
+K(\theta) = \lvert a \cdot \sin(b \cdot \theta) +c \rvert	
+\end{equation*}
+durchgeführt, daraus ergeben sich die Parameter $a = \SI{0.72(4)}{}$, $b = \SI{1.85(3)}{}$ und 
+$c = \SI{-0.08(3)}{}$.
 Damit kann dann der Winkel für den größten Kontrast bestimmt werden. Die 
-Prozedur ist in der Abbildung \ref{fig:K} abgebildet. Der Polarisationswinkel mit größt möglichem Kontrast 
+Prozedur ist in der Abbildung \ref{fig:K} abgebildet. Die Werte dazu sind in der Tabelle \ref{tab:KP} 
+dargestellt. Der Polarisationswinkel mit größt möglichem Kontrast 
 wurde zu $\theta \approx \SI{48}{\degree}$ bestimmt.
 \begin{figure}
   \centering
@@ -13,22 +20,63 @@ wurde zu $\theta \approx \SI{48}{\degree}$ bestimmt.
   \caption{Kontrast aufgetragen gegen den Polarisationswinkel.}
   \label{fig:K}
 \end{figure}
+\begin{table}
+ \centering
+ \sisetup{round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = 0}
+ % \resizebox{\textwidth}{!}{%
+ \begin{tabular}{S S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = 0]}
+   \toprule
+    $\text{Plarisationswinkel} \; \theta / \si{\degree}$ &
+    $\text{Kontrast} \; K $\\
+   \midrule
+	-5.000000000000000000e+00 & 1.816838995568685056e-01\\
+	0.000000000000000000e+00 & 1.095538425601495225e-01\\
+	5.000000000000000000e+00 & 1.261091691314869256e-01\\
+	1.000000000000000000e+01 & 2.116923076923077351e-01\\
+	1.500000000000000000e+01 & 2.649742823958852189e-01\\
+	2.000000000000000000e+01 & 3.085736862900039790e-01\\
+	2.500000000000000000e+01 & 4.594594594594594850e-01\\
+	3.000000000000000000e+01 & 4.646237043713385417e-01\\
+	3.500000000000000000e+01 & 5.483870967741935054e-01\\
+	4.000000000000000000e+01 & 5.595334960672632141e-01\\
+	4.500000000000000000e+01 & 5.163870967741935880e-01\\
+	5.000000000000000000e+01 & 5.942499420357059137e-01\\
+	5.500000000000000000e+01 & 6.487889273356401976e-01\\
+	6.000000000000000000e+01 & 6.410256410256410797e-01\\
+	6.500000000000000000e+01 & 5.861688431120103404e-01\\
+	7.000000000000000000e+01 & 5.294117647058823595e-01\\
+	7.500000000000000000e+01 & 4.477293508076805040e-01\\
+	8.000000000000000000e+01 & 3.613016001075702865e-01\\
+	8.500000000000000000e+01 & 2.258064516129032195e-01\\
+	9.000000000000000000e+01 & 1.286857142857142644e-01\\
+	9.500000000000000000e+01 & 1.309720842987972811e-01\\
+	1.000000000000000000e+02 & 2.485212838165422322e-01\\
+   \bottomrule
+ \end{tabular}
+ % }
+ \caption{Kontrast in Abhängigkeit vom Polarisationswinkel}
+ \label{tab:KP}
+\end{table}
+
 \FloatBarrier
 
 \paragraph{Bestimmung des Brechungsindexes eines Glassplätchens}
 Der Brechungsindex in Abhängigkeit von der Anzahl der Interferenzmaxima ist gegeben über
 \begin{equation}
-M \approx \frac{2d}{\lambda_{vac}} \frac{n-1}{n} \delta \theta \;,
+M \approx \frac{40d}{\lambda_{vac}} \frac{n-1}{n} \delta \theta \;,
 \label{eq:Mp}
 \end{equation}
-dabei bezeichnet $M$ die Anzahl, $d = \SI{1}{\milli\meter}$ 
-die dicke des Plätchens, $\lambda_{vac}$ die Vakuumwellenlänge und 
-$\delta \theta$ die Winkeländerung. Diese Gleichung ergibt sich aus der Taylorentwicklung der 
-Gleichung \eqref{eq:pM} für kleine Winkel.
+dabei bezeichnet $\delta M$ die Anzahl der Maxima, $d = \SI{1}{\milli\meter}$ 
+die Dicke des Plätchens, $\lambda_{vac}$ die Vakuumwellenlänge des Lasers und 
+$\delta \theta$ die Winkeländerung. Diese Gleichung ergibt sich aus der Entwicklung 
+\begin{equation*}
+\delta M = \left.\frac{\partial M}{\partial \theta} \right\rvert_{\theta = \theta_0 } \delta \theta
+\end{equation*}
+der Gleichung \eqref{eq:pM} für $\theta_0 = \SI{10}{\degree}$.
 Nun wird die Anzahl der Interferenzmaxima gegen die Winkeländerung aufgetragen und die Gleichung 
 \eqref{eq:Mp} mit 
 \begin{gather}
-M = a \cdot \delta\theta \quad \text{mit} \quad a =\frac{2d}{\lambda_{vac}} \frac{n-1}{n}
+M = a \cdot \delta\theta \quad \text{mit} \quad a =\frac{40d}{\lambda_{vac}} \frac{n-1}{n}
 \label{eq:pfit} \\
 \implies n = \frac{1}{1-\frac{\lambda_{vac} \cdot a}{2d}} 
 \label{eq:pbrech}
@@ -50,7 +98,7 @@ ergibt sich ein Brechungsindex von $\bar{n} = \SI{1.000000001068(7)}{}$.
  \begin{tabular}{c S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = 0]@{${}\pm{}$} S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = 0] S[round-mode = places , round-precision = 11,scientific-notation=fixed, fixed-exponent = 0]@{${}\pm{}$} S[round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = -11]}
    \toprule
 	Messreihe & 
-    \multicolumn{2}{c}{$\text{Parameter} \; a /\si{\kelvin\per\meter}$} &
+    \multicolumn{2}{c}{$\text{Parameter} \; a $} &
     \multicolumn{2}{c}{$\text{Brechungsindex} \; n $} \\
    \midrule
 1 & 3.127272727277367270e+00 & 7.100226983043987639e-02 & 1.000000000989766269e+00 & 2.247186343446885268e-11\\
@@ -71,7 +119,7 @@ ergibt sich ein Brechungsindex von $\bar{n} = \SI{1.000000001068(7)}{}$.
 Zur Bestimmung des Brechungsindexes bei Normalbedingungen von Luft wird die Anzahl der Interferenzmaxima 
 in Abhängigkeit vom Druck gemessen. Die Anzahl der Interferenzmaxima wird dann mit der Gleichung 
 \eqref{eq:lM} in einen Brechungsindex überführt. Über das Lorentz-Lorenz-Gesetz kann dann die 
-Abhängigkeit von Druck und Brechungsindex untersucht werden dazu wird die Nährung des Lorentz-Lorenz-Gesetz 
+Abhängigkeit von Druck und Brechungsindex untersucht werden, dazu wird die Nährung des Lorentz-Lorenz-Gesetz 
 \eqref{eq:NLL} taylorentwickelt für geringe Druckänderungen. 
 Daraus ergibt sich folgende Gleichung und Abhängigkeit
 \begin{equation}
