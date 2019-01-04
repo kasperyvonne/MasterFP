@@ -83,8 +83,8 @@ gJ = (3.0023 * (J**2 + J) + 1.0023 * ((S**2 + S)
 #                                  + 3 * gJ / (4 * g1) - 3 / 4)
 #I2 = gJ / (4 * g2) - 1 + unp.sqrt((gJ / (4 * g2) - 1)**2
 #                                  + 3 * gJ / (4 * g2) - 3 / 4)
-I1 = 0.5*(gJ/g1-1)
-I2 = 0.5*(gJ/g2-1)
+I1 = 0.5*((gJ/g1)-1)
+I2 = 0.5*((gJ/g2)-1)
 
 plt.plot(freq, B1*10**6, 'bx', label='Isotop 1')
 plt.plot(x_plot, g(x_plot, *params1)*10**6, 'b-', label='Ausgleichsgerade 1', linewidth=1)
