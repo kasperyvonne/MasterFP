@@ -16,9 +16,10 @@ sodass eine überlagerte Welle entsteht. Wenn zwischen den Wellen ein Gangunters
 $\delta$ existiert treten Interferenzeffekte auf. In einem Michelson-Interferometer wird der
 Gangunterschied über die verschieden langen Laufwege der zwei Lichtstrahlen erzeugt, dies ist
 beim Sagnac-Interferometer nicht der Fall. Hier wird der Gangunterschied durch das einbringen
-einer Probe erzeugt. Die Strahlenarm der durch die Probe geht interferiert mit dem Referenzarm,
+einer Probe erzeugt, da dadurch die Phase des durchlaufenden Lichtstrahls geändert wird.
+Der Strahlenarm der durch die Probe geht interferiert mit dem Referenzarm,
 der nicht durch die Probe läuft. Der Gangunterschied beider Strahlenarme wird durch die
-unterschiedlichen Brechungsindizes herforgerufen.
+unterschiedlichen Brechungsindizes von Probe und dem umgebenden Medium hervorgerufen.
 \subsection{Das Sagnac-Interferometer}
 \label{sec:SI}
 In Abbildung \ref{fig:Aufbau} ist der Versuchsaufbau schematisch dargestellt. Der
@@ -27,12 +28,15 @@ und dann auf einen Polarizing-Beam-Splitter-Cube (PBSC) gelenkt. Der PBSC besteh
 an der Hypotenuse zusammengeklebt sind. Der Lichtstrahl wird ohne nennenswerten Intensitätsverlust
 in dem PBSC in zwei Strahlen geteilt,
 welche sowohl in der Ausbreitungsrichtung als auch in der Polarisation senkrecht zu einander stehen. Die
-so erzeugten Strahlen durchlaufen nun das selbe Rechteck aus Spiegeln, jedoch in unterschiedlicher Richtung.
-Sie treffen sich am selben PBSC wie zu Trennung und interferieren dort.\\
-Befindet sich eine Probe im Lichtstrahl tritt konstruktive Interferenz auf und die Anzahl der Maxima
-kann genutzt werden um den Brechungsindex der Probe zu untersuchen.\\
-Die Vermessung der Maxima geschieht durch einen weiteren Durchgang durch einen zweiten PBSC.
-Die aufgetrennten Strahlen treffen dann auf Photodioden.
+so erzeugten Strahlen durchlaufen nun dasselbe Rechteck aus Spiegeln, jedoch in unterschiedlicher Richtung.
+Sie treffen sich am selben PBSC wie zu Trennung. Dort tritt noch keine Interferenz auf,
+da die beiden Strahlen senkrecht zueinander polarisiert sind.\\
+% Befindet sich eine Probe im Lichtstrahl kannkonstruktive Interferenz auf und die Anzahl der Maxima
+% kann genutzt werden um den Brechungsindex der Probe zu untersuchen.\\
+Die Strahlen werden auf einen weiteren PBSC geleitet. Hier treten Interferenzeffekte auf, da
+die Polarisationsebene nun gleich ist. Die Vermessung der Maxima geschieht durch Photodioden.
+Der Kontrast wird mit einer einzelnen Photodiode gemessen. Für die Ermittlung der Brechungsindizes werden
+zwei Dioden genutzt, indem die Differenzspannung zwischen diesen ausgewertet wird.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{pics/Aufbau.png}
@@ -47,11 +51,11 @@ und minimalen Intensitäten mit :
 	\label{eq:Kontrast}
 \end{equation}
 bestimmt. Dabei ist 1 der bestmögliche und 0 der schlechteste Wert. \\
-Die Intensität kann mit
+Die gemeinsame Intensität der gegenläufigen Strahlen kann mit
 \begin{equation}
 	I \propto <|E_1 \cos{(\phi)}\cos{(\omega t)} + E_2 \sin{(\phi)}\cos{(\omega t + \delta)} |^2>
 \end{equation}
-beschreiben werden. Da sie sich  Dabei beschreibt $\phi$ den Polarisationswinkel, $E_0$ die
+beschreiben werden. Da sie sich dabei beschreibt $\phi$ den Polarisationswinkel, $E_i$ die
 Amplituden der Wellen und $\delta$ eine Phasenverschiebung.
 Für konstruktive bzw. destruktive Interferenz gilt:
 \begin{align*}
@@ -63,9 +67,9 @@ Damit lässt sich die Intensität ausdrücken zu:
 \begin{equation}
 	I \propto I_{\text{Laser}}\left(1\pm 2\cos{(\phi)}\sin{(\phi)}\right)
 \end{equation}
-Wobei die Amplituden über die Amplituden des Lasers $I_{\text{Laser}\propto (E_1+E_2)^2}$
+Wobei die Amplituden über die Amplituden des Lasers $I_{\text{Laser}}\propto (E_1+E_2)^2$
 ausgedrückt werden.
-Daraus kann unter der Verwendung des Additionstheorems $\sin{(2\phi)}=2\cos{(\phi)}\sin{(\phi)}$
+Daraus kann unter der Verwendung des der Identität $\sin{(2\phi)}=2\cos{(\phi)}\sin{(\phi)}$
 die Gleichung \ref{eq:Kontrast} umgeformt werden:
 \begin{equation}
 	K=\sin{2\phi}
@@ -79,9 +83,9 @@ Die Anzahl der Maxima $M$ lässt sich als Funktion des Phasenversatzes $\Delta \
 	M=\frac{\Delta \phi}{2\pi}
 \label{eq:dp}
 \end{equation}
-Nun sollen zwei Fäll betrachtet werden.
+Nun sollen zwei Fälle betrachtet werden.
 \paragraph{Brechungsindex eines Plättchens}
-Wird der Phasenunterschied der beim durchlaufens eines Plättchens mit Brechungsindex $n$ auftritt betrachtet,
+Wird der Phasenunterschied der beim Durchlaufen eines Plättchens mit Brechungsindex $n$ auftritt betrachtet,
 wirken dort zwei Effekte. Einmal die Phasenänderung aufgrund des Brechungsindex und einmal die
 Phasenverschiebung aufgrund von Brechung. Über die Geometrie des Strahlengangs im Plättchen und durch
 Verwendung des Snelius-Relation und der Gleichung \eqref{eq:dp} ergibt sich
@@ -89,7 +93,7 @@ Verwendung des Snelius-Relation und der Gleichung \eqref{eq:dp} ergibt sich
 M \approx \frac{2d}{\lambda_{vac}} \frac{n-1}{n} \theta^2 \; ,
 \label{eq:pM}
 \end{equation}
-dabei bezeichnet $d$ die Dicke des Plättchens, $\lambda_{vac}$ die Vakuumwellenlänge und $\theta$ den
+dabei bezeichnet $d$ die Dicke des Plättchens, $\lambda_{vac}$ die Vakuumwellenlänge des Lasers und $\theta$ den
 Winkel zwischen Plattennormale und dem eintreffenden Strahl \cite{Anleitung}.
 \paragraph{Brechungsindex eines Gases}
 Der Phasenunterschied der auftritt wenn das Licht ein Gas durchläuft ist nur auf den Brechungsindex des
@@ -106,6 +110,6 @@ dabei bezeichnet $L$ die Strecke, die das Licht im Gas zurücklegt, also in dies
 \text{Nährung:} \quad n \approx \sqrt{1+ \frac{3Ap}{RT}}
 \label{eq:NLL}
 \end{gather}
-dabei bezeichnet $N$ die Teilchenzahl pro Volumen, $\alpha_m$ die molekulare Polarisierbarkeit, $A$ die
-molare Polarisierbarkeit, $p$ den Druck, $R$ die allgemeine Gaskonstante und $T$ die Temperatur
+dabei bezeichnet $N$ die Teilchenzahl pro Volumen, $\alpha_m$ die molekulare Polarisierbarkeit, $A$ der
+molare Brechungsindex, $p$ den Druck, $R$ die allgemeine Gaskonstante und $T$ die Temperatur
 \cite{LLG}.
