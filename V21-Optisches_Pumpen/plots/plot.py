@@ -16,8 +16,8 @@ def relf(l, m):  # in Prozent
     return (np.absolute(l-m)/l)*100
 
 
-def Helmhotz(R, N, I):
-    return ((const.mu_0*8*I*N)/(np.sqrt(125)*R))
+def Helmhotz(N, I, R):
+    return ((const.mu_0*(8*N*I))/(np.sqrt(125)*R))
 
 
 def g(x, m, b):
@@ -30,7 +30,7 @@ def h(x, a, b, c):
 
 bohr = const.value('Bohr magneton')
 freq, sweep1, sweep2, hori1, hori2 = np.genfromtxt('Aufgabenteil_c.txt',
-                                                   unpack='True')
+                                               unpack='True')
 Vpp1, Peaks1, delT1 = np.genfromtxt('Aufgabenteil_i1.txt', unpack='True')
 Vpp2, Peaks2, delT2 = np.genfromtxt('Aufgabentei_i2.txt', unpack='True')
 
@@ -41,6 +41,7 @@ sweep2 = 0.1*sweep2
 hori1 = 0.03*hori1
 hori2 = 0.03*hori2
 
+#print(sweep1, sweep2, hori1, hori2)
 Nhori = 154
 Rhori = 0.1579  # m
 
@@ -50,20 +51,27 @@ Rsweep = 0.1639  # m
 Nverti = 20
 Rverti = 0.11735
 
-Bsweep1 = Helmhotz(Rsweep, Nsweep, sweep1)
-Bsweep2 = Helmhotz(Rsweep, Nsweep, sweep2)
-Bhori1 = Helmhotz(Rsweep, Nsweep, hori1)
-Bhori2 = Helmhotz(Rsweep, Nsweep, hori2)
+Bsweep1 = Helmhotz(Nsweep, sweep1, Rsweep)
+Bsweep2 = Helmhotz(Nsweep, sweep2, Rsweep)
+Bhori1 = Helmhotz(Nhori, hori1, Rhori)
+Bhori2 = Helmhotz(Nhori, hori2, Rhori)
+# print(Bsweep1*10**6)
+# print(Bsweep2*10**6)
+# print(Bhori1*10**6)
+# print(Bhori2*10**6)
 
 B1 = (Bsweep1 + Bhori1)
 B2 = (Bsweep2 + Bhori2)
+
+# print(B1)
+# print(B2)
 B2fit = B2[0:]
 freqfit = freq[0:]
 x_plot = np.linspace(-100, 1050)
 params1, covariance1 = curve_fit(g, freq, B1)
 errors1 = np.sqrt(np.diag(covariance1))
 
-params2, covariance2 = curve_fit(g, freqfit, B2fit)
+params2, covariance2 = curve_fit(g, freq, B2)
 errors2 = np.sqrt(np.diag(covariance2))
 
 m1 = ufloat(params1[0], errors1[0])
@@ -169,6 +177,9 @@ print((I1-1.5)/1.5)
 print((I2-2.5)/2.5)
 print((ufloat(0.47,0.01)-ufloat(0.368, 0))/ufloat(0.368, 0))
 print((ufloat(1.2,0.3)-ufloat(1.5, 0))/ufloat(1.5, 0))
+
+
+
 # Fit
 # params , cov = curve_fit(f , x ,y )
 # params = correlated_values(params, cov)

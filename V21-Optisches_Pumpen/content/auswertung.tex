@@ -20,8 +20,85 @@ ergibt sich mit der magnetischen Feldkonstante $\mu_{0}$, der Windungszahl $N$ d
 dem Radius $R$, dem Strom $I$ und der Helmhotzgleichung
 \begin{equation}
   B=\mu_{0}\frac{8 N }{\sqrt{125} R}I
+  \label{eq:Helmholz}
 \end{equation} eine Feldstärke von $B_{\text{vertikal}}=35,40\,\mu$T.
+
 \subsection{Bestimmung der Landéschen $\text{g}_{\text{F}}$ Faktoren}
+Die Einstellungen der Potentiometer sind in Tabelle \ref{tab:Potentiometer} aufgeführt.
+\begin{table}[H]
+    \centering
+    \caption{Auflistung der Potentiometer Werte. Umdrehung 1 bezeichnet dabei die eingestellte Umdrehungszahl der Sweep-Spule für die
+    erste Resonanzstelle, Umdrehung 2 die der zweiten und H1 und H2 die Werte des Horizontalfeldes.}
+    \label{tab:Potentiometer}
+    \begin{tabular}{c|c|c|c|c}
+        \toprule
+        $f$ in kHz & Umdrehung 1 & Umdrehung 2 & H1 & H2  \\
+        \midrule
+        100& 5,80 &6,85& 0 & 0 \\
+        200& 2,38 &4,78& 0,6& 0,6\\
+        300& 1,38 &5,40& 11 &11\\
+        400& 3,50 &8,06& 12 &12\\
+        500& 2,95 &8,85& 20 &20\\
+        600& 0,76 &7,86& 30 &30\\
+        700& 0,51 &8,75& 36 &36\\
+        800& 1,33 &2,80& 40 &58\\
+        900& 1,30  &4,9 &42 &62\\
+        1000& 3,80 &5,89& 49& 68\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Die Potentiometerumdrehungen werden mit dem Faktor 0,1A für die Sweep Spulen und
+0,03A für die Horizontalspulen in die Stromstärke umgerechnet. Die so berechneten Werte sind in
+\ref{tab:Umrechnung} aufgeführt.
+\begin{table}[H]
+    \centering
+    \caption{Auflistung der Stromstärken. $I_{S1}$ bezeichnet dabei die Stromstärke der
+    ersten Resonanzstelle, $I_{S2}$ die der zweiten und $I_{H1}$ und $I_{H2}$ die Werte für das Horizontalfeld.}
+    \label{tab:Umrechnung}
+    \begin{tabular}{c|c|c|c|c}
+        \toprule
+        $f$ in kHz & $I_1$in A & $I_2$ in A & $I_{H1}$ in A  & $I_{H2}$ in A   \\
+        \midrule
+        100& 0,580 &0,685& 0 & 0 \\
+        200& 0,238 &0,478& 0,018& 0,018\\
+        300& 0,138 &0,540& 0,33 &0,33\\
+        400& 0,350 &0,806& 0,36 &0,36\\
+        500& 0,295 &0,885& 0,6 &0,6\\
+        600& 0,076 &0,786& 0,9 &0,9\\
+        700& 0,051 &0,875& 1,08 &1,08\\
+        800& 0,130 &0,280& 1,2 &1,74\\
+        900& 0,130  &0,49 &1,26 &1,86\\
+        1000& 0,380 &0,589& 1,47& 2,04\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Daraus lässt sich mit Formel \ref{eq:Helmholz} die Magnetfeldstärke bestimmen.
+Dabei sind die Radien der Spulen $R_{S}=11$ und $R_H=154$Die
+so gewonnenen Werte sind in Tabelle \ref{tab:Magnetwerte} aufgeführt.
+\begin{table}[H]
+    \centering
+    \caption{Auflistung der Magnetfeldstärken. $B_1$ bezeichnet dabei die Stromstärke der
+    ersten Resonanzstelle, $B_2$ die der zweiten und $B_{H1}$ und $B_{H2}$ die Werte für das Horizontalfeld.}
+    \label{tab:Magnetwerte}
+    \begin{tabular}{c|c|c|c|c}
+        \toprule
+        $f$ in kHz & $B_1$ in T & $B_2$ in T& $B_{H1}$ in T& $B_{H2}$ in T \\
+        \midrule
+        100& 35,00 & 41,34& 0 & 0 \\
+        200& 14,36 &28,85& 1,09& 1,09\\
+        300& 8,33 &32,59& 19,91&19,91\\
+        400& 21,12 &48,64& 21,73&21,73\\
+        500& 17,80 &53,41&  36,21& 36,21\\
+        600& 4,59 &47,43& 54,31 &54,31\\
+        700& 3,08 &52,80& 65,18 &65,18 \\
+        800& 8,03 &16,90& 72,42 & 105,00\\
+        900& 7,84  &29,57 & 76,04&112,25\\
+        1000& 22,94 &35,54& 88,71& 123,11\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Die Magnetfeldstärken $B_1$ und $B_{H1}$ sowie $B_2$ und $B_{H2}$ werden zu den Gesamtfeldstärken
+$B_1$ und $B_2$ addiert.
 Zwischen der Magnetfeldstärke $B$ und der Frequenz $f$ an den Resonanzstellen besteht der Zusammenhang
 \begin{equation}
   B=\frac{\text{h}f}{\mu_{\text{B}} \text{g}_{\text{F}}} .
