@@ -35,9 +35,9 @@ Die Einstellungen der Potentiometer sind in Tabelle \ref{tab:Potentiometer} aufg
         $f$ in kHz & Umdrehung 1 & Umdrehung 2 & H1 & H2  \\
         \midrule
         100& 5,80 &6,85& 0 & 0 \\
-        200& 2,38 &4,78& 0,6& 0,6\\
+        200& 2,38 &4,78& 6& 6\\
         300& 1,38 &5,40& 11 &11\\
-        400& 3,50 &8,06& 12 &12\\
+        400& 3,50 &8,06& 1,2 &12\\
         500& 2,95 &8,85& 20 &20\\
         600& 0,76 &7,86& 30 &30\\
         700& 0,51 &8,75& 36 &36\\
@@ -48,7 +48,9 @@ Die Einstellungen der Potentiometer sind in Tabelle \ref{tab:Potentiometer} aufg
     \end{tabular}
 \end{table}
 Die Potentiometerumdrehungen werden mit dem Faktor 0,1A für die Sweep Spulen und
-0,03A für die Horizontalspulen in die Stromstärke umgerechnet. Die so berechneten Werte sind in
+0,03A für die Horizontalspulen in die Stromstärke umgerechnet. Dabei wurden die Werte des Horizontalfeldes
+noch mit dem Faktor $0,1$ skaliert, da wir vermuten einen Verstärkungfaktor eingestellt zu haben,
+welchen wir nicht mehr nachvollziehen können. Die so berechneten Werte sind in
 \ref{tab:Umrechnung} aufgeführt.
 \begin{table}[H]
     \centering
@@ -57,47 +59,30 @@ Die Potentiometerumdrehungen werden mit dem Faktor 0,1A für die Sweep Spulen un
     \label{tab:Umrechnung}
     \begin{tabular}{c|c|c|c|c}
         \toprule
-        $f$ in kHz & $I_1$in A & $I_2$ in A & $I_{H1}$ in A  & $I_{H2}$ in A   \\
+        $f$ in kHz & $I_{S1}$in A & $I_{S2}$ in A & $I_{H1}$ in A  & $I_{H2}$ in A   \\
         \midrule
-        100& 0,580 &0,685& 0 & 0 \\
-        200& 0,238 &0,478& 0,018& 0,018\\
-        300& 0,138 &0,540& 0,33 &0,33\\
-        400& 0,350 &0,806& 0,36 &0,36\\
-        500& 0,295 &0,885& 0,6 &0,6\\
-        600& 0,076 &0,786& 0,9 &0,9\\
-        700& 0,051 &0,875& 1,08 &1,08\\
-        800& 0,130 &0,280& 1,2 &1,74\\
-        900& 0,130  &0,49 &1,26 &1,86\\
-        1000& 0,380 &0,589& 1,47& 2,04\\
+        \input{../plots/TabellenStrom.tex}
         \bottomrule
     \end{tabular}
 \end{table}
 Daraus lässt sich mit Formel \ref{eq:Helmholz} die Magnetfeldstärke bestimmen.
-Dabei sind die Radien der Spulen $R_{S}=11$ und $R_H=154$Die
+Dabei sind die Radien der Spulen $R_{S}=16,39$\,cm und $R_H=15cm79$\,cm.
+Die Wicklungszahlen sind:$N_{S}=11$ und $N_H=154$. Die
 so gewonnenen Werte sind in Tabelle \ref{tab:Magnetwerte} aufgeführt.
 \begin{table}[H]
     \centering
-    \caption{Auflistung der Magnetfeldstärken. $B_1$ bezeichnet dabei die Stromstärke der
-    ersten Resonanzstelle, $B_2$ die der zweiten und $B_{H1}$ und $B_{H2}$ die Werte für das Horizontalfeld.}
+    \caption{Auflistung der Magnetfeldstärken. $B_{S1}$ bezeichnet dabei die Magnetfeldstärke der
+    ersten Resonanzstelle, $B_{S2}$ die der zweiten und $B_{H1}$ und $B_{H2}$ die Werte für das Horizontalfeld.}
     \label{tab:Magnetwerte}
     \begin{tabular}{c|c|c|c|c}
         \toprule
-        $f$ in kHz & $B_1$ in T & $B_2$ in T& $B_{H1}$ in T& $B_{H2}$ in T \\
+        $f$ in kHz & $B_{S1}$ in $\mu$T & $B_{S2}$ in $\mu$T& $B_{H1}$ in $\mu$T& $B_{H2}$ in $\mu$T\\
         \midrule
-        100& 35,00 & 41,34& 0 & 0 \\
-        200& 14,36 &28,85& 1,09& 1,09\\
-        300& 8,33 &32,59& 19,91&19,91\\
-        400& 21,12 &48,64& 21,73&21,73\\
-        500& 17,80 &53,41&  36,21& 36,21\\
-        600& 4,59 &47,43& 54,31 &54,31\\
-        700& 3,08 &52,80& 65,18 &65,18 \\
-        800& 8,03 &16,90& 72,42 & 105,00\\
-        900& 7,84  &29,57 & 76,04&112,25\\
-        1000& 22,94 &35,54& 88,71& 123,11\\
+        \input{../plots/TabellenMagnet.tex}
         \bottomrule
     \end{tabular}
 \end{table}
-Die Magnetfeldstärken $B_1$ und $B_{H1}$ sowie $B_2$ und $B_{H2}$ werden zu den Gesamtfeldstärken
+Die Magnetfeldstärken $B_{S1}$ und $B_{H1}$ sowie $B_{S2}$ und $B_{H2}$ werden zu den Gesamtfeldstärken
 $B_1$ und $B_2$ addiert.
 Zwischen der Magnetfeldstärke $B$ und der Frequenz $f$ an den Resonanzstellen besteht der Zusammenhang
 \begin{equation}
@@ -106,14 +91,14 @@ Zwischen der Magnetfeldstärke $B$ und der Frequenz $f$ an den Resonanzstellen b
 Dieser Zusammenhang ist in \ref{fig:BFelder} aufgeführt. Es wurde eine Gerade der
 Form $y=m\cdot x+b$ an die Messwerte der beiden Isotope gefittet. Die Fitparameter sind dabei
 \begin{align*}
-  m_1&=(0,09 \pm 0,01)\,\frac{\mu\text{T}}{\text{kHz}} \\
-  b_1&=(7 \pm 6)\,\mu\text{T}\\
-  m_2&=(0,142 \pm 0,008)\,\frac{\mu\text{T}}{\text{kHz}} \\
+  m_1&=(12,9 \pm 0,8)\,\frac{\mu\text{T}}{\text{kHz}} \\
+  b_1&=(7 \pm 5)\,\mu\text{T}\\
+  m_2&=(20,3 \pm 0,78)\,\frac{\mu\text{T}}{\text{kHz}} \\
   b_2&=(15 \pm 5)\,\mu\text{T}
 \end{align*}
 \begin{figure}
   \centering
-  \includegraphics{plots/BFelder.pdf}
+  \includegraphics{plots/neuBFelder.pdf}
   \caption{Die Stärke des Magnetfeldes gegen die Resonanzfrequenzen für die beiden Isotope
   aufgetragen.}
   \label{fig:BFelder}
@@ -126,13 +111,13 @@ bestimmen, wobei das Verhältnis von Magnetfeld uns Frequenz durch die
 Steigung $m=B/f$ aus dem Fit von \ref{fig:BFelder} ausgedrückt werden kann.\\
 Damit lassen sich die Landéschen $\text{g}_{\text{F}}$ Faktoren zu:
 \begin{align*}
-  \text{g}_{\text{F,1}}&=0,78 \pm 0,09 \\
-  \text{g}_{\text{F,2}}&= 0,50 \pm 0,03
+  \text{g}_{\text{F,1}}&= 0,55 \pm 0,04 \\
+  \text{g}_{\text{F,2}}&= 0,35 \pm 0,02
 \end{align*}
 berechnen.\\
 Das Verhältnis der beiden Faktoren ist
 \begin{equation}
-  \frac{\text{g}_{\text{F,1}}}{  \text{g}_{\text{F,2}}}= 1,6 \pm 0,2.
+  \frac{\text{g}_{\text{F,1}}}{  \text{g}_{\text{F,2}}}= 1,6 \pm 0,1.
 \end{equation}
 Um den Kernspin der Rubidium Isoptope zu berechnen werden die Quantenzahlen $L$,
 $S$ und $J$ benötigt.
@@ -150,15 +135,11 @@ Desweiternen ergibt sich aus den Werten für $L,S$und $J$ $g_J = 2.0023$. Die Fo
 \end{equation}.
 Daraus ergeben sich die Werte für den Kernspin der Isotope zu:
 \begin{align*}
-  I_1& = 0,8 \pm 0,2\\
-  I_2&= 1,5 \pm 0,1
+  I_1& = 1,31 \pm 0,11\\
+  I_2&= 2,35 \pm 0,10
 \end{align*}
-Ausgehend davon, dass die Messung für $I_2$ innerhalb des Fehlerintervalls zu
-dem Literaturwert von $\symup{^{87}Rb}$ passt, ließe sich vermuten, das es sich um dieses
-Isotop handelt.
 Die Literaturwerte für $\symup{^{85}Rb}$ ist $I=\frac{5}{2}$ und für $\symup{^{87}Rb}$ $I=\frac{3}{2}$.
-Da beide Isotope vorkommen, wird vermutet, dass das Isotop mit dem geringeren Wert, also
-$I_1$ $\symup{^{87}Rb}$ ist und das $I_2$ dementsprechend $\symup{^{87}Rb}$.
+Dementsprechend ist das Isotop $I_1$ mit $\symup{^{87}Rb}$ zu identifizieren und $I_2$ dementsprechend $\symup{^{87}Rb}$.
 \subsection{Bestimmung des Isotopenverhältnisses}
 Aus dem Verhältnis der Amplituden der Resonanzstellen lässt sich auf das Isotopenverhältnis schließen.
 In Abbildung \ref{fig:Ampli} sind die ausgemessenen Resonanzen bei $100\,$kHz dargestellt.
@@ -191,12 +172,12 @@ $\symup{^{85}Rb}$ und $\symup{M_F} = 2$ für $\symup{^{85}Rb}$.
 Diese Werte ergeben sich aus dem Kernspin und dem Spin der Elektronenhüllen.\\
 Damit ergibt sich für $\symup{^{85}Rb}$
 \begin{equation}
-  U_{\text{HF,85}}=(7,4\pm0,4)10^{-28},
+  U_{\text{HF,85}}=(4,4\pm0,2)10^{-9}\,\text{eV},
 \end{equation}
 und für
 $\symup{^{87}Rb}$
 \begin{equation}
-  U_{\text{HF,87}}=(8,1 \pm 0,9)10^{-28} .
+  U_{\text{HF,87}}=(4,6 \pm 0,3)10^{-9}\, \text{eV}.
 \end{equation}
 \subsection{Untersuchung der transienten Effekte}
 Ein typisches Siganlbild dieser Messung ist in Abbildung \ref{fig:trans} zu finden.

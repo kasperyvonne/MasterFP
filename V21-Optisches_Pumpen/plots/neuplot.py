@@ -37,6 +37,16 @@ R_Horizontal = 15.79*10**(-2)
 N_Vertical = 20
 R_Vertical = 11.735*10**(-2)
 
+np.savetxt("TabellenStrom.tex",
+           np.column_stack([
+                           freq/1000,
+                           Isweep1,
+                           Isweep2,
+                           Ihori1,
+                           Ihori2
+                           ]), delimiter=' & ', newline=r' \\' + '\n',
+           fmt='%.0f & %.2f & %.2f & %.2f & %.2f')
+
 B1_Sweep = Magnetfeld(Isweep1, N_Sweep, R_Sweep)
 B1_Horizontal = Magnetfeld(Ihori1, N_Horizontal, R_Horizontal)
 B1 = (B1_Sweep + B1_Horizontal)
@@ -45,6 +55,15 @@ B2_Sweep = Magnetfeld(Isweep2, N_Sweep, R_Sweep)
 B2_Horizontal = Magnetfeld(Ihori2, N_Horizontal, R_Horizontal)
 B2 = (B2_Sweep + B2_Horizontal)
 
+np.savetxt("TabellenMagnet.tex",
+           np.column_stack([
+                           freq/1000,
+                           B1_Sweep*10**(6),
+                           B2_Sweep*10**(6),
+                           B1_Horizontal*10**(6),
+                           B2_Horizontal*10**(6)
+                           ]), delimiter=' & ', newline=r' \\' + '\n',
+           fmt='%.0f &%.2f & %.2f & %.2f & %.2f')
 paramsB1, covB1 = curve_fit(linear, freq, B1)
 errorsB1 = np.sqrt(np.diag(covB1))
 mB1 = ufloat(paramsB1[0], errorsB1[0])
@@ -67,8 +86,8 @@ print('')
 
 print('---------------------------------------------------------------------')
 print('Horizontalkomponenten')
-print('Steigung 1: ', mB1)
-print('Steigung 2: ', mB2)
+print('Steigung 1: ', mB1*1000)
+print('Steigung 2: ', mB2*1000)
 print('Horizontalkomponente 1: ', bB1)
 print('Horizontalkomponente 2: ', bB2)
 print('')
@@ -78,10 +97,10 @@ S = 0.5
 L = 0
 gJ = (3.0023 * (J**2 + J) + 1.0023 * ((S**2 + S)
       - (L**2 + L))) / (2 * (J**2 + J))
-# I1 = gJ / (4 * g1) - 1 + unp.sqrt((gJ / (4 * g1) - 1)**2
+#I1 = gJ / (4 * g1) - 1 + unp.sqrt((gJ / (4 * g1) - 1)**2
 #                                   + 3 * gJ / (4 * g1) - 3 / 4)
-# I2 = gJ / (4 * g2) - 1 + unp.sqrt((gJ / (4 * g2) - 1)**2
-# + 3 * gJ / (4 * g2) - 3 / 4)
+#I2 = gJ / (4 * g2) - 1 + unp.sqrt((gJ / (4 * g2) - 1)**2
+#                                    + 3 * gJ / (4 * g2) - 3 / 4)
 
 I1 = 0.5*((gJ/g1)-1)
 I2 = 0.5*((gJ/g2)-1)
@@ -102,14 +121,16 @@ print('Maximales BFeld1: ', np.round(np.max(B1)*10**6, 2))
 print('Maximales BFeld2: ', np.round(np.max(B2)*10**6, 2))
 print('Quadratische Zeeman-Aufspaltung 1 in eV: ', U1/constants.e)
 print('Quadratische Zeeman-Aufspaltung 2 in eV: ', U2/constants.e)
-
+print('fickdichdu---------------')
+print((I1-1.5)/1.5)
+print((I2-2.5)/2.5)
 x_plot = np.linspace(-100, 1050000)
 plt.plot(freq, B1*10**6, 'bx', label='Isotop 1')
 plt.plot(x_plot, linear(x_plot, *paramsB1)*10**6, 'b-', label='Ausgleichsgerade 1', linewidth=1)
 plt.plot(freq, B2*10**6, 'rx', label='Isotop 2')
 plt.plot(x_plot, linear(x_plot, *paramsB2)*10**6, 'r-', label='Ausgleichsgerade 2', linewidth=1)
 plt.xlim(0, 1050000)
-plt.xlabel(r'$f \:/\: $kHz')
+plt.xlabel(r'$f \:/\: $Hz')
 plt.ylabel(r'$B \:/\: \mu}$T')
 plt.legend(loc='best')
 plt.savefig('neuBFelder.pdf')
