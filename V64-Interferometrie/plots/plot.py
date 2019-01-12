@@ -58,14 +58,14 @@ plt.plot(wd, c3,'v',alpha = 0.6 ,label='Messreihe 3')
 plt.plot(wd, c4,'^',alpha = 0.6 ,label='Messreihe 4')
 plt.plot(wd, c5,'<',alpha = 0.6 ,label='Messreihe 5')
 plt.plot(wd, c6,'>',alpha = 0.6 ,label='Messreihe 6')
-plt.xlabel(r'Winkeländerung $\delta\theta°$')
+plt.xlabel(r'Winkeländerung $\delta\theta$')
 plt.ylabel(r'Anzahl der Maxima $M$')
 plt.legend(loc='best')
 plt.grid()
 plt.savefig('Plaettchenplot.pdf')
 plt.clf()
 aes= unp.uarray(noms(aes),stds(aes))
-brechisp = 1/(1-(lambdvac*aes /40*d))
+brechisp = 1/(1-(lambdvac*aes /20*d))
 print('Plaettchen Mittelbrech:', np.mean(brechisp))
 np.savetxt('plaettab.txt',np.column_stack([noms(aes),stds(aes),noms(brechisp),stds(brechisp)]), delimiter=' & ',newline= r'\\'+'\n' )
 ### Luft 
@@ -86,9 +86,9 @@ for a,l in zip(bpams,llabels):
 	plt.plot(d,lorlorlaw(d,noms(a)), label=l)
 l2labels = ["Messreihe %i" % i for i in range(1,5) ]
 for b,l in zip(brechis,l2labels):
-	plt.errorbar(druck,noms(b),yerr = stds(b),fmt='x', label=l)
+	plt.errorbar(druck,noms(b)**2,yerr = stds(b),fmt='x', label=l)
 plt.xlabel(r'Druck $p /$Pa')
-plt.ylabel(r'Brechungsindex $n$')
+plt.ylabel(r'Brechungsindex $n^2$')
 plt.xlim(min(druck)-10**3,max(druck)+10**3)
 plt.legend(loc='best')
 plt.grid()
@@ -99,7 +99,8 @@ np.savetxt('lufttab.txt',np.column_stack([noms(bpams),stds(bpams)]), delimiter='
 print(np.mean(bpams))
 print((np.mean(bpams)*T*1013*10**2/(15+const.zero_Celsius)) + 1)
 print('litW:',(27663.8*10**(-8) +1))
-print('relf Lit:', relf((27663.8*10**(-8) +1),(np.mean(bpams)*T*1013*10**2/(15+const.zero_Celsius)) + 1))
+print('relf Lit Luft:', relf((27663.8*10**(-8) +1),(np.mean(bpams)*T*1013*10**2/(15+const.zero_Celsius)) + 1))
+print('relf Lit Plaettchen:', relf(1.5,np.mean(brechisp)))
 
 
 
