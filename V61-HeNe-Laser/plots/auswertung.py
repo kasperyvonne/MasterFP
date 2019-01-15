@@ -112,29 +112,30 @@ def M00_Intensitaet(x, I0, sigma, x0):
 def M01_Intensitaet(x, I0, sigma, x0):
     return I0 * (x - x0)**2 * np.exp(-2 * (x - x0)**2 / sigma**2)
 
-x00, _, M00 = np.genfromtxt('Auswertung/daten_M00.txt', unpack=True)
-x01, M01, _ = np.genfromtxt('Auswertung/daten_M01.txt', unpack=True)
 
-np.savetxt("Auswertung/Tabellen/M00_Tabelle.tex",
-           np.column_stack([
-                           x00[:30],
-                           M00[:30],
-                           x00[30:60],
-                           M00[30:60]
-                           ]), delimiter=' & ', newline=r' \\' + '\n',
-           fmt='%.1f & %.1f & %.1f & %.1f')
+x00, M00 = np.genfromtxt('TEM00.txt', unpack=True)
+x01, M01 = np.genfromtxt('TEM01.txt', unpack=True)
 
-np.savetxt("Auswertung/Tabellen/M01_Tabelle.tex",
-           np.column_stack([
-                           x01[:24],
-                           M01[:24],
-                           x01[24:],
-                           M01[24:]
-                           ]), delimiter=' & ', newline=r' \\' + '\n',
-           fmt='%.1f & %.1f & %.1f & %.1f')
+# np.savetxt("M00_Tabelle.tex",
+#            np.column_stack([
+#                            x00[:30],
+#                            M00[:30],
+#                            x00[30:60],
+#                            M00[30:60]
+#                            ]), delimiter=' & ', newline=r' \\' + '\n',
+#            fmt='%.1f & %.1f & %.1f & %.1f')
+#
+# np.savetxt("M01_Tabelle.tex",
+#            np.column_stack([
+#                            x01[:24],
+#                            M01[:24],
+#                            x01[24:],
+#                            M01[24:]
+#                            ]), delimiter=' & ', newline=r' \\' + '\n',
+#            fmt='%.1f & %.1f & %.1f & %.1f')
 
-M01 = M01 - IDunkel
-M00 = M00 - IDunkel
+M01 = M01
+M00 = M00
 
 params00, cov00 = curve_fit(M00_Intensitaet, x00, M00)
 errors00 = np.sqrt(np.diag(cov00))
@@ -142,7 +143,7 @@ I00 = ufloat(params00[0], errors00[0])
 sigma00 = ufloat(params00[1], errors00[1])
 x0_00 = ufloat(params00[2], errors00[2])
 
-params01, cov01 = curve_fit(M01_Intensitaet, x01, M01, p0=(14, 1, 14))
+params01, cov01 = curve_fit(M01_Intensitaet, x01, M01,  p0=(0, 1, 0))
 errors01 = np.sqrt(np.diag(cov01))
 I01 = ufloat(params01[0], errors01[0])
 sigma01 = ufloat(params01[1], errors01[1])
@@ -161,7 +162,7 @@ plt.xlabel(r'Position / cm')
 plt.ylabel(r'Intensitaet / nA')
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('Auswertung/Plots/M00.pdf')
+plt.savefig('M00.pdf')
 plt.clf()
 
 plt.figure(3)
@@ -171,19 +172,19 @@ plt.xlabel(r'Position / cm')
 plt.ylabel(r'Intensitaet / nA')
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('Auswertung/Plots/M01.pdf')
+plt.savefig('M01.pdf')
 plt.clf()
 
 print('----------------------------------------------------------------------')
 
-phi, I = np.genfromtxt('Auswertung/daten_pol.txt', unpack=True)
+phi, I = np.genfromtxt('Polarisation.txt', unpack=True)
 
-np.savetxt("Auswertung/Tabellen/Winkel_Tabelle.tex",
-           np.column_stack([
-                           phi,
-                           I
-                           ]), delimiter=' & ', newline=r' \\' + '\n',
-           fmt='%.0f & %.2f')
+# np.savetxt("Auswertung/Tabellen/Winkel_Tabelle.tex",
+#            np.column_stack([
+#                            phi,
+#                            I
+#                            ]), delimiter=' & ', newline=r' \\' + '\n',
+#            fmt='%.0f & %.2f')
 
 
 def Winkel_I(phi, A0, phi0):
@@ -207,26 +208,26 @@ plt.xlabel(r'Winkel / Grad')
 plt.ylabel(r'Intensitaet / $\mu$A')
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('Auswertung/Plots/Winkel.pdf')
+plt.savefig('Polarisation.pdf')
 plt.clf()
 
 print('----------------------------------------------------------------------')
 g = 1 / 100
-IDunkel = 0.00518
-l = 136
+#IDunkel = 0.00518
+l = 53
 
-x, I = np.genfromtxt('Auswertung/daten_wl.txt', unpack=True)
+x, I = np.genfromtxt('Wellenlängen.txt', unpack=True)
 
-np.savetxt("Auswertung/Tabellen/WL_Tabelle.tex",
-           np.column_stack([
-                           x[:22],
-                           I[:22],
-                           x[22:],
-                           I[22:]
-                           ]), delimiter=' & ', newline=r' \\' + '\n',
-           fmt='%.1f & %.3f & %.1f & %.3f')
+# np.savetxt("Auswertung/Tabellen/WL_Tabelle.tex",
+#            np.column_stack([
+#                            x[:22],
+#                            I[:22],
+#                            x[22:],
+#                            I[22:]
+#                            ]), delimiter=' & ', newline=r' \\' + '\n',
+#            fmt='%.1f & %.3f & %.1f & %.3f')
 
-I = I - IDunkel
+#I = I - IDunkel
 
 Peaks, _ = find_peaks(x=I)
 Peak_Pos = x[Peaks]
@@ -242,11 +243,11 @@ plt.xlabel(r'Winkel / Grad')
 plt.ylabel(r'Intensitaet / $\mu$A')
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('Auswertung/Plots/Beugung.pdf')
+plt.savefig('Wellenlaenge.pdf')
 plt.clf()
 
-d1 = np.abs(Peak_Pos[1] - Peak_Pos[0])
-d2 = np.abs(Peak_Pos[1] - Peak_Pos[2])
+d1 = np.abs(Peak_Pos[3] - Peak_Pos[2])
+d2 = np.abs(Peak_Pos[3] - Peak_Pos[4])
 
 print("Abstände zum 0. Maximum: ", d1, "0", d2)
 
@@ -257,7 +258,7 @@ lam2 = g * np.sin(np.arctan(d2 / l)) * 10**6
 
 print("Wellenlänge links, Wellenlänge rechts")
 print(lam1, lam2)
-
+print((lam1+lam2)/2)
 print('----------------------------------------------------------------------')
 
 print('Alles ausgeführt!')

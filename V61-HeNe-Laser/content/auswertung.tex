@@ -1,48 +1,64 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Stabilitätsbedingung}
+Es wurden die Stabilitätsbedingung des Lasers für zwei
+Konfigurationen der Resonatorspiegel überprüft.
+Die Stabilitätsbedingung \label{eq:osF} ist für die Konfigurationen in
+Tabelle \ref{tab:Konfig} getestet worden.
+\begin{table}[H]
+    \centering
+    \caption{Auflistung der Resonatorspiegelkonfigurationen.}
+    \label{tab:Konfig}
+    \begin{tabular}{c|c|c|}
+        \toprule
+        Konfiguration & HR-Spiegel & OC-Spiegel \\
+        \midrule
+        1 & 1400 mm/flat &1400 mm/flat\\
+        2&  flat/flat & 1400 mm/flat\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+In den Abbildungen \ref{fig:Konfig1} und \ref{Konfig2} sind die theoretisch bestimmten
+Werte aufgeführt, in denen die Stabilitätsbedingung erfüllt ist.
+\begin{figure}
+  \centering
+  \includegraphics{plots/Vorbereitungsplot2.pdf}
+  \caption{Theoretische Berechnung der Stabilitätsbedingung für die erste Konfiguration. Aufgetragen sind
+   $g_1 \cdot g_2$ gegen die Resonatorlänge $L$.}
+  \label{fig:Konfig1}
+\end{figure}
 
-% \begin{figure}
-%   \centering
-%   \includegraphics{plots/plot.pdf}
-%   \caption{Plot.}
-%   \label{fig:plot}
-% \end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics{plots/Vorbereitungsplot1.pdf}
+  \caption{Theoretische Berechnung der Stabilitätsbedingung für die zweite Konfiguration. Aufgetragen sind
+   $g_1 \cdot g_2$ gegen die Resonatorlänge $L$.}
+  \label{fig:Konfig2}
+\end{figure}
 
+Im Experiment setzte die Lasertätigkeit bei den in Tabelle \ref{tab:Stabi} aufgeführten
+Längen aus.
+\begin{table}[H]
+    \centering
+    \caption{Im Experiment bestimmte maximale Rasonatorlängen für die Konfigurationen 1 und 2.}
+    \label{tab:Konfig}
+    \begin{tabular}{c|c}
+        \toprule
+        Konfiguration & $L_{\text{max}}$ in cm  \\
+        \midrule
+        1 & 191,7\\
+        2& 116,7 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
-
-% \begin{table}
-%    % Notation :  {% nicht entfernen ist sehr wichtig sonst Fehler !!
-% \parbox{0.48\textwidth}{% %Ermöglicht zwei Tabellen neben einander
-%   \centering
-%   \sisetup{round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = 0}
-%          %rundet Werte aus Stelle, Stelle = ,  macht einen bestimmten festen exponenten
-%   \resizebox{\textwidth}{!}{%  % skaliert zu große Tabellen
-%   \begin{tabular}{S@{${}\pm{}$} S} % fügt plus minus Fehler Schreibweise hinzu
-%     \toprule
-%      $\text{e}_b / \si{\milli\meter}$ &
-%      $\text{d}_b /\si{\milli\meter} $ & $\text{f}_b / \si{\milli\meter} $\\
-%     \midrule
-%     \bottomrule
-%   \end{tabular}
-%   % }
-%   \caption{Tabellenunterschrift}
-%   \label{tab:tab}
-% }
-% % \end{table}
-% % \begin{table}
-% \parbox{0.48\textwidth}{%
-%   \centering
-%   \sisetup{round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = 0}
-%   % \resizebox{\textwidth}{!}{%
-%   \begin{tabular}{S@{${}\pm{}$} S}
-%     \toprule
-%      $\text{e}_b / \si{\milli\meter}$ &
-%      $\text{d}_b /\si{\milli\meter} $ & $\text{f}_b / \si{\milli\meter} $\\
-%     \midrule
-%     \bottomrule
-%   \end{tabular}
-%   % }
-%   \caption{Tabellenunterschrift}
-%   \label{tab:tab}
-% }
-% \end{table}
+\subsection{Vermessung zweier Moden}
+Es werden die Grundmode $\symup{TEM}_{00}$ und die Mode $\symup{TEM}_{01}$ vermessen.
+Aus der Formel \ref{eq:Elpq} lässt sich durch das einsetzen der Polynome für die jeweiligen
+Parameter und bilden des Betragsquadrates die Intensität der Moden
+\begin{align}
+  I_{00}{x}&=I\cdot \exp{\left(-\frac{(x-x_{0})^{2}}{\sigma^{2}}\right)}\\
+  I_{01}{x}&=I\cdot (x-x_{0})^{2} \exp{\left(-\frac{(x-x_{0})^{2}}{\sigma^{2}}\right)}
+\end{align}
+bestimmen.
+Die 
