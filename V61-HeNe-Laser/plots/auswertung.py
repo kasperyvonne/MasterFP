@@ -200,13 +200,13 @@ phi0_Winkel = ufloat(paramsWinkel[1], errorsWinkel[1])
 phi_space = np.linspace(0, 360, 1000)
 
 print("A0, phi0, c")
-print(A0_Winkel, phi0_Winkel+360)
+print(A0_Winkel, phi0_Winkel)
 
 plt.figure(3)
 plt.plot(phi, I, 'rx', label=r"Messwerte Polarisationsmessung")
 plt.plot(phi_space, Winkel_I(phi_space, *paramsWinkel), 'r-', label="Fit")
 plt.xlabel(r'Winkel / Grad')
-plt.ylabel(r'Intensitaet / $\mu$A')
+plt.ylabel(r'Intensitaet / nA')
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('Polarisation.pdf')
@@ -240,8 +240,8 @@ plt.figure(4)
 plt.plot(x, I, 'rx', label=r"Messwerte Beugungsbild")
 plt.plot(Peak_Pos, Peaks, 'bx', label='Maxima')
 # plt.plot(phi_space, Winkel_I(phi_space, *paramsWinkel), 'r-', label="Fit")
-plt.xlabel(r'Winkel / Grad')
-plt.ylabel(r'Intensitaet / $\mu$A')
+plt.xlabel(r'Position mm')
+plt.ylabel(r'Intensitaet / nA')
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('Wellenlaenge.pdf')
@@ -249,16 +249,28 @@ plt.clf()
 
 d1 = np.abs(Peak_Pos[3] - Peak_Pos[2])
 d2 = np.abs(Peak_Pos[3] - Peak_Pos[4])
+d3 = np.abs(Peak_Pos[3] - Peak_Pos[1])
+d4 = np.abs(Peak_Pos[3] - Peak_Pos[5])
+d5 = np.abs(Peak_Pos[3] - Peak_Pos[0])
+d6 = np.abs(Peak_Pos[3] - Peak_Pos[6])
 
-print("Abstände zum 0. Maximum: ", d1, "0", d2)
+#print("Abstände zum 0. Maximum: ", d1, "0", d2)
 
-print("Winkel: ", np.arctan(d1 / l), 0, np.arctan(d2 / l))
+#print("Winkel: ", np.arctan(d1 / l), 0, np.arctan(d2 / l))
 
 lam1 = g * np.sin(np.arctan(d1 / l)) * 10**6
 lam2 = g * np.sin(np.arctan(d2 / l)) * 10**6
+lam3 = g/2 * np.sin(np.arctan(d3 / l)) * 10**6
+lam4 = g/2 * np.sin(np.arctan(d4 / l)) * 10**6
+lam5 = g/3 * np.sin(np.arctan(d5 / l)) * 10**6
+lam6 = g/3 * np.sin(np.arctan(d6 / l)) * 10**6
+
+lam = np.array([lam1, lam2, lam3, lam4, lam5, lam6])
+lam_mean= ufloat(np.mean(lam), sem(lam))
 
 print("Wellenlänge links, Wellenlänge rechts")
-print(lam1, lam2)
+#print(lam1, lam2)
+print(lam_mean)
 print((lam1+lam2)/2)
 print('----------------------------------------------------------------------')
 
