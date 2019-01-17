@@ -112,23 +112,32 @@ Die Parameter der Ausgleichsrechnung sind:
   I_0&=(11.4 \pm 1.1)\text{nA} \\
   phi_0&=(78 \pm 4)°
 \end{align*}
+\begin{figure}[H]
+  \centering
+  \includegraphics{plots/Polarisation.pdf}
+  \caption{Messwerte und Ausgleichskurve der Polarisationsmessung.}
+  \label{fig:Pola}
+\end{figure}
 \subsection{Wellenlängenuntersuchung}
 Um die Wellenlänge des Lasers zu untersuchen, wird das Beugungsverhalten des Lichts an
 einem Gitter untersucht. Das Gitter hat eine Gitterkonstante $g=0,01$mm$^{-1}$ und steht
-$L=5,3$ cm vor der Photodiode. Mit
+$L=5,3$ cm vor der Photodiode.
+
+In Abbildung \ref{fig:Welle} sind die Messwerte aufgetragen, wobei die Maxima farblich markiert sind. Mit
 \begin{equation}
   \alpha = \tan{\frac{\Delta x}{L}}^{-1}
 \end{equation}
 werden die Abstäde zum Maximum bestimmt. Die Wellenlänge wird dann über
 \begin{equation}
   \lambda=\frac{d\sin{\alpha}}{n}
+  \label{eq:Welle}
 \end{equation}
 bestimmt.
-Die Positionen der bestimmten Maxima sind in Tabelle \ref{tab:Max}
+Die Positionen der bestimmten Maxima sind in Tabelle \ref{tab:Max} aufgeführt.
 \begin{table}[H]
     \centering
     \caption{Auflistung der Positionen der Maxima des Beugungsbild.}
-    \label{tab:Konfig}
+    \label{tab:Max}
     \begin{tabular}{c|c|c|c|c|c|c|c}
         \toprule
         $x_1$& $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & $x_7$ & $x_8$\\
@@ -137,3 +146,37 @@ Die Positionen der bestimmten Maxima sind in Tabelle \ref{tab:Max}
         \bottomrule
     \end{tabular}
 \end{table}
+\begin{figure}[H]
+  \centering
+  \includegraphics{plots/Wellenlaenge.pdf}
+  \caption{Messwerte der Vermessung des Beugungsbildes, dabei sind die Maxima blau markiert.}
+  \label{fig:Welle}
+\end{figure}
+Die mit \ref{eq:Welle} bestimmte Wellenlänge ist
+\begin{equation*}
+  \lambda= (646 \pm 27) \text{nm} .
+\end{equation*}
+
+\subsection{Multimodenuntersuchung}
+Die gemessenen Peaks des Spektrum sind in Tabelle \ref{tab:Multi} zusammen mit den
+gemittelten Peakabständen zufinden.
+\begin{table}[h]
+  \centering
+  \caption{Peakpositionen für 3 Resonatorlängen, die Positionen sind in \si{MHz}
+  angegeben.}
+  \label{tab:Multi}
+  \begin{tabular}{c | c c c c c c c c c c |c}
+    \toprule
+    $L$ / \si{\cm} & & & & & & & & & & & $\symup{\Delta}\nu$ / \si{MHz}\\
+    \midrule
+    \num{54.1} & 75 & 199& 274& 353& 473& 548& 623& 746 & -& -& $96\pm 9$\\
+    \num{105.5} & 143& 281& 424& 566& 705& 848& 986& 1129 & -& - & $140.9\pm0.9$\\
+    \num{195.5} & 79& 158& 236& 315& 394& 473& 551& 626& 705& 784&$78.3\pm0.4$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Bei Lichtgeschwindigkeit gilt eine Dopplerverschiebung von
+\begin{equation}
+
+\label{eq:Doppler}
+\end{equation}
