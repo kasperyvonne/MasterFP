@@ -110,7 +110,7 @@ def M00_Intensitaet(x, I0, sigma, x0):
 
 
 def M01_Intensitaet(x, I0, sigma, x0):
-    return I0 * (x - x0)**2 * np.exp(-2 * (x - x0)**2 / sigma**2)
+    return  I0*(x -x0)**2 * np.exp(-2 * (x - x0)**2 / sigma**2)
 
 
 x00, M00 = np.genfromtxt('TEM00.txt', unpack=True)
@@ -143,7 +143,7 @@ I00 = ufloat(params00[0], errors00[0])
 sigma00 = ufloat(params00[1], errors00[1])
 x0_00 = ufloat(params00[2], errors00[2])
 
-params01, cov01 = curve_fit(M01_Intensitaet, x01, M01,  p0=(0, 1, 0))
+params01, cov01 = curve_fit(M01_Intensitaet, x01, M01,  p0=(300, 1, 1))
 errors01 = np.sqrt(np.diag(cov01))
 I01 = ufloat(params01[0], errors01[0])
 sigma01 = ufloat(params01[1], errors01[1])
@@ -158,7 +158,7 @@ xspace = np.linspace(min(x00) - 2.5, max(x00) + 2.5, 10000)
 plt.figure(2)
 plt.plot(x00, M00, 'rx', label=r"Messwerte TEM$_{00}$-Mode")
 plt.plot(xspace, M00_Intensitaet(xspace, *params00), 'r-', label="Fit")
-plt.xlabel(r'Position / cm')
+plt.xlabel(r'Position / mm')
 plt.ylabel(r'Intensitaet / nA')
 plt.legend(loc='best')
 plt.tight_layout()
@@ -168,7 +168,8 @@ plt.clf()
 plt.figure(3)
 plt.plot(x01, M01, 'rx', label=r"Messwerte TEM$_{01}$-Mode")
 plt.plot(xspace, M01_Intensitaet(xspace, *params01), 'r-', label="Fit")
-plt.xlabel(r'Position / cm')
+#plt.axhline(350, linestyle = '--',color='r')
+plt.xlabel(r'Position / mm')
 plt.ylabel(r'Intensitaet / nA')
 plt.legend(loc='best')
 plt.tight_layout()

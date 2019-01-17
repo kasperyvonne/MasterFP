@@ -20,7 +20,7 @@ Tabelle \ref{tab:Konfig} getestet worden.
 \end{table}
 In den Abbildungen \ref{fig:Konfig1} und \ref{Konfig2} sind die theoretisch bestimmten
 Werte aufgeführt, in denen die Stabilitätsbedingung erfüllt ist.
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics{plots/Vorbereitungsplot2.pdf}
   \caption{Theoretische Berechnung der Stabilitätsbedingung für die erste Konfiguration. Aufgetragen sind
@@ -59,6 +59,35 @@ Parameter und bilden des Betragsquadrates die Intensität der Moden
 \begin{align}
   I_{00}{x}&=I\cdot \exp{\left(-\frac{(x-x_{0})^{2}}{\sigma^{2}}\right)}\\
   I_{01}{x}&=I\cdot (x-x_{0})^{2} \exp{\left(-\frac{(x-x_{0})^{2}}{\sigma^{2}}\right)}
+  \label{eq:Fit}
 \end{align}
 bestimmen.
-Die 
+Dabei ist $I$ die maximale Intensität, $x_0$ die Verschiebung der Funktion entlang der
+x-Achse und $\sigma$ die Standartabweichung der Verteilung.\\
+In den Abbildungen \ref{fig:M00} und \ref{fig:M01} sind die Daten aus Tabelle \ref{tab:DatenModen}
+sowie die mittels Ausgleichsrechnung bestimmten Funktionen aus \ref{eq:Fit} dargestellt.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plots/M00.pdf}
+  \caption{Messwerte und Ausgleichskurve der $\text{TEM}_{00}$-Messung.}
+  \label{fig:M00}
+\end{figure}
+Die Parameter für die 00-Mode ergeben sich zu:
+\begin{align*}
+  I &= (2543 \pm 8)\text{nm}\\
+  x_0&=(-0.323 \pm 0.031) \text{mm}\\
+  \sigma &= (-16.10 \pm 0.06) \text{mm}^{2}
+\end{align*}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics{plots/M01.pdf}
+  \caption{Messwerte und Ausgleichskurve der $\text{TEM}_{01}$-Messung.}
+  \label{fig:M01}
+\end{figure}
+Die Parameter für die 01-Mode ergeben sich zu:
+\begin{align*}
+  I &= (2543 \pm 8)\text{nm}\\
+  x_0&=(-0.323 \pm 0.031) \text{mm}\\
+  \sigma &= (-16.10 \pm 0.06) \text{mm}^{2}
+\end{align*}
