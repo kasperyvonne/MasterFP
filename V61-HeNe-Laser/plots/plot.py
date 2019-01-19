@@ -26,56 +26,38 @@ def relf(l,m):  #in Prozent
 
 ######Vorbereitungsaufgabe######
 ## r Parameter der Spiegel
-roc = 140 # in centimeter out coupling
-rk1 = 100 #konkav
-rk2 = roc
-L1 = np.linspace(-10, 250, 10**3)
-L2 = np.linspace(-10, 290, 10**3)
-#plt.subplot(1, 2, 1)
-plt.plot(L1, bed(L1,roc), label=r'$r_1 = 1400$ & $r_2 = \infty$')
-plt.xlabel(r'Resonatorabstand $L/cm$')
-plt.ylabel(r'Stabilitätsparameter $g_1 \cdot g_2$')
-plt.axhline(1, linestyle = '--',color='r', label='Laserbereich')
-plt.axhline(0, linestyle = '--',color='r')
-plt.axvline(140, linestyle = '--',color='g')
-plt.axvline(0, linestyle = '--',color='g',label='1 bei 0 cm und 0 bei 140 cm')
-plt.grid()
-plt.legend(loc='best')
-plt.savefig('Vorbereitungsplot1.pdf')
+roc = 140 # in centimeter out coupling 
+rk1 = 100 #konkav 
+rk2 = roc 
+L1 = np.linspace(-10, 290, 10**3)
+L2 = np.linspace(-10, 150, 10**3)
 
-plt.clf()
-#plt.subplot(1, 2, 2)
-plt.plot(L2, stabiparams(L2,roc,rk2), label=r'$r_1 = 1400$ & $r_2= 1400$')
+plt.plot(L1, stabiparams(L1,roc,rk2), label=r'$r_1 = 1400$mm & $r_2= 1400$mm')
 plt.xlabel(r'Resonatorabstand $L/cm$')
 plt.ylabel(r'Stabilitätsparameter $g_1 \cdot g_2$')
 plt.axhline(1, linestyle = '--',color='r', label='Laserbereich')
 plt.axhline(0, linestyle = '--',color='r')
 plt.axvline(280, linestyle = '--',color='g')
-plt.axvline(0, linestyle = '--',color='g',label='1 bei 0 cm und 280 cm')
+plt.axvline(0, linestyle = '--',color='g',label='1 bei 0 und 280')
 plt.grid()
+plt.ylim(-0.05,1.05)
+plt.xlim(-10,290)
+plt.legend(loc='best')
+plt.savefig('Vorbereitungsplot1.pdf')
+
+plt.clf()
+
+plt.plot(L2, (1-(L2/roc)), label=r'$r_1 = 1400mm$ & $r_2=$eben')
+plt.xlabel(r'Resonatorabstand $L/cm$')
+plt.ylabel(r'Stabilitätsparameter $g_1 \cdot g_2$')
+plt.axhline(1, linestyle = '--',color='r', label='Laserbereich')
+plt.axhline(0, linestyle = '--',color='r')
+plt.axvline(140, linestyle = '--',color='g')
+plt.axvline(0, linestyle = '--',color='g',label='1 bei 0 und 140')
+plt.grid()
+plt.ylim(-0.05,1.05)
+plt.xlim(-10,150)
 plt.legend(loc='best')
 plt.savefig('Vorbereitungsplot2.pdf')
 
-#plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-#plt.savefig('Vorbereitungsplot.pdf')
-#plt.show()
 
-##Fit
-#params , cov = curve_fit(f , x ,y )
-#params = correlated_values(params, cov)
-#for p in params:
-#    print(p)
-
-
-#Tabelle
-# np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
-#plt.subplot(1, 2, 1)
-#plt.subplot(1, 2, 2)
-#plt.plot(x, y, label='Kurve')
-#plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-#plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-#plt.legend(loc='best')
-
-# in matplotlibrc leider (noch) nicht möglich
-#plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-#plt.savefig('build/plot2.pdf')

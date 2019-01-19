@@ -1,6 +1,7 @@
 \paragraph{Ziel} In diesem Versuch soll ein Helium-Neon-Laser (im Weiterem HeNe-Laser genannt) untersucht 
-werden. Dazu soll der Laser justiert und zum lasern gebracht werden. Danach soll der maximale Resonatorabstand, 
-die Polarisation des Laserlichtes, die Wellenlänge und mindestens zwei TEM-Moden vermessen werden. 
+werden. Dazu soll der Laser justiert und zum lasen gebracht werden. Danach soll der maximale Resonatorabstand, 
+die Polarisation des Laserlichtes, die Wellenlänge und mindestens zwei TEM-Moden vermessen werden. Zusätzlich 
+sollen drei Frequenzspektren gemessen werden, die aufgrund der verschiedenen Moden die im Resonator auftreten. 
 
 \section{Theorie}
 \label{sec:Theorie}
@@ -105,11 +106,50 @@ E_{lpq} \propto \cos(l \phi) \frac{(2\rho)^2}{(1+Z^2)^{(1+l)/2}}
 \end{split}
 \label{eq:Elpq}
 \end{equation}
-Dabei bezeichnet $L_p ^q$ ein Laguerre-Polynom für Modenzahlen $p$ und $q$. 
+Dabei bezeichnet $L_p ^q$ ein Laguerre-Polynom für Modenzahlen $p$ und $q$. Die Feldverteilung der jeweiligen 
+Moden lassen sich über die ihre Intensitätsverteilung bestimmen $I \propto \lvert E_{lpq}^2 \rvert$. Die 
+Mode mit der größten Intensität ist die TEM$_{000}$ Mode. Sie weist in transversaler Richtung keine 
+Nullstelle auf. Die Intensität dieser Grundmode ist durch 
+\begin{equation}
+I(r) = I_0  \cdot \exp\left (\frac{-2r^2}{\omega^2} \right )	
+\label{eq:IGM}
+\end{equation}
+gegeben, dabei bezeichnet $I_0$ die Maximalintensität, $r$ den Abstand zur optischen Achse und $2\omega$ den 
+Strahldurchmesser. Der Radius des Strahls $\omega$ ist gegeben über 
+\begin{equation}
+\omega(z) = \omega_0 \sqrt{1+ \left( \frac{\theta z}{\omega_0} \right)^2}
+\label{eq:SR}
+\end{equation}
+hier bezeichnet $z$ den Abstand zur minimalen Strahlentaille $\omega_0$ und 
+$\theta = \frac{\lambda \omega_0}{\pi}$ die Strahldivergenz.
+ 
 \begin{figure}
   \centering
   \includegraphics[height = 5cm]{pics/Resonator.png}
   \caption{Schematische Darstellung eines Lasers.}
   \label{fig:sl}
 \end{figure}
-
+\paragraph{Multimodenbetrieb}
+Im Resonator bildet sich eine stehende Welle des Laserlichtes aus, auch Schwebung genannt. 
+Dabei treten longitudinale Moden auf. Für Schwebungen gilt:
+\begin{equation}
+ N\cdot \frac{\lambda}{2} = L \quad \text{mit} \quad \lambda = \frac{\nu}{\symup{c}} \; .	
+\label{eq:sw}
+\end{equation}
+Hier bezeichnet $\lambda$ die Wellenlänge des Lasers, $\nu$ die Frequenz und $\symup{c}$ die 
+Lichtgeschwindigkeit. Daraus folgt
+\begin{equation}
+ \nu_N = \frac{\symup{c}}{2L}\cdot N \; ,
+\end{equation}
+das zeigt wie die Frequenz der entstehenden Moden abhängig von der Modenzahl $N$ ist. 
+Aufgrund des Doppler-Effekts kann beobachtet werden, dass die Wellenlänge des Lasers nicht 
+monochromatisch ist sondern gaußverteilt, um die Wellenlänge des induzierten Übergangs ist. 
+Folglich gibt es mehrere Wellenlängen die für eine gegebene Resonatorlänge $L_i$ die Bedingung 
+\eqref{eq:sw} erfüllen. Über die Knoten der Wellen die so, den Resonator verlassen, kann der 
+Frequenzunterschied $\Delta \nu$ zwischen zwei Moden über 
+\begin{equation}
+\Delta \nu = \left .\frac{\symup{c}}{2L}  \right \rvert_{L_i}
+\end{equation}
+bestimmt werden. 
+  
+  
