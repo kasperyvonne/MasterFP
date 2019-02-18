@@ -1,9 +1,54 @@
 \section{Diskussion}
 \label{sec:Diskussion}
-\subsection{Relativer Fehler}
-Alle relativen Fehler wurden nach der Formel
-\begin{equation*}
-  \tilde{x} = \frac{ \lvert x_{lit} - x_{mess} \rvert}{\lvert x_{lit} \rvert}
-  \cdot 100 \%
-\end{equation*}
-berechnet, dabei bezeichnet $x_{lit}$ den Literaturwert der Messgröße $x_{mess}$.
+\paragraph{Überprüfung der Stabilitätsbedingung}
+In dem Versuchsteil sollten die theoretisch berechneten
+Stabilitätsbedingung für unterschiedliche Spiegelkonfigurationen über die
+Resonatorlängen überprüft werden.\\
+Für beide Konfigurationen wurde der theoretische Wert nicht erreicht.
+\begin{table}
+  \centering
+  \caption{Vergleich der gemessenen Resonatorlängen mit den Theoriewerten.}
+  \label{tab:DisRe}
+  \begin{tabular}{c|c | c | c}
+      \toprule
+      Konfiguration & $L_{\text{theo}}$ in cm & $L_{\text{max}}$ in cm  & relative Abweichung\\
+      \midrule
+      1 & 140 & 116,7 &  17 \% \\
+      2 & 250 & 191,7 & 23 \%\\
+      \bottomrule
+  \end{tabular}
+\end{table}
+Das die berechneten maximal Werte nicht erreicht wurden, liegt möglicherweise an
+einer ungenauen Justage des Lasers. Auch die Empfindlichkeit des
+Versuchsaufbaus gegenüber kleinster Verrückungen senkrecht zur Ausbreitungsrichtung
+kann das Aussetzten der Lasertätigkeit herbeigeführt haben.
+\paragraph{Vermessung der TEM Moden}
+Für die Grundmode TEM$_{00}$ lassen sich die Messwerte mit sehr geringen Fehlern
+durch  die Theoriekurve beschreiben. Die Vermessung der Mode TEM$_{01}$ zeigt
+jedoch eine starke Asymmetrie auf, welche
+durch die angenommene Theoriekurve der Intensitäten nicht beschrieben wird.
+Dies könnte an dem eingeschobenen Draht liegen, da dieser sehr verbogen war.
+Oder bei der Messung hat sich nicht die reine Grundmode sondern eine
+Überlagerung verschiedener Moden eingestellt. Eine
+weitere allgemeine Fehlerquelle ist die Fluktuation der Laserintensität
+durch Verrückungen am Versuchsaufbau, sowie das nicht vollständig
+konstante Restlicht im Versuchsraum. Durch das Wechseln der Größenordnungen des
+Ampermeters können weitere systematische Fehler aufgetreten sein.
+\paragraph{Bestimmung der Polarisation}
+Bei der Polarisationsmessung zeigten sich die starken Fluktuationen der Laserintensität
+und die Problematiken des Ampermeters sehr deutlich. Die angezeigten Werte
+änderten sich zu schnell um die Werte sicher ablesen zu können. Die Ausreißer
+in den Messwerten lassen sich also durch ungenaues Ablesen erklären. Jedoch
+konnte eine Abhängigkeit der Intensität nach dem Gesetz von Malus in guter
+Näherung gezeigt werden, also die lineare Polarisation des Lichts gezeigt
+werden.
+\paragraph{Bestimmung der Wellenlänge}
+Die mit dem Experiment bestimmte Wellenlänge ist $\lambda = (646 \pm 27)$ nm.
+Die Theoretische Wellenlänge ist $\lambda = 632,8$ nm \cite{Anleitung}. Damit passt die bestimmte
+Wellenlänge im Bereich der Fehlertoleranz zum Theoriewert.
+\paragraph{Multimodenuntersuchung}
+Für die drei vermessenen Resonatorlängen liegen die mittleren
+Frequenzdifferenzen im MHz Bereich. Damit liegen die Abstäde der Moden weit
+unterhalb der Aufweitung der Frequenzen durch den Dopplereffekt, welcher im
+GHz bereich liegt. Die longitudinalen Moden treten als Schwebung im
+Multimodenbetrieb des Lasers auf.

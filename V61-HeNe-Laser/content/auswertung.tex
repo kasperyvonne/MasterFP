@@ -8,7 +8,7 @@ Tabelle \ref{tab:Konfig} getestet worden.
 \begin{table}[H]
     \centering
     \caption{Auflistung der Resonatorspiegelkonfigurationen.}
-    \label{tab:Konfig}
+    \label{tab:Konfig1}
     \begin{tabular}{c|c|c|}
         \toprule
         Konfiguration & HR-Spiegel & OC-Spiegel \\
@@ -25,7 +25,7 @@ Werte aufgeführt, in denen die Stabilitätsbedingung erfüllt ist.
   \includegraphics{plots/Vorbereitungsplot2.pdf}
   \caption{Theoretische Berechnung der Stabilitätsbedingung für die erste
 Konfiguration. Aufgetragen sind $g_1 \cdot g_2$ gegen die Resonatorlänge $L$.}
-  \label{fig:Konfig1}
+  \label{fig:Konfig2}
 \end{figure}
 
 \begin{figure}[H]
@@ -41,13 +41,13 @@ Längen aus.
 \begin{table}[H]
     \centering
     \caption{Im Experiment bestimmte maximale Rasonatorlängen für die Konfigurationen 1 und 2.}
-    \label{tab:Konfig}
+    \label{tab:Stabi}
     \begin{tabular}{c|c}
         \toprule
         Konfiguration & $L_{\text{max}}$ in cm  \\
         \midrule
-        1 & 191,7\\
-        2& 116,7 \\
+        1 & 116,7 \\
+        2 & 191,7\\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -64,7 +64,7 @@ Parameter und bilden des Betragsquadrates die Intensität der Moden
 bestimmen.
 Dabei ist $I$ die maximale Intensität, $x_0$ die Verschiebung der Funktion entlang der
 x-Achse und $\sigma$ die Standartabweichung der Verteilung.\\
-In den Abbildungen \ref{fig:M00} und \ref{fig:M01} sind die Daten aus Tabelle \ref{tab:DatenModen}
+In den Abbildungen \ref{fig:M00} und \ref{fig:M01} sind die Messwerte
 sowie die mittels Ausgleichsrechnung bestimmten Funktionen aus \ref{eq:Fit} dargestellt.
 \begin{figure}[H]
   \centering
@@ -102,6 +102,7 @@ Für die Intensitätsverteilunhg von linear polatrisiertem Licht, welches durch 
 Polarisationsfilter geht, gilt
 \begin{equation}
   I(\phi)=I_0 \cos^2{\phi-\phi_0} .
+  \label{eq:Pola}
 \end{equation}
 Dies wird Gesetz von Malus genannt,dabei wird eine Berücksichtigung einer Verschiebung $\phi_0$
 mitbetrachtet.
@@ -110,7 +111,7 @@ In Abbildung \ref{fig:Pola} ist die resultierende Kurve sowie die Messwerte aufg
 Die Parameter der Ausgleichsrechnung sind:
 \begin{align*}
   I_0&=(11.4 \pm 1.1)\text{nA} \\
-  phi_0&=(78 \pm 4)°
+  \phi_0&=(78 \pm 4)°
 \end{align*}
 \begin{figure}[H]
   \centering
@@ -159,7 +160,7 @@ Die mit \ref{eq:Welle} bestimmte Wellenlänge ist
 
 \subsection{Multimodenuntersuchung}
 Die gemessenen Peaks des Spektrum sind in Tabelle \ref{tab:Multi} zusammen mit den
-gemittelten Peakabständen zufinden.
+gemittelten Peakabständen zufinden.\\
 \begin{table}[h]
   \centering
   \caption{Peakpositionen für 3 Resonatorlängen, die Positionen sind in \si{MHz}
@@ -170,13 +171,27 @@ gemittelten Peakabständen zufinden.
     $L$ / \si{\cm} & & & & & & & & & & & $\symup{\Delta}\nu$ / \si{MHz}\\
     \midrule
     \num{54.1} & 75 & 199& 274& 353& 473& 548& 623& 746 & -& -& $96\pm 9$\\
-    \num{105.5} & 143& 281& 424& 566& 705& 848& 986& 1129 & -& - & $140.9\pm0.9$\\
-    \num{195.5} & 79& 158& 236& 315& 394& 473& 551& 626& 705& 784&$78.3\pm0.4$ \\
+    \num{105.5} & 143& 281& 424& 566& 705& 848& 986& 1129 & -& - & $140,9\pm0,9$\\
+    \num{195.5} & 79& 158& 236& 315& 394& 473& 551& 626& 705& 784&$78,3\pm0,4$ \\
     \bottomrule
   \end{tabular}
 \end{table}
-Bei Lichtgeschwindigkeit gilt eine Dopplerverschiebung von
+Bei Lichtgeschwindigkeit $c$ gilt eine Dopplerverschiebung von
 \begin{equation}
-x=a
+\Delta\nu_{\text{Doppler}} = 2\left(\nu_{\text{ruhe}}- \frac{c+\langle v \rangle}{c -\langle v \rangle} \nu_{\text{ruhe}} \right)
 \label{eq:Doppler}
 \end{equation}
+Dabei ist $\langle v \rangle$ die mittlere Teilchengeschwindigkeit, die über
+\begin{equation}
+  \langle v \rangle= \sqrt{\frac{2kT}{M}}
+\end{equation}
+beschrieben wird. Mit der Boltzmannkonstante $k$, einer Temperatur von $300$K und einer Neon-Atommasse
+$M=20,18$u \cite{Neon} ergibt sich eine mittlere Teilchengeschwindigkeit
+\begin{equation}
+  \langle v \rangle= 497,20 \frac{\text{km}}{\text{s}} .
+\end{equation}
+Daraus lässt sich die Doppelrverschiebung auf
+\begin{equation}
+  \Delta \nu_{\text{Doppler}}  = 3,14 \text{GHz}
+\end{equation}
+bestimmen.
