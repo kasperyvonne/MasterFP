@@ -1,3 +1,115 @@
 \section{Theorie}
 \label{sec:Theorie}
-
+\subsection{Ziel}
+Mit gepulster Kernspinresonanz (NMR) kann der zeitliche Verlauf der Magnetisierung
+einer Probe, unter Einwirkung eines Hochfrequenzfeldes untersucht werden. Die
+dabei auftretenden Relaxationsprozesse werden unter Verwendung zweier
+charakteristischer Relaxationszeiten beschrieben.
+Aus diesen Größen wird die Diffusionskonstante von Wasser bestimmt.
+\subsection{Magnetisierung einer Probe}
+Durch ein Magnetfeld $\vec{B_0}=B_0 \vec{e_\text{z}}$, hier in Richtung der z-Achse,
+spalten die Energieniveaus
+in $2I+1$ äquidistante Unterniveaus auf. Dabei beschreibt $I$ die Spinquantenzahl.
+Mit der Orientierungsquantenzahl $m$ mit $-I \leq m \leq I$ kann zwischen
+den Zuständen unterschieden werden. Wenn sich die Probe im thermischen
+Gleichgewicht mit der Umgebung befindet, sind die Niveaus gemäß der Boltzmannverteilung
+unterschiedlich besetzt. Es ergibt sich eine mittlere Kernspinpolarisation, die
+für Protonen mit $I=1/2$  und unter der Annahme $m \gamma B_0 \hbar \ll k_\text{B} T$ mit
+\begin{equation}
+  \langle I_{\text{Z}} \rangle= -\frac{\hbar^2}{4}\frac{\gamma B_0}{k_\text{B} T}
+\end{equation}
+genähert werden kann. Hier bezeichnet $\gamma$ das gyromagnetische Verhältnis des Kerns,
+$k_\text{B}$ die Boltzmann-Konstante, $T$ die Temperatur
+und $\hbar$ das Plancksche Wirkungsquantum.
+Durch die Kernspinpolarisation wird über die magnetischen Momente $\vec{\mu_\text{I}}$ eine Magnetisierung
+der Probe erzeugt. Der Betrag der Magnetisierung in Richtung des Magnetfelds ist
+\begin{equation}
+  M_0 = \frac{1}{4} \mu_0 \gamma^2 \frac{\hbar^2}{k_\text{B}} N \frac{B_0}{T},
+\end{equation}
+wobei $\mu_0$ die Permeabilität des Vakuums und
+$N$ die Anzahl der Momente pro Volumeneinheit bezeichnet.\\
+Um das zeitliche Verhalten der Probenmagnetisierung zu untersuchen, kann klssisch
+Vorgegangen werden, da die Anzahl an Einzelmomenten $N$ mit etwa $10^{28}/$m$^3$
+groß genug ist.
+Auf die Probenmagnetisierung $\vec{M}$ wirkt im externen Magnetfeld $\vec{B_0}$ ein Drehmoment
+$\vec{D}= \vec{M}\times \vec{B_0}$.  Dies führt zu einer Präzessionsbewegung um
+die Richtung des Magnetfelds. Die Frequenz dieser Präzessionsbewegung wird
+Larmor-Frequenz genannt und mit
+\begin{equation}
+  \omega_{\text{L}}= \gamma B_0 .
+\end{equation}
+Wird die Probenmagnetisierung durch ein Äußeres Feld aus ihrer Gleichgewichtslage entfernt, relaxiert sie nach
+Ende der Störung wieder in die Ausgangslage zurück. Die Relaxion
+wird über die Blochschen-Gleichungen
+\begin{equation}
+  \begin{split}
+    \frac{\symup{d} M_\text{z}}{\symup{d} t} &= \frac{M_0 - M_\text{z}}{T_1} \\
+    \frac{\symup{d} M_\text{x}}{\symup{d} t} &=
+      \gamma B_0 M_\text{y} - \frac{M_\text{x}}{T_2} \\
+    \frac{\symup{d} M_\text{y}}{\symup{d} t} &=
+      - \gamma B_0 M_\text{x} - \frac{M_\text{y}}{T_2},
+  \end{split}
+  \label{eq:Bloch-Gleichungen}
+\end{equation}
+beschrieben.
+Die auftretenden charakteristischen Zeitkonstanten $T_1$ und $T_2$ beschreiben dabei unterschiedliche
+Effekte.  Die  sogenannte longitudinale oder
+Spin-Gitter-Relaxationszeit $T_1$ bezeichnet die Veränderung des Magnetfelds parallel
+zur Achse des Magnetfeldes. Sie beschreibt auch die Zeit in der bei Festkörpern Energie aus dem Kernspinsystem
+in Gitterschwingungen umgewandelt wird. Die Bezeichnung wird auch bei flüssigen Proben beibehalten.
+Die Zeitkonstante $T_2$ wird transversale oder Spin-Spin-Relaxationszeit bezeichnet. Diese Größe
+beschreibt die Änderung der senkrechten Komponente der Probenmagnetisierung zur
+Richtung des externen magnetischen Feldes. Durch Wechselwirkungen der Spins mit ihren
+Nachbarn nimmt die Magnetisierung senkrecht zu $\vec{B}$ ab. \\
+Um die Probenmagnetisierung aus dem Gleichgewicht zu entfernen wird
+ein Hochfrequenzfeld $\vec{B_{\text{HF}}}$ senkrecht zu $\vec{B_0}$ angelegt. Dieses kann
+in zwei zirkular polarisierte Felder mit den Frequenzen $\pm \omega$ zerlegt werden. Liegt die positive
+Frequenz in der nähe der Larmorfrequenz, so kann der Einfluss des anderen Feldes vernachlässigbar.
+Das Hochfrequenzfeld lässt sich somit durch
+\begin{equation*}
+  B_\text{x} = B_1 \cos\!\left(\omega t\right) \quad\quad
+  B_\text{y} = B_1 \sin\!\left(\omega t\right)
+\end{equation*}
+darstellen.
+Um die Blochschen Differentialgleichungen \ref{eq:Bloch-Gleichungen} zu Lösen, wird das Sytem in ein
+Koordinatensystem transformiert, das mit der Frequenz $\omega$ um $\vec{B}_0$
+rotiert. Im neuen System $\left\{x', y', z'\right\}$
+ist $\vec{B}_\text{HF}$ zwar konstant (hier in $x'$-Richtung),
+jedoch sind die Einheitsvektoren zeitabhängig.
+Durch das Einführen eines effektiven Magnetfeldes
+\begin{equation}
+  \vec{B}_\text{eff} = \vec{B}_0 + \vec{B}_1 + \frac{\vec{\omega}}{\gamma}
+\end{equation}
+lässt sich die zeitliche Änderung der Probenmagnetisierung durch
+\begin{equation}
+  \frac{\symup{d} \vec{M}}{\symup{d} t} =
+  \gamma \left(\vec{M} \times \vec{B}_\text{eff}\right)
+\end{equation}
+darstellen, was eine Präzession von $\vec{M}$ um die Feldrichtung $\vec{B_{\text{eff}}}$ beschreibt.
+Im Resonanzfall ist die ist die Frequenz des Hochfrequenzfeldes die Larmorfrequenz und die Magnetisierung
+präzessidiert mit einem Öffnungswinkel von 90° um die $\vec{B_1}$-Achse.
+Wird das Hochfrequenzfeld für die Zeit
+\begin{equation}
+  \Delta t_{90} = \frac{\pi}{2 \gamma B_1}
+  \quad\quad (\text{mit } \Delta t_{90} \ll T_1, T_2)
+  \label{eq:t90}
+\end{equation}
+eingeschaltet, dreht sich die Magnetisierung aus der $z$-Richtung in die
+$y$-Richtung.
+Ebenso lässt sich ein 180°-Puls realisieren, der die Magnetisierung
+in die negative $z$-Richtung dreht.
+\subsection{Methoden zur Messung der Relaxationszeiten}
+\paragraph{Der freie Induktionsfall}
+Wird die Probenmagnetisierung um 90° aus der Gleichgewichtslage entfernt, präzediert
+sie in der Ebene senkrecht dazu. Durch die Relaxationsprozesse kehrt die Magnetisierung
+in die Ausgangslage. Dies wird freier Induktionsfall genannt und liegt an
+dem statischen Magnetfeld $\vec{B_0}$. Dies hat nicht für alle Spins in einer realen Probe
+den selben Betrag. Dies kann einerseits durch den Einfluss der Dipolfelder der benachbarten Spins kommen,
+oder daran liegen, das ein reales Feld zwangslaufig inhomogen ist. Daraus resultiert eine
+Verteilung von Larmorfrequenzen für die einzelnen Spins, was zu einer Dephasierung der
+Spins untereinander und infolge dessen
+zu einem Zerfall der transversalen Magnetisierung führt. Aus diesem Grund kommt zu der
+transversale Zeitkonstante $T_2$ noch eine weitere Zeitkonstante $T_{\Delta B}$ hinzu, die
+aus der apperativen inhomogenität des Magnetfelds entsteht. Dies macht den
+freien Induktionsfall häufig kompliziert zu beschreiben, und die Brechnung von $T_2$ ist nur
+für $T_{\Delta B} \ll T_2$ möglich.
