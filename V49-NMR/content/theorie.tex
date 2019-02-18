@@ -110,6 +110,120 @@ Verteilung von Larmorfrequenzen für die einzelnen Spins, was zu einer Dephasier
 Spins untereinander und infolge dessen
 zu einem Zerfall der transversalen Magnetisierung führt. Aus diesem Grund kommt zu der
 transversale Zeitkonstante $T_2$ noch eine weitere Zeitkonstante $T_{\Delta B}$ hinzu, die
-aus der apperativen inhomogenität des Magnetfelds entsteht. Dies macht den
-freien Induktionsfall häufig kompliziert zu beschreiben, und die Brechnung von $T_2$ ist nur
+aus der apparativen Inhomogenität des Magnetfelds entsteht. Dies macht den
+freien Induktionsfall häufig kompliziert zu beschreiben, und die Berechnung von $T_2$ ist nur
 für $T_{\Delta B} \ll T_2$ möglich.
+\paragraph{Das Spin-Echo-Verfahren}
+Der Störeffekt der Inhomogenität des Magnetfelds kann durch das Spin-Echo-Verfahren
+korrigiert werden, wenn die Inhomogenität zeitlich konstant ist. Hierzu sind zwei Hochfrequenzpulse
+notwendig. Wenn das Magnetfeld $\vec{B_0}$ in z-Richtung zeigt, dann dreht ein
+erster 90° Puls die Magnetisierung in die y-Richtung.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/SEM.png}
+  \caption{Darstellung des Verhalten der Spins bei dem Spin-Echo-Verfahren \cite{Anleitung}.}
+  \label{fig:SEM}
+\end{figure}
+Dort tritt während der
+Präszession, im Zeitraum $ \tau \ll \Delta t_{90}$ um die z-Achse, eine Dephasierung auf.
+Nach einer zeit $T_{\Delta B}$ ist praktisch kein Induktionssignal mehr zu messen, da
+die Spins zu weit auseinander gelaufen sind. Am Ende des Zeitraums $\tau$ wird
+ein 180°-Puls auf die Probe gegeben. Dadurch werden die Spins um die x-Achse gedreht und
+laufen deswegen wieder zusammen. Nach einem weiteren Zeitraum $\tau$ sind die
+Spins wieder in Phase. Der zeitliche Verlauf ist in Abbildung \ref{fig:SEM} dargestellt.
+Da das transversale Magnetfeld mit der Relaxationszeit $T_2$ abklingt, erfolgt auch ein
+Abfall in der Signalstärke. In Abbildung \ref{fig:Signal} ist der zeitliche Verlauf der
+Signalstärke dargestellt. Da auch irreversible Dephasierungsprozesse auftreten, wird
+Signal nach $2\tau$ nicht mehr so hoch sein wie am Anfang. Die
+Höhe des Spin-Echos$M_{\text{Y}}$ in Abhängigkeit der Zeit wird durch eine
+Exponentialfunktion
+\begin{equation}
+  M_{\text{Y}}=M_0 \exp{(-t/T_2)}
+\end{equation}
+beschreiben.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{pics/Signalverlauf.png}
+  \caption{Darstellung Signalverlaufs bei dem Spin-Echo-Verfahren \cite{Anleitung}.}
+  \label{fig:Signal}
+\end{figure}
+\paragraph{Die Carr-Purcell- und die Meiboom-Gill-Methode}
+Um nicht nach jeder Messung des Spin-Echos warten zu müssen, bis die Magnetisierung wieder
+in der Gleichgewichtslage ist, nutzt die Carr-Purcell Methode eine Reihe von
+180°-Pulsen im äquidistanten Abstand von $2\tau$. Der Signalverlauf ist in Abbildung
+\ref{fig:CPM} dargestellt.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/CPM.png}
+  \caption{Darstellung des Signalverlaufs bei der Carr-Purcell-Methode \cite{Anleitung}.}
+  \label{fig:CPM}
+\end{figure}
+Die Spins werden immer zum Zeitpunkt $2n\tau$ wieder fokussiert,
+jedoch nimmt die Amplitude exponentiell ab. Daraus lässt sich $T_2$ bestimmen, wenn
+die Justage der 180°-Pulse exakt ist. Ist dies nicht der Fall, addieren sich die
+Feher bei jedem Schritt, wodurch ein geringerer Wert als $T_2$ gemessen wird.\\
+Bei der Meiboom-Gill-Methode wird dieses Problem behoben, in dem zusätzlich zu den 180°-Pulsen
+noch phasenverschobene 90°-Pulse genutzt werden. In Abbildung \ref{fig:Meiboom}
+ist das Verfahren dargestellt. Die Schwingung wird in den 180°-Pulsen
+um 90° gegen die 90°-Pulse phasenverschoben.
+Folglich werden die einzelnen Spins nicht um die x-Achse,
+sondern um die y-Achse gedreht, da $\vec{B}_1$ nun in die y-Achse zeigt.
+So gleicht sich der Fehler $\delta $ bei den Einstellungen der 180°-Pulse
+durch den darauf folgenden Puls wieder aus.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/Meiboom.png}
+  \caption{Darstellung des Verhalten der Spins bei der Meiboom-Methode \cite{Anleitung}.}
+  \label{fig:Meiboom}
+\end{figure}
+Diese Methode liefert für alle geradzahlige Echos das richtige $T_2$. Außerdem findet
+die Refokussierung in der x-y-Ebene statt, weshalb alle Echos das selbe
+Vorzeichen haben. Dies ist bei der Carr-Purcell-Methode nicht der Fall.
+\subsection{Spinrelaxation einer flüssigen Probe}
+In einer flüssigen Probe muss beachtet werden, dass die sich die Spins auf
+Grund der Brownschen Molekularbewegung bewegen und deswegen das statischen Magnetfeld
+nicht zeitunabhängig wahrnehmen. Zur Beschreibung muss die Diffusionsstromdichte
+\begin{equation}
+  \vec{j} = - D\:\nabla\!\left(\frac{N}{V}\right)
+\end{equation}
+mit der Diffusionskonstante $D$ , der Teilchenzahl $N$ und dem Volumen $V$ definiert werden.
+In Verbindung mit den Blochschen Gleichungen ergibt sich für die Änderung der
+Magnetisierung
+\begin{equation}
+  \frac{\partial M}{\partial t} =
+  \underbrace{\gamma \left(\vec{M} \times \vec{B}\right)}_{\text{Präzession}}
+  \underbrace{- \frac{M_\text{x} \vec{x} + M_\text{y} \vec{y}}{T_2}
+  - \frac{\left(M_\text{z} - M_0\right) \vec{z}}{T_1}}_{\text{Relaxation}}
+  \underbrace{+ \left(\vec{x} + \vec{y} + \vec{z}\right) D\:\Delta M}_{\text{Diffusion}} .
+\end{equation}
+Zu dem Magnetfeld wird der Feldgradient $G$  des von außen angelegten Feldes hinzugezogen :
+\begin{equation}
+  B_\text{z} = B_0 + G z .
+\end{equation}
+Innerhalb der Probe ist der Gradient $G$ konstant.
+So lässt sich der Ausdruck
+\begin{equation*}
+  M_\text{y}\!\left(t\right) = M_0
+  \exp\!\left(- \frac{t}{T_2}\right)
+  \exp\!\left(- \frac{t}{T_\text{D}}\right)
+\end{equation*}
+mit
+\begin{equation*}
+  T_\text{D} = \frac{3}{D \gamma^2 G^2 \tau^2}
+\end{equation*}
+für die $y$-Komponente der Magnetisierung gewinnen.
+Hierbei ist $\tau$ die Zeitkonsatnte, wie bei der Carr-Purcell- oder der Meiboom-Gill-Methode, zwischen
+dem 90°- und dem 180°-Puls.
+Es ergibt sich ein zweiter exponentieller Faktor aufgrund der Diffusion der
+zum Zerfall der Magnetisierung beiträgt.
+Die Methoden für Festkörper können weiterhin
+angewandt werden, wenn $T_\text{D}$ groß gegen $T_2$ ist.
+Für die Zeitabhängigkeit der Magnetisierung lässt sich
+\begin{equation}
+  M_\text{y}\!\left(t\right) = M_0
+  \exp\!\left(-\frac{t}{T_2}\right)
+  \exp\!\left(-\frac{1}{12} D \gamma^2 G^2 t^3\right)
+  \label{eq:DiffusionsBestimmung}
+\end{equation}
+mit $t = 2\tau$, definieren,
+woraus sich bei Variation von $t$ die Diffusionskonstante ermitteln lässt.
