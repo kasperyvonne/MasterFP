@@ -6,10 +6,10 @@ gewährleistet ist. Dazu wird der Winkel gegen den Kontrast aufgetragen und der 
 Ausgleichsrechnung bestimmt werden (vgl. Gleichung \eqref{eq:Kontrast2}). 
 Die Ausgleichsrechnung wurde mit der der Gleichung 
 \begin{equation*}
-K(\theta) = \lvert a \cdot \sin(b \cdot \theta) +c \rvert	
+K(\theta) = \lvert a \cdot \sin( 2\cdot \theta + b) +c \rvert	
 \end{equation*}
-durchgeführt, daraus ergeben sich die Parameter $a = \SI{0.72(4)}{}$, $b = \SI{1.85(3)}{}$ und 
-$c = \SI{-0.08(3)}{}$.
+durchgeführt, daraus ergeben sich die Parameter $a = \SI{0.64(3)}{}$, $b = -\SI{0.13(3)}{}$ und 
+$c = \SI{0.003(20)}{}$.
 Damit kann dann der Winkel für den größten Kontrast bestimmt werden. Die 
 Prozedur ist in der Abbildung \ref{fig:K} abgebildet. Die Werte dazu sind in der Tabelle \ref{tab:KP} 
 dargestellt. Der Polarisationswinkel mit größt möglichem Kontrast 
@@ -87,7 +87,7 @@ M = a \cdot \delta\theta \quad \text{mit} \quad a =\frac{2d \theta_0}{\lambda_{v
 verwendet, um über Ausgleichsrechnung den Parameter $a$ zu bestimmen. Das ist in der Abbildung 
 \ref{fig:pfit} dargestellt. Die Daten dazu sind in der Tabelle \ref{tab:ptab} dargestellt.
 Über die Gleichung \eqref{eq:pbrech} lässt sich dann der Brechungsindex bestimmen. Im Mittel 
-ergibt sich ein Brechungsindex von $\bar{n} = \SI{1.0000000001068(7)}{}$. 
+ergibt sich ein Brechungsindex von $\bar{n} = \SI{1.541(6)}{}$. 
 \begin{figure}
   \centering
   \includegraphics[height = 10cm]{plots/Plaettchenplot.pdf}
@@ -98,18 +98,18 @@ ergibt sich ein Brechungsindex von $\bar{n} = \SI{1.0000000001068(7)}{}$.
  \centering
  \sisetup{round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = 0}
  % \resizebox{\textwidth}{!}{%
- \begin{tabular}{c S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = 0]@{${}\pm{}$} S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = 0] S[round-mode = places , round-precision = 12,scientific-notation=fixed, fixed-exponent = 0]@{${}\pm{}$} S[round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = -12]}
+ \begin{tabular}{c S[round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = 0]@{${}\pm{}$} S[round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = 0] S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = 0]@{${}\pm{}$} S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = 0]}
    \toprule
 	Messreihe & 
-    \multicolumn{2}{c}{$\text{Parameter} \; a $} &
+    \multicolumn{2}{c}{$\text{Parameter} \; a / \si{\per\radian}$} &
     \multicolumn{2}{c}{$\text{Brechungsindex} \; n $} \\
    \midrule
-1 &  3.127272727277367270e+00 & 7.100226983043987639e-02 & 1.000000000098976605e+00 & 2.247186339443345078e-12\\ 
-2 &  3.336363636497994278e+00 & 4.895604358213975771e-02 & 1.000000000105594200e+00 & 1.549434301680155337e-12\\ 
-3 &  3.463636363641737326e+00 & 4.406981667204109415e-02 & 1.000000000109622311e+00 & 1.394787663067564263e-12\\ 
-4 &  3.354545454592445353e+00 & 3.910147859407568649e-02 & 1.000000000106169740e+00 & 1.237542247025977809e-12\\ 
-5 &  3.300000000005016254e+00 & 4.999999985240487221e-02 & 1.000000000104443343e+00 & 1.582474995659246426e-12\\ 
-6 &  3.663636363642173155e+00 & 7.619570309656509277e-02 & 1.000000000115952359e+00 & 2.411555905713987907e-12\\ 
+1 &1.791795286782270011e+02 & 4.068130371023508829e+00 & 1.481308268714316645e+00 & 1.618733081240711358e-02\\
+2 &1.911595552922546233e+02 & 2.804974686581307886e+00 & 1.530562527998464484e+00 & 1.191572811344102263e-02\\
+3 &1.984517453891653531e+02 & 2.525014506705774764e+00 & 1.562180183880530704e+00 & 1.117417870009290368e-02\\
+4 &1.922012967386625348e+02 & 2.240349675869941937e+00 & 1.535000750774142109e+00 & 9.572436167286457395e-03\\
+5 &1.890760723884676793e+02 & 2.864788984631485125e+00 & 1.521762634427792360e+00 & 1.203028611546553064e-02\\
+6 &2.099109013055560524e+02 & 4.365692209836854687e+00 & 1.614592851493992232e+00 & 2.063804952570639714e-02\\
    \bottomrule
  \end{tabular}
  % }
@@ -135,13 +135,14 @@ Die dazugehörigen Daten sind in der Tabelle \ref{tab:ltab} dargestellt.
 Daraus ergibt sich dann im Mittel $ \bar{b} = \SI{5.80(5)e-09}{\per\Pa}$. 
 Über 
 \begin{gather}
-b_V =  \frac{3A}{RT_V} \\
+b_V =  \frac{3A}{RT_V} \\ 
+\text{mit} \quad b_i \cdot T_i = \frac{3A}{R} = const\\
 \frac{T_V}{T_N} \cdot b_V =\frac{3A}{RT_N} = b_N
 \end{gather}
 kann der Parameter $b_N$ bestimmt werden, dieser ist der Parameter für die Normalbedingungen 
 ($T_N = \SI{15}{\celsius}$) dabei bezeichnet $T_V = \SI{22,8}{\celsius}$ die Temperatur bei den die 
-Messwerte aufgenommen wurden. 
-Daraus folgt dann $ \bar{n_{N}} = 1 +  \bar{b_{N}} = \SI{1.000603(6)}{}$
+Messwerte aufgenommen wurden. Der Atmosphärendruck wird mit $p_N$ bezeichnet. 
+Daraus folgt dann $ \bar{n_{N}} = \sqrt{ 1 +  \bar{b_{N}}\cdot p_{N}} = \SI{1.000302(3)}{}$
 \begin{figure}
   \centering
   \includegraphics[height = 10cm]{plots/Luftplot.pdf}
@@ -153,7 +154,7 @@ Daraus folgt dann $ \bar{n_{N}} = 1 +  \bar{b_{N}} = \SI{1.000603(6)}{}$
  \centering
  \sisetup{round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = 0}
  % \resizebox{\textwidth}{!}{%
- \begin{tabular}{c S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = -9]@{${}\pm{}$} S[round-mode = places , round-precision = 0,scientific-notation=fixed, fixed-exponent = -11]}
+ \begin{tabular}{c S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = -9]@{${}\pm{}$} S[round-mode = places , round-precision = 2,scientific-notation=fixed, fixed-exponent = -9]}
    \toprule
 	Messreihe &
     \multicolumn{2}{c}{$\text{Parameter} \; b / \si{\per\Pa} $}\\
