@@ -113,6 +113,7 @@ vt,vd = np.genfromtxt('Visdata.txt', unpack=True)
 def visfit(x,a,b):
 	return a*x +b
 vist = 15.29*60
+print('vis t =', vist)
 params , cov = curve_fit(visfit ,vt,vd)
 params = correlated_values(params, cov)
 delta = visfit(vist,*params)
