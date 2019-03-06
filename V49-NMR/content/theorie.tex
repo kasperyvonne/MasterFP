@@ -9,7 +9,8 @@ Aus diesen Größen wird die Diffusionskonstante von Wasser bestimmt.
 \subsection{Magnetisierung einer Probe}
 Durch ein Magnetfeld $\vec{B_0}=B_0 \vec{e_\text{z}}$, hier in Richtung der z-Achse,
 spalten die Energieniveaus
-in $2I+1$ äquidistante Unterniveaus auf. Dabei beschreibt $I$ die Spinquantenzahl.
+in $2I+1$ äquidistante Unterniveaus, mit einem Energieabstand von $\Delta E=\hbar B_0 \gamma$ auf.
+Dabei beschreibt $I$ die Spinquantenzahl.
 Mit der Orientierungsquantenzahl $m$ mit $-I \leq m \leq I$ kann zwischen
 den Zuständen unterschieden werden. Wenn sich die Probe im thermischen
 Gleichgewicht mit der Umgebung befindet, sind die Niveaus gemäß der Boltzmannverteilung
@@ -34,7 +35,7 @@ groß genug ist.
 Auf die Probenmagnetisierung $\vec{M}$ wirkt im externen Magnetfeld $\vec{B_0}$ ein Drehmoment
 $\vec{D}= \vec{M}\times \vec{B_0}$.  Dies führt zu einer Präzessionsbewegung um
 die Richtung des Magnetfelds. Die Frequenz dieser Präzessionsbewegung wird
-Larmor-Frequenz genannt und mit
+Larmor-Frequenz genannt und beträgt
 \begin{equation}
   \omega_{\text{L}}= \gamma B_0 .
 \end{equation}
@@ -64,7 +65,7 @@ Nachbarn nimmt die Magnetisierung senkrecht zu $\vec{B}$ ab. \\
 Um die Probenmagnetisierung aus dem Gleichgewicht zu entfernen wird
 ein Hochfrequenzfeld $\vec{B_{\text{HF}}}$ senkrecht zu $\vec{B_0}$ angelegt. Dieses kann
 in zwei zirkular polarisierte Felder mit den Frequenzen $\pm \omega$ zerlegt werden. Liegt die positive
-Frequenz in der Nähe der Larmorfrequenz, so kann der Einfluss des anderen Feldes vernachlässigbar.
+Frequenz in der Nähe der Larmorfrequenz, so kann der Einfluss des anderen Feldes vernachlässigt werden.
 Das Hochfrequenzfeld lässt sich somit durch
 \begin{equation*}
   B_\text{x} = B_1 \cos\!\left(\omega t\right) \quad\quad
@@ -112,7 +113,7 @@ zu einem Zerfall der transversalen Magnetisierung führt. Aus diesem Grund kommt
 transversale Zeitkonstante $T_2$ noch eine weitere Zeitkonstante $T_{\Delta B}$ hinzu, die
 aus der apparativen Inhomogenität des Magnetfelds entsteht. Dies macht den
 freien Induktionsfall häufig kompliziert zu beschreiben, und die Berechnung von $T_2$ ist nur
-für $T_{\Delta B} \ll T_2$ möglich.
+für $T_{\Delta B} \gg T_2$ möglich.
 \paragraph{Das Spin-Echo-Verfahren}
 Der Störeffekt der Inhomogenität des Magnetfelds kann durch das Spin-Echo-Verfahren
 korrigiert werden, wenn die Inhomogenität zeitlich konstant ist. Hierzu sind zwei Hochfrequenzpulse
@@ -125,7 +126,7 @@ erster 90° Puls die Magnetisierung in die y-Richtung.
   \label{fig:SEM}
 \end{figure}
 Dort tritt während der
-Präszession, im Zeitraum $ \tau \ll \Delta t_{90}$ um die z-Achse, eine Dephasierung auf.
+Präszession, im Zeitraum $ \tau \gg \Delta t_{90}$ um die z-Achse, eine Dephasierung auf.
 Nach einer zeit $T_{\Delta B}$ ist praktisch kein Induktionssignal mehr zu messen, da
 die Spins zu weit auseinander gelaufen sind. Am Ende des Zeitraums $\tau$ wird
 ein 180°-Puls auf die Probe gegeben. Dadurch werden die Spins um die x-Achse gedreht und
@@ -163,8 +164,8 @@ Die Spins werden immer zum Zeitpunkt $2n\tau$ wieder fokussiert,
 jedoch nimmt die Amplitude exponentiell ab. Daraus lässt sich $T_2$ bestimmen, wenn
 die Justage der 180°-Pulse exakt ist. Ist dies nicht der Fall, addieren sich die
 Fehler bei jedem Schritt, wodurch ein geringerer Wert als $T_2$ gemessen wird.\\
-Bei der Meiboom-Gill-Methode wird dieses Problem behoben, in dem zusätzlich zu den 180°-Pulsen
-noch phasenverschobene 90°-Pulse genutzt werden. In Abbildung \ref{fig:Meiboom}
+Bei der Meiboom-Gill-Methode wird dieses Problem behoben, in dem die 180°-Pulse
+zu den 90°-Pulsen um 90° in der Phase verschoben werden. In Abbildung \ref{fig:Meiboom}
 ist das Verfahren dargestellt. Die Schwingung wird in den 180°-Pulsen
 um 90° gegen die 90°-Pulse phasenverschoben.
 Folglich werden die einzelnen Spins nicht um die x-Achse,
@@ -217,8 +218,7 @@ Hierbei ist $\tau$ die Zeitkonstante, wie bei der Carr-Purcell- oder der Meiboom
 dem 90°- und dem 180°-Puls.
 Es ergibt sich ein zweiter exponentieller Faktor aufgrund der Diffusion der
 zum Zerfall der Magnetisierung beiträgt.
-Die Methoden für Festkörper können weiterhin
-angewandt werden, wenn $T_\text{D}$ groß gegen $T_2$ ist.
+Die beschriebenen Methoden können für Flüssigkeiten angewendet werden, wenn $T_\text{D}$ groß gegen $T_2$ ist.
 Für die Zeitabhängigkeit der Magnetisierung lässt sich
 \begin{equation}
   M_\text{y}\!\left(t\right) = M_0
