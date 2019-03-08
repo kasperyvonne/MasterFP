@@ -36,10 +36,11 @@ plt.plot(taufit1, T1fit(taufit1,*noms(params)), 'b--',label='Ausgleichskurve')
 plt.axhline(y=0, xmin =min(tau1-1),xmax =max(tau1+1), color = 'k')
 plt.axhline(y=noms(params[0]), xmin =min(tau1-1),xmax =max(tau1+1), color = 'g', linestyle ='--', label = '$U_0$')
 plt.axhline(y=-noms(params[0]), xmin =min(tau1-1),xmax =max(tau1+1), color = 'g', linestyle ='--')
-plt.xlim(min(tau1-0.5),max(tau1+0.5))
+#plt.xlim(min(tau1-0.5),max(tau1+0.5))
 plt.xlabel(r'$\tau /$s')
 plt.ylabel(r'$U_z /$V')
 plt.legend(loc='best')
+plt.xscale("log")
 plt.grid()
 plt.savefig('T1plot.pdf')
 #plt.show()
@@ -53,12 +54,12 @@ ftmg = tmg[xmgpeaks]
 ftmg = ftmg[fUmg > 306]
 fUmg = fUmg[fUmg > 306]
 
-def T2fit(t, lnu0, t2 ,c):
-	return lnu0-((t+c)/t2)
+def T2fit(t, lnu0, t2 ):
+	return lnu0-(t/t2)
 params , cov = curve_fit(T2fit , ftmg ,np.log(fUmg))
 params = correlated_values(params, cov)
 print("T2 fit:")
-pams=['lnU0:','T2:', 'b:']
+pams=['lnU0:','T2:' ]
 for i,j in zip(params,pams):
 	print(j,i)
 print('U0:', np.exp(noms(params[0])))
@@ -69,7 +70,7 @@ tmgfit = np.linspace(-100,1100, 1000)
 plt.plot(ftmg,np.log(fUmg), 'rx', label = 'logarith. Signalspitzen')
 plt.plot(tmgfit,T2fit(tmgfit,*noms(params)), 'b--', label = 'Ausgleichsgerade')
 plt.xlim( xmin =min(ftmg-50),xmax =max(ftmg+50))
-plt.xlabel(r'$t/$s')
+plt.xlabel(r'$t/$ms')
 plt.ylabel(r'log$(U_y /$V)')
 plt.legend(loc='best')
 plt.grid()
@@ -87,8 +88,13 @@ print('### thalbe:',mth)
 d = 4.4 # mm Proben Durchmesser
 d*=10**(-3)
 A = (4*2.2)/(d*mth)
+gamma = ufloat(425.77469 , 0.000013)*10**6 # gamma/2pi = Hz/Tesla
+print('Gamma in Einheiten von 2pi:', gamma)
+print('Gradient G in Einheiten von 2pi', A/gamma)  
 def Dfit(t,u0,D):
 	return u0-t/noms(T2)-(1/12)*D*(noms(A)**2)*(t**3)	
+#def Dfit(t,u0,D, u1):
+#	return  u0*np.exp(-(1/12)*D*(noms(A)**2)*(t**3)-t/noms(T2)) +u1
 params , cov = curve_fit(Dfit ,dtau,np.log(dU ))
 params = correlated_values(params, cov)
 print("D fit:")
@@ -98,7 +104,7 @@ for i,j in zip(params,pams):
 Diff = params[1]
 print('U0:', np.exp(noms(params[0])))
 dtaufit = np.linspace(0,0.035,1000)
-plt.plot(dtau, np.log(dU), 'rx', label ='logarith. Spin Echo')
+plt.plot(dtau, dU, 'rx', label ='logarith. Spin Echo')
 plt.plot(dtaufit,Dfit(dtaufit,*noms(params)),'b--', label = 'Ausgleichskurve')
 plt.xlim(0,0.035)
 plt.xlabel(r'$t = 2 \tau/$s')
@@ -124,8 +130,8 @@ print('delta vis :',delta)
 print('viskosität:', vis)
 ###Berechnung des Molekuelradiuses:
 rstokes = (const.k * (const.zero_Celsius + 20))/(6* np.pi * vis * Diff)
-rhcp = 0.74*((3*const.value('atomic mass constant')*(16+2*1))/(4*rho*np.pi))**(1/3) 
-rkrit = ((9*const.k*647.05)/(32*np.pi*22.04*10**6))**(1/3)
+rhcp = ((0.74*3*const.value('atomic mass constant')*(16+2*1))/(4*rho*np.pi))**(1/3) 
+rkrit = ((3*const.k*647.05)/(128*np.pi*22.04*10**6))**(1/3)
 print(const.R)
 print('kritischer Druck 22.04 MPa und krit Temp 647.05 Kelvin')
 print('Stokes Molrad:', rstokes)
@@ -139,6 +145,10 @@ print('relf T2',relf(2500,T2))
 print('Vgl rstokes mit hcp und krit:')
 print('stokes hcp:',relf(rhcp,rstokes))
 print('stokes krit:', relf(rkrit,rstokes))
+print('lit Wert D:',2.023*10**(-9))
+print('relf D:', relf(2.023*10**(-9),Diff))
+print('lit Wert vis:', 0.01*10**(-1))
+print('relf vis:', relf(0.01*10**(-1),vis))
 ##Tabelle
 ## np.savetxt('tab.txt',np.column_stack([x,y]), delimiter=' & ',newline= r'\\'+'\n' )
 ##plt.subplot(1, 2, 1)

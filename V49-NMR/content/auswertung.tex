@@ -28,17 +28,17 @@ ergibt sich $U_0 = \SI{0.667(4)}{\volt}$, $b = \SI{-0.007(4)}{\volt}$ und $T_1 =
 \FloatBarrier
 
 \subsection{Bestimmung der Relaxationszeit \texorpdfstring{$T_2$}{math}}
-\paragraph{Meiboom-Gill-Methode} Zur Bestimmung der Relaxationszeit $T_2$ wurde mit der Meiboom-Gill-Methode die
-Abbildung des Signals \ref{fig:MGMO} mit einem Oszilloskop erzeugt. Die dazugehörigen Werte wurden ausgelesen und die
-Spitzen des Signals wurden ermittelt. Aus den Werten wurden die Werte ermittelt, die die Einhüllende beschreiben, diese
-wurden logarithmetisiert und in der Abbildung \ref{fig:T2} dargestellt. Zudem wurde mit linearer Ausgleichsrechnung eine
-Ausgleichsgerade berechnet. Der Zusammenhang der Messgrößen ist über die Gleichung \eqref{eq:MYT2} gegeben. Durch
+\paragraph{Meiboom-Gill-Methode} Zur Bestimmung der Relaxationszeit $T_2$ wurde mit der Meiboom-Gill-Methode die 
+Abbildung des Signals \ref{fig:MGMO} mit einem Oszilloskop erzeugt. Die dazugehörigen Werte wurden ausgelesen und die 
+Spitzen des Signals wurden ermittelt. Aus den Werten wurden die Werte ermittelt, die die Einhüllende beschreiben, diese 
+wurden logarithmiert und in der Abbildung \ref{fig:T2} dargestellt. Zudem wurde mit linearer Ausgleichsrechnung eine 
+Ausgleichsgerade berechnet. Der Zusammenhang der Messgrößen ist über die Gleichung \eqref{eq:MYT2} gegeben. Durch 
 Anwendung des Logarithmuses ergibt sich für die Ausgleichsgerade
 \begin{equation}
-\log(U_y) = - \frac{ t + c }{T_2} + \log(U_0)	\; .
+\log(U_y) = - \frac{ t }{T_2} + \log(U_0)	\; .
 \end{equation}
-Hierbei bezeichnet $U_y$ die induzierte Spannung, $c$ und $U_0$ sind nur Ausgleichsparameter.
-Damit ergibt sich $c = \SI{0 (5)e-5}{\second}$, $U_0 \approx \SI{609}{\milli\volt}$ und $T_2 = \SI{1.63(6)}{\second}$.
+Hierbei bezeichnet $U_y$ die induzierte Spannung, $c$ und $U_0$ sind nur Ausgleichsparamter. 
+Damit ergibt sich  $U_0 \approx \SI{543}{\milli\volt}$ und $T_2 = \SI{1.64(6)}{\second}$.
 \begin{figure}
   \centering
   \includegraphics[height = 7cm]{plots/scope_1.png}
@@ -53,8 +53,12 @@ Damit ergibt sich $c = \SI{0 (5)e-5}{\second}$, $U_0 \approx \SI{609}{\milli\vol
 \end{figure}
 \FloatBarrier
 \paragraph{Carr-Purcell-Methode}
-Des weiteren wurde mit der Carr-Purcell-Methode eine Abbildungen des charakteristischen Signals der Methode mit einem
-Oszilloskop erzeugt, diese ist in der Abbildung \ref{fig:PCM} dargestellt.
+Desweiteren wurde mit der Carr-Purcell-Methode eine Abbildungen des charakteristischen Signals der Methode mit einem 
+Oszilloskop erzeugt, diese ist in der Abbildung \ref{fig:PCM} dargestellt. Da die Pulslänge nicht exakt 
+eingestellt wurde, zeigt sich die Dephasierung der Spins in dem abnehmenden Signal 
+der Magnetisierung. Die Abnahme der Magnetisierung ist expotentiel wie auch im Signal zu sehen ist. 
+Die Überschwinger in den Schwingungsbäuchen, sind ein Zeichen dafür, dass die Lamorfrequenz 
+nicht exakt getroffen wurde.
 \begin{figure}
   \centering
   \includegraphics[height = 7cm]{plots/scope_3.png}
@@ -62,12 +66,13 @@ Oszilloskop erzeugt, diese ist in der Abbildung \ref{fig:PCM} dargestellt.
   \label{fig:PCM}
 \end{figure}
 \FloatBarrier
+
 \subsection{Bestimmung der Diffusionskonstante}
-Für die Messung der Diffusionskonstante $D$ wird die Spannungsamplitude $U_y$
-gegen die variierte Pulslänge gemessen. Zudem werden
-mit den Cursern des Oszilloskop die Halbwertsbreiten bestimmt. Die Halbwertsbreite sollte bei jeder Messung gleich bleiben,
-weshalb an dieser Stelle nur über die Messwerte gemittelt wurde. Damit ergibt sich die Halbwertsbreite zu
-$t_{\sfrac{1}{2}} =\SI{8(04)e-5}{\second}$. Die Spannungsamplitude wurde logarithmetisiert und gegen die Pulslänge
+Für die Messung der Diffusionskonstante $D$ wird die Spannungsamplitude $U_y$ 
+gegen die variierte Pulslänge gemessen. Zudem werden 
+mit den Cursern des Oszilloskop die Halbwertsbreiten bestimmt. Die Halbwertsbreite sollte bei jeder Messung gleich bleiben, 
+weshalb an dieser Stelle nur über die Messwerte gemittelt wurde. Damit ergibt sich die Halbwertsbreite zu 
+$t_{\sfrac{1}{2}} =\SI{8(04)e-5}{\second}$. Die Spannungsamplitude wurde logarithmiert und gegen die Pulslänge 
 aufgetragen. Aus dem Zusammenhang \eqref{eq:DiffusionsBestimmung} folgt eine Ausgleichsgerade der Form
 \begin{equation}
 \begin{split}
@@ -76,11 +81,13 @@ aufgetragen. Aus dem Zusammenhang \eqref{eq:DiffusionsBestimmung} folgt eine Aus
 A = \gamma G = \frac{4 \cdot 2,2}{d \cdot t_{\sfrac{1}{2}}} \quad \text{gegeben über \cite{Anleitung}} \;.
 \end{split}
 \end{equation}
-Dabei bezeichnet $\gamma$ das gyromagnetische Verhältnis, $G$ den Feldgradienten, $d = \SI{4.4}{\milli\meter}$ den
-Probendurchmesser und $U_0$ einen Ausgleichsparameter. Zur Berechnung der Ausgleichkurve wurde der Werte
-für $T_2$ aus dem voran gegangen Kapitel verwendet. Mit linearer Ausgleichsrechnung ergibt sich
-$D= \SI{1.19(5)e-9}{\meter\per\second}$ und $U_0 \approx \SI{0.491}{\volt}$. Der Prozess ist in der Abbildung
-\ref{fig:D} dargestellt.
+Dabei bezeichnet $\sfrac{\gamma}{2\pi} = \SI{425774690(13)}{\per\tesla\per\second}$ \cite{gyro}  
+das gyromagnetische Verhältnis, $G= \SI{0.059(3)}{\tesla\per\meter}$ 
+den Feldgradienten, $d = \SI{4.4}{\milli\meter}$ den 
+Probendurchmesser und $U_0$ einen Ausgleichsparamter. Zur Berechnung der Ausgleichkurve wurde der Werte 
+für $T_2$ aus dem voran gegangen Kapitel verwendet. Mit linearer Ausgleichsrechnung ergibt sich 
+$D= \SI{1.19(5)e-9}{\meter\per\second}$ und $U_0 \approx \SI{0.491}{\volt}$. Der Prozess ist in der Abbildung 
+\ref{fig:D} dargestellt. 
 \begin{figure}
   \centering
   \includegraphics[height = 10cm]{plots/Dplot.pdf}
@@ -88,6 +95,7 @@ $D= \SI{1.19(5)e-9}{\meter\per\second}$ und $U_0 \approx \SI{0.491}{\volt}$. Der
   \label{fig:D}
 \end{figure}
 \FloatBarrier
+
 \subsection{Bestimmung der Viskosität}
 Zur Bestimmung der Werte muss zuerst $\delta$ bestimmt werden. Dazu wir zwischen den Werten aus Tabelle \ref{tab:VisWerte}
 linear interpoliert. Für die Durchflusszeit $t = \SI{917 .4}{\second}$ folgt $\delta = \SI{0.3(2)}{\second}$. Für die
@@ -104,19 +112,20 @@ Molekülradius zu $r = \SI{1.92(8)}{\angstrom}$.
 \paragraph{hcp-Kugelpackung}
 Bei einer hcp-Kugelpackung wird angenommen, dass \SI{74}{\percent} des Gesamt Volumens eingenommen wird. Daraus folgt
 \begin{gather}
-V = \frac{m_{Mol}}{\rho} \\
-\implies \frac{4\pi r^3}{3} =\frac{m_{Mol}}{\rho} \\
-\implies r_{ges} = \left( \frac{3m_{Mol}}{4\pi \rho } \right)^{\frac{1}{3}} \quad \text{für Gesamtvolumen} \\
-\implies r_{hcp} = 0,74 \cdot r_{ges} = \SI{1,42}{\angstrom} \quad \text{für hcp-Packung} \; .
+V = \frac{m_{Mol}}{\rho} \cdot 0,74 \\
+\implies \frac{4\pi r^3}{3} =\frac{m_{Mol}}{\rho}\cdot 0,74 \\
+\implies r = \left( \frac{3m_{Mol}}{4\pi \rho }\cdot 0,74 \right)^{\frac{1}{3}} 
+\quad \text{für Gesamtvolumen} \\
+\implies r = \SI{1.74}{\angstrom} \quad \text{für hcp-Packung} \; . 
 \end{gather}
 Hierbei beschreibt $m_{Mol}$ das Molekülgewicht, bei Wasser gegeben über $m_{Mol} = \SI{16}{\atomicmassunit} + 2\cdot \SI{1}{\atomicmassunit}$
 \paragraph{Van-der-Waals-Gas}
 Für ein Van-der-Waals-Gas ist das kritische Volumen über die Gleichung
 \begin{equation}
-V_{krit}= \frac{3kT_{krit}}{8p_{krit}}
+V_{krit}= \frac{3kT_{krit}}{8p_{krit}} \cdot \frac{1}{4}	
 \end{equation}
 gegeben. Daraus folgt
 \begin{equation}
-r_{krit} = \left( \frac{9kT_{krit}}{32p_{krit}} \right)^{\frac{1}{3}} = \SI{3,31}{\angstrom} \;.
+r_{krit} = \left( \frac{3kT_{krit}}{128p_{krit}} \right)^{\frac{1}{3}} = \SI{1.44}{\angstrom} \;.
 \end{equation}
 Die Gleichungen und Werte dazu wurden aus \cite{spektrum} entnommen.

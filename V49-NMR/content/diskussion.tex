@@ -8,19 +8,32 @@ Alle relativen Fehler wurden nach der Formel
 \end{equation*}
 berechnet, dabei bezeichnet $x_{lit}$ den Literaturwert der Messgröße $x_{mess}$.
 \subsection{Relaxationszeiten \texorpdfstring{$T_1 \; \& \; T_2$}{math}}
-Es fällt auf, dass die Werte von T1 und T2 nicht gleich groß sind. Es gilt $T_1 > T_2$ für beide
-ist der Literaturwert von \SI{2,5}{second} gegeben \cite{hyper}. Die Quelle impliziert, dass dies üblich ist. Als
-relative Abweichung ergibt sich für $T_1$ \SI{8,5}{\percent} und für $T_2$ \SI{34,2}{\percent}. Da es üblicherweise auftritt,
-dass $T_2$ kleiner ist, sollte um eine Aussage über die Quälität der Messung zu machen, der relative Fehler von $T_1$
-betrachtet werden. Dieser ist hinreichend genau unter den gegeben Umständen. Fehler sind damit zu erklären, dass die
-Füllmenge der Probe nicht der, der vorgesehenen Halterung entspricht. Zudem können durch bewegen der Probe Störungen
-entstehen.
+Es fällt auf, dass die Werte von T1 und T2 nicht gleich groß sind. Es gilt $T_1 > T_2$ für beide 
+ist der Literaturwert von \SI{2,5}{\second} gegeben \cite{hyper}. 
+Die Quelle impliziert, dass dies üblich ist. Als 
+relative Abweichung ergibt sich für $T_1$ \SI{8,5}{\percent} und für $T_2$ \SI{34,2}{\percent}. Da es üblicherweise auftritt, 
+dass $T_2$ kleiner ist, sollte um eine Aussage über die Qualität der Messung zu machen, der relative Fehler von $T_1$ 
+betrachtet werden. Dieser ist hinreichend genau unter den gegeben Umständen. Fehler sind damit zu erklären, dass die 
+Befüllmenge der Probe nicht der, der vorgesehenen Halterung entspricht. Zudem können durch bewegen der Probe Störungen 
+entstehen. Andere systematische Fehler könnten durch eine Verunreinigung der Probe oder Fluktuationen bzw. 
+Inhomogenitäten der Temperatur und des B-Feldes auftreten und erklärt werden. Außerdem ist zu berücksichtigen, 
+dass die Relaxationszeiten B-Feld abhängig sind und die Relativer der Quelle mit \SI{1}{\tesla} bestimmt wurden. 
+Das hier verwendete B-Feld ist geringer. 
+\subsection{Viskosität und Diffusionskonstante}
+Die Temperatur wurde bei der Messung und der Literaturwerten mit \SI{20}{\celsius} angenommen. 
+Der Literaturwert für die Viskosität für Wasser ist gegeben durch \SI{0.001}{\kilo\gram\per\meter\per\second} 
+\cite{spekvis} und für die Diffusionskonstante durch \SI{2.023e-09}{\meter\per\second} \cite{Diff} gegeben. 
+Daraus ergibt sich eine relative Abweichung von ca. \SI{6}{\percent} für die Viskosität und 
+\SI{41}{\percent} für die Diffusionskonstante. Die Messung der Viskosität ist hinreichend genau, da hier 
+größtenteils Fehler aufgrund der menschlichen Reaktionszeit entstehen, da nur mit einer Stoppuhr gemessen wird. 
+Außerdem wurde die Messung nur einmal durchgeführt. Die Messung der Diffusionskonstante dagegen scheint Fehler 
+behaftet zu sein. Die Methoden mit der diese Messung durchgeführt wurde sind ähnlich der mit den die 
+Relaxationszeiten bestimmt wurden, daher sind hier auch die gleichen Fehlerquellen aufzuführen.
+>>>>>>> Auswertung und Disko Korrektur
 \subsection{Vergleich der Molekülradien}
-Der Vergleich der Molekülradien dient ebenfalls dazu die bestimmten Werte für die Diffusionskonstante und
-die Viskosität zu vergleichen. Dies wird erreicht in dem der Stoksche Molekülradius mit den anderen beiden verglichen wird.
-Der Vergleich mit $r_{hcp}$ liefert eine relative Abweichung von \SI{35}{\percent} und mit $r_{krit}$ eine Abweichung von
-\SI{41,9}{\percent}. Da die Diffusionskonstante mit ähnlichen Methoden gemessen wurde wie die Relaxationszeiten sind hier
-ähnliche Abweichungen zu erwarten, weshalb hier davon ausgegangen werden kann, dass die Viskositätsmessung nicht
-hinreichend genau ist. Hier könnten apparative Ungenauigkeiten sowie menschliche Fehler entstanden sein, da die Messung
-nur mit einer Stoppuhr durchgeführt werden. Durch mehrfache durchführen der Messung könnten diese anhand statistischer Methoden 
-herausgerechnet werden und somit für ein genaueres Ergebnis sorgen.
+Zum Vergleich der Molekülradien werden die Werte der Modelle mit dem der Stokschen Formel verglichen. 
+Der Vergleich mit $r_{hcp}$ liefert eine relative Abweichung von \SI{10}{\percent} und 
+mit $r_{krit}$ eine Abweichung von 
+\SI{33}{\percent}. Abweichungen sind insbesonderen durch die hohe Abweichung der Diffusionskonstante 
+zu erklären. Zudem sollte darauf verwiesen werden, dass es sich hier bei nur, um Modelle handelt mit denen 
+der Molekülradius nur schätzungsweise berechnet wurde. 
