@@ -104,7 +104,7 @@ for i,j in zip(params,pams):
 Diff = params[1]
 print('U0:', np.exp(noms(params[0])))
 dtaufit = np.linspace(0,0.035,1000)
-plt.plot(dtau, dU, 'rx', label ='logarith. Spin Echo')
+plt.plot(dtau, np.log(dU), 'rx', label ='logarith. Spin Echo')
 plt.plot(dtaufit,Dfit(dtaufit,*noms(params)),'b--', label = 'Ausgleichskurve')
 plt.xlim(0,0.035)
 plt.xlabel(r'$t = 2 \tau/$s')

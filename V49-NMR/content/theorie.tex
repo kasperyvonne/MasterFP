@@ -9,8 +9,7 @@ Aus diesen Größen wird die Diffusionskonstante von Wasser bestimmt.
 \subsection{Magnetisierung einer Probe}
 Durch ein Magnetfeld $\vec{B_0}=B_0 \vec{e_\text{z}}$, hier in Richtung der z-Achse,
 spalten die Energieniveaus
-in $2I+1$ äquidistante Unterniveaus, mit einem Energieabstand von $\Delta E=\hbar B_0 \gamma$ auf.
-Dabei beschreibt $I$ die Spinquantenzahl.
+in $2I+1$ äquidistante Unterniveaus auf. Dabei beschreibt $I$ die Spinquantenzahl.
 Mit der Orientierungsquantenzahl $m$ mit $-I \leq m \leq I$ kann zwischen
 den Zuständen unterschieden werden. Wenn sich die Probe im thermischen
 Gleichgewicht mit der Umgebung befindet, sind die Niveaus gemäß der Boltzmannverteilung
@@ -29,13 +28,13 @@ der Probe erzeugt. Der Betrag der Magnetisierung in Richtung des Magnetfelds ist
 \end{equation}
 wobei $\mu_0$ die Permeabilität des Vakuums und
 $N$ die Anzahl der Momente pro Volumeneinheit bezeichnet.\\
-Um das zeitliche Verhalten der Probenmagnetisierung zu untersuchen, kann klassisch
-vorgegangen werden, da die Anzahl an Einzelmomenten $N$ mit etwa $10^{28}/$m$^3$
+Um das zeitliche Verhalten der Probenmagnetisierung zu untersuchen, kann klssisch
+Vorgegangen werden, da die Anzahl an Einzelmomenten $N$ mit etwa $10^{28}/$m$^3$
 groß genug ist.
 Auf die Probenmagnetisierung $\vec{M}$ wirkt im externen Magnetfeld $\vec{B_0}$ ein Drehmoment
 $\vec{D}= \vec{M}\times \vec{B_0}$.  Dies führt zu einer Präzessionsbewegung um
 die Richtung des Magnetfelds. Die Frequenz dieser Präzessionsbewegung wird
-Larmor-Frequenz genannt und beträgt
+Larmor-Frequenz genannt und mit
 \begin{equation}
   \omega_{\text{L}}= \gamma B_0 .
 \end{equation}
@@ -65,14 +64,14 @@ Nachbarn nimmt die Magnetisierung senkrecht zu $\vec{B}$ ab. \\
 Um die Probenmagnetisierung aus dem Gleichgewicht zu entfernen wird
 ein Hochfrequenzfeld $\vec{B_{\text{HF}}}$ senkrecht zu $\vec{B_0}$ angelegt. Dieses kann
 in zwei zirkular polarisierte Felder mit den Frequenzen $\pm \omega$ zerlegt werden. Liegt die positive
-Frequenz in der Nähe der Larmorfrequenz, so kann der Einfluss des anderen Feldes vernachlässigt werden.
+Frequenz in der nähe der Larmorfrequenz, so kann der Einfluss des anderen Feldes vernachlässigbar.
 Das Hochfrequenzfeld lässt sich somit durch
 \begin{equation*}
   B_\text{x} = B_1 \cos\!\left(\omega t\right) \quad\quad
   B_\text{y} = B_1 \sin\!\left(\omega t\right)
 \end{equation*}
 darstellen.
-Um die Blochschen Differentialgleichungen \ref{eq:Bloch-Gleichungen} zu Lösen, wird das System in ein
+Um die Blochschen Differentialgleichungen \ref{eq:Bloch-Gleichungen} zu Lösen, wird das Sytem in ein
 Koordinatensystem transformiert, das mit der Frequenz $\omega$ um $\vec{B}_0$
 rotiert. Im neuen System $\left\{x', y', z'\right\}$
 ist $\vec{B}_\text{HF}$ zwar konstant (hier in $x'$-Richtung),
@@ -87,8 +86,8 @@ lässt sich die zeitliche Änderung der Probenmagnetisierung durch
   \gamma \left(\vec{M} \times \vec{B}_\text{eff}\right)
 \end{equation}
 darstellen, was eine Präzession von $\vec{M}$ um die Feldrichtung $\vec{B_{\text{eff}}}$ beschreibt.
-Im Resonanzfall ist die Frequenz des Hochfrequenzfeldes die Larmorfrequenz und die Magnetisierung
-präzediert mit einem Öffnungswinkel von 90° um die $\vec{B_1}$-Achse.
+Im Resonanzfall ist die ist die Frequenz des Hochfrequenzfeldes die Larmorfrequenz und die Magnetisierung
+präzessidiert mit einem Öffnungswinkel von 90° um die $\vec{B_1}$-Achse.
 Wird das Hochfrequenzfeld für die Zeit
 \begin{equation}
   \Delta t_{90} = \frac{\pi}{2 \gamma B_1}
@@ -100,20 +99,20 @@ $y$-Richtung.
 Ebenso lässt sich ein 180°-Puls realisieren, der die Magnetisierung
 in die negative $z$-Richtung dreht.
 \subsection{Methoden zur Messung der Relaxationszeiten}
-\paragraph{Der freie Induktionszerfall}
+\paragraph{Der freie Induktionsfall}
 Wird die Probenmagnetisierung um 90° aus der Gleichgewichtslage entfernt, präzediert
-sie in der Ebene senkrecht dazu. Durch Relaxationsprozesse kehrt die Magnetisierung
-in die Gleichgewichtslage zurück. Dies wird freier Induktionsfall genannt und liegt an
-dem statischen Magnetfeld $\vec{B_0}$, jedoch benötigt es dazu ein ideal homogenes Magnetfeld.\\
- Da ein reales Magnetfeld jedoch zwangsläufig inhomogen ist, erfahren nicht alle Spins in einer realen Probe
-den selben Betrag. Dazu kann der Einfluss der Dipolfelder der benachbarten Spins kommen,
-woraus eine Verteilung von Larmorfrequenzen für die einzelnen Spins resultiert. Dies führt zu einer Dephasierung der
+sie in der Ebene senkrecht dazu. Durch die Relaxationsprozesse kehrt die Magnetisierung
+in die Ausgangslage. Dies wird freier Induktionsfall genannt und liegt an
+dem statischen Magnetfeld $\vec{B_0}$. Dies hat nicht für alle Spins in einer realen Probe
+den selben Betrag. Dies kann einerseits durch den Einfluss der Dipolfelder der benachbarten Spins kommen,
+oder daran liegen, das ein reales Feld zwangslaufig inhomogen ist. Daraus resultiert eine
+Verteilung von Larmorfrequenzen für die einzelnen Spins, was zu einer Dephasierung der
 Spins untereinander und infolge dessen
-zu einem Zerfall der transversalen Magnetisierung. Aus diesem Grund kommt zu der
+zu einem Zerfall der transversalen Magnetisierung führt. Aus diesem Grund kommt zu der
 transversale Zeitkonstante $T_2$ noch eine weitere Zeitkonstante $T_{\Delta B}$ hinzu, die
 aus der apparativen Inhomogenität des Magnetfelds entsteht. Dies macht den
 freien Induktionsfall häufig kompliziert zu beschreiben, und die Berechnung von $T_2$ ist nur
-für $T_{\Delta B} \gg T_2$ möglich.
+für $T_{\Delta B} \ll T_2$ möglich.
 \paragraph{Das Spin-Echo-Verfahren}
 Der Störeffekt der Inhomogenität des Magnetfelds kann durch das Spin-Echo-Verfahren
 korrigiert werden, wenn die Inhomogenität zeitlich konstant ist. Hierzu sind zwei Hochfrequenzpulse
@@ -126,7 +125,7 @@ erster 90° Puls die Magnetisierung in die y-Richtung.
   \label{fig:SEM}
 \end{figure}
 Dort tritt während der
-Präszession, im Zeitraum $ \tau \gg \Delta t_{90}$ um die z-Achse, eine Dephasierung auf.
+Präszession, im Zeitraum $ \tau \ll \Delta t_{90}$ um die z-Achse, eine Dephasierung auf.
 Nach einer zeit $T_{\Delta B}$ ist praktisch kein Induktionssignal mehr zu messen, da
 die Spins zu weit auseinander gelaufen sind. Am Ende des Zeitraums $\tau$ wird
 ein 180°-Puls auf die Probe gegeben. Dadurch werden die Spins um die x-Achse gedreht und
@@ -163,9 +162,9 @@ in der Gleichgewichtslage ist, nutzt die Carr-Purcell Methode eine Reihe von
 Die Spins werden immer zum Zeitpunkt $2n\tau$ wieder fokussiert,
 jedoch nimmt die Amplitude exponentiell ab. Daraus lässt sich $T_2$ bestimmen, wenn
 die Justage der 180°-Pulse exakt ist. Ist dies nicht der Fall, addieren sich die
-Fehler bei jedem Schritt, wodurch ein geringerer Wert als $T_2$ gemessen wird.\\
-Bei der Meiboom-Gill-Methode wird dieses Problem behoben, in dem die 180°-Pulse
-zu den 90°-Pulsen um 90° in der Phase verschoben werden. In Abbildung \ref{fig:Meiboom}
+Feher bei jedem Schritt, wodurch ein geringerer Wert als $T_2$ gemessen wird.\\
+Bei der Meiboom-Gill-Methode wird dieses Problem behoben, in dem zusätzlich zu den 180°-Pulsen
+noch phasenverschobene 90°-Pulse genutzt werden. In Abbildung \ref{fig:Meiboom}
 ist das Verfahren dargestellt. Die Schwingung wird in den 180°-Pulsen
 um 90° gegen die 90°-Pulse phasenverschoben.
 Folglich werden die einzelnen Spins nicht um die x-Achse,
@@ -214,11 +213,12 @@ mit
   T_\text{D} = \frac{3}{D \gamma^2 G^2 \tau^2}
 \end{equation*}
 für die $y$-Komponente der Magnetisierung gewinnen.
-Hierbei ist $\tau$ die Zeitkonstante, wie bei der Carr-Purcell- oder der Meiboom-Gill-Methode, zwischen
+Hierbei ist $\tau$ die Zeitkonsatnte, wie bei der Carr-Purcell- oder der Meiboom-Gill-Methode, zwischen
 dem 90°- und dem 180°-Puls.
 Es ergibt sich ein zweiter exponentieller Faktor aufgrund der Diffusion der
 zum Zerfall der Magnetisierung beiträgt.
-Die beschriebenen Methoden können für Flüssigkeiten angewendet werden, wenn $T_\text{D}$ groß gegen $T_2$ ist.
+Die Methoden für Festkörper können weiterhin
+angewandt werden, wenn $T_\text{D}$ groß gegen $T_2$ ist.
 Für die Zeitabhängigkeit der Magnetisierung lässt sich
 \begin{equation}
   M_\text{y}\!\left(t\right) = M_0
